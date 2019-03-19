@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="HighchartsChart" pageWidth="842" pageHeight="1190" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="net.sf.jasperreports.data.adapter" value="/samples/data/OrdersCsvDataAdapter.xml"/>
+	<queryString language="csv">
+		<![CDATA[]]>
+	</queryString>
+	<field name="freight" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="shipCity" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="shipRegion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="shipCountry" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<filterExpression><![CDATA[$F{shipCountry}!=null && $F{shipCountry}.indexOf("USA") > -1]]></filterExpression>
+	<group name="REGION">
+		<groupExpression><![CDATA[$F{shipRegion}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="62" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="802" height="35"/>
+				<textElement verticalAlignment="Middle">
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Highcharts Chart Sample - Pie & Bar]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<summary>
+		<band height="1000">
+			<componentElement>
+				<reportElement x="0" y="0" width="802" height="493">
+					<property name="net.sf.jasperreports.components.name" value="chartOne"/>
+				</reportElement>
+				<hc:chart xmlns:hc="http://jaspersoft.com/highcharts" xsi:schemaLocation="http://jaspersoft.com/highcharts http://jaspersoft.com/schema/highcharts.xsd" type="Pie" rowLevel="1">
+					<hc:chartSetting name="default">
+						<hc:chartProperty name="title.text" value="No of orders/state" />
+						<hc:chartProperty name="title.style.fontFamily" value="Lobster Two" />
+						<hc:chartProperty name="title.style.fontSize" value="24" />
+						<!-- 
+						<hc:chartProperty name="tooltip.formatter">
+							<hc:propertyExpression><![CDATA["function() { return '<b>'+this.point.name+'</b>: '+this.point.y+' %';}"]]></hc:propertyExpression>
+						</hc:chartProperty>
+						 -->
+						<hc:chartProperty name="plotOptions.pie.allowPointSelect" value="true" />
+						<hc:chartProperty name="plotOptions.pie.cursor" value="pointer" />
+						<hc:chartProperty name="plotOptions.pie.dataLabels.enabled" value="true" />
+						<hc:chartProperty name="plotOptions.pie.dataLabels.color" value="#003366" />
+						<hc:chartProperty name="plotOptions.pie.dataLabels.connectorColor" value="#003366" />
+						<!-- 
+						<hc:chartProperty name="plotOptions.pie.dataLabels.formatter">
+							<hc:propertyExpression><![CDATA["function() {return '<b>'+ this.point.name +'</b>: '+ this.point.y +' %';}"]]></hc:propertyExpression>
+						</hc:chartProperty>
+						 -->
+						<hc:chartProperty name="credits.enabled" value="true" />
+					</hc:chartSetting>
+					
+					<multiAxisData>
+						<multiAxisDataset />
+						<dataAxis axis="Rows">
+							<axisLevel name="region">
+								<labelExpression><![CDATA["Region"]]></labelExpression>
+								<axisLevelBucket class="java.lang.String">
+									<bucketExpression><![CDATA[$F{shipRegion}]]></bucketExpression>
+									<bucketProperty name="link">"http://en.wikipedia.org/wiki/US-" + $F{shipRegion}</bucketProperty>
+									<bucketProperty name="highlight">$F{shipRegion}.equals("CA")</bucketProperty>
+								</axisLevelBucket>
+							</axisLevel>
+							<axisLevel name="city">
+								<labelExpression><![CDATA["City"]]></labelExpression>
+								<axisLevelBucket class="java.lang.String">
+									<bucketExpression><![CDATA[$F{shipCity}]]></bucketExpression>
+								</axisLevelBucket>
+							</axisLevel>
+						</dataAxis>
+						<multiAxisMeasure name="RegionCount" class="java.lang.Integer"
+							calculation="Count">
+							<labelExpression><![CDATA["Region Count"]]></labelExpression>
+							<valueExpression><![CDATA[$F{shipRegion}]]></valueExpression>
+						</multiAxisMeasure>
+					</multiAxisData>
+					
+					<hc:series name="RegionCount">
+						<hc:contributor name="SeriesItemHyperlink">
+							<hc:contributorProperty name="hyperlinkType" valueType="Constant" value="Reference"/>
+							<hc:contributorProperty name="hyperlinkTarget" valueType="Constant" value="Blank"/>
+							<hc:contributorProperty name="hyperlinkReference" valueType="Bucket" value="region.link"/>
+						</hc:contributor>
+						<hc:contributor name="SeriesItemProperty">
+							<hc:contributorProperty name="sliced" valueType="Bucket" value="region.highlight"/>
+						</hc:contributor>
+					</hc:series>
+				</hc:chart>
+			</componentElement>
+			<componentElement>
+				<reportElement x="0" y="507" width="802" height="493"/>
+				<hc:chart xmlns:hc="http://jaspersoft.com/highcharts" xsi:schemaLocation="http://jaspersoft.com/highcharts http://jaspersoft.com/schema/highcharts.xsd" type="Column">
+					<hc:chartSetting name="default">
+						<hc:chartProperty name="chart.marginTop">
+							<hc:propertyExpression><![CDATA[50]]></hc:propertyExpression>
+						</hc:chartProperty>
+						<hc:chartProperty name="chart.marginLeft">
+							<hc:propertyExpression><![CDATA[50]]></hc:propertyExpression>
+						</hc:chartProperty>
+						<hc:chartProperty name="title.text" value="Orders per state" />
+						<hc:chartProperty name="title.style.fontFamily" value="Lobster Two" />
+						<hc:chartProperty name="title.style.fontSize" value="24" />
+						<hc:chartProperty name="yAxis.min" value="0">
+							<hc:propertyExpression><![CDATA[0]]></hc:propertyExpression>
+						</hc:chartProperty>
+						<hc:chartProperty name="yAxis.title.text" value="Freight" />
+						<!--
+						<hc:chartProperty name="tooltip.formatter" value="function() { return ''+this.series.name +': '+ this.y +' %';}" />
+						-->
+						<hc:chartProperty name="plotOptions.bar.dataLabels.enabled" value="true" />
+	
+						<hc:chartProperty name="legend.layout" value="vertical" />
+						<hc:chartProperty name="legend.align" value="right" />
+						<hc:chartProperty name="legend.verticalAlign" value="top" />
+						<hc:chartProperty name="legend.x">
+							<hc:propertyExpression><![CDATA[-100]]></hc:propertyExpression>
+						</hc:chartProperty>
+						<hc:chartProperty name="legend.y">
+							<hc:propertyExpression><![CDATA[100]]></hc:propertyExpression>
+						</hc:chartProperty>
+						<hc:chartProperty name="legend.floating" value="true" />
+						<hc:chartProperty name="legend.borderWidth">
+							<hc:propertyExpression><![CDATA[1]]></hc:propertyExpression>
+						</hc:chartProperty>
+						<hc:chartProperty name="legend.backgroundColor" value="#FFFFFF" />
+						<hc:chartProperty name="legend.shadow" value="true" />
+	
+						<hc:chartProperty name="credits.enabled" value="true" />
+					</hc:chartSetting>
+					<hc:chartSetting name="yAxis">
+						<hc:chartProperty name="_jrAxisIndex">
+							<hc:propertyExpression><![CDATA[1]]></hc:propertyExpression>
+						</hc:chartProperty>
+						<hc:chartProperty name="opposite">
+							<hc:propertyExpression><![CDATA[true]]></hc:propertyExpression>
+						</hc:chartProperty>
+						<hc:chartProperty name="title.text" value="Number of orders" />
+						<hc:chartProperty name="title.style.color" value="#FF7F00" />
+					</hc:chartSetting>
+					
+					<multiAxisData>
+						<multiAxisDataset />
+						<dataAxis axis="Rows">
+							<axisLevel name="region">
+								<labelExpression><![CDATA["Region"]]></labelExpression>
+								<axisLevelBucket class="java.lang.String">
+									<bucketExpression><![CDATA[$F{shipRegion}]]></bucketExpression>
+								</axisLevelBucket>
+							</axisLevel>
+							<axisLevel name="city">
+								<labelExpression><![CDATA["City"]]></labelExpression>
+								<axisLevelBucket class="java.lang.String">
+									<bucketExpression><![CDATA[$F{shipCity}]]></bucketExpression>
+								</axisLevelBucket>
+							</axisLevel>
+						</dataAxis>
+						<multiAxisMeasure name="Freight" class="java.lang.Double"
+							calculation="Sum">
+							<labelExpression><![CDATA["Freight"]]></labelExpression>
+							<valueExpression><![CDATA[$F{freight}]]></valueExpression>
+						</multiAxisMeasure>
+						<multiAxisMeasure name="OrderCount" class="java.lang.Integer"
+							calculation="Count">
+							<labelExpression><![CDATA["Orders"]]></labelExpression>
+							<valueExpression><![CDATA[1]]></valueExpression>
+						</multiAxisMeasure>
+					</multiAxisData>
+					
+					<hc:series name="OrderCount">
+						<hc:contributor name="SeriesProperty">
+							<hc:contributorProperty name="type" valueType="Constant" value="spline"/>
+							<hc:contributorProperty name="color" valueType="Constant" value="#FF7F00"/>
+							<hc:contributorProperty name="yAxis" valueType="Expression">
+								<hc:valueExpression>1</hc:valueExpression>
+							</hc:contributorProperty>
+						</hc:contributor>
+					</hc:series>
+				</hc:chart>
+			</componentElement>
+		</band>
+	</summary>
+</jasperReport>

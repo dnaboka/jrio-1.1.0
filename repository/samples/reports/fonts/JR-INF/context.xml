@@ -1,0 +1,13 @@
+<context xmlns="">
+        <classpath>
+                <entry>
+                        <path>/samples/reports/fonts/JR-INF/lib/lobstertwo.jar</path>
+                </entry>
+        </classpath>
+		<properties>
+			<property>
+				<name>net.sf.jasperreports.web.resource.pattern.lobstertwo</name>
+				<value>lobstertwo/.*</value>
+			</property>
+		</properties>        
+</context>

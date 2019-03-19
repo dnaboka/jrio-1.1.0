@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<csvDataAdapter class="net.sf.jasperreports.data.csv.CsvDataAdapterImpl">
+	<name>Time Series CSV Data Adapter</name>
+	<fileName>/samples/reports/chartthemes/data/timeSeriesDatasource.csv</fileName>
+	<encoding>UTF-8</encoding>
+	<recordDelimiter>&#13;&#10;</recordDelimiter>
+	<datePattern>yyyy-MM-dd hh:mm:ss</datePattern>
+	<useFirstRowAsHeader>true</useFirstRowAsHeader>
+	<queryExecuterMode>false</queryExecuterMode>
+</csvDataAdapter>

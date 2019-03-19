@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<remoteXmlDataAdapter class="net.sf.jasperreports.data.xml.RemoteXmlDataAdapterImpl">
+	<name>gantt</name>
+	<fileName>/samples/reports/fusion/gantt.xml</fileName>
+	<useConnection>true</useConnection>
+	<datePattern>MM/dd/yyyy</datePattern>
+	<locale xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="java:java.lang.String">en</locale>
+</remoteXmlDataAdapter>

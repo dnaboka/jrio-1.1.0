@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FusionGantt" pageWidth="595" pageHeight="842" columnWidth="565" leftMargin="15" rightMargin="15" topMargin="30" bottomMargin="30">
+	<property name="net.sf.jasperreports.data.adapter" value="/samples/reports/fusion/ganttData.xml"/>
+	<queryString language="XPath">
+		<![CDATA[/tasks/task]]>
+	</queryString>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[name]]></fieldDescription>
+	</field>
+	<field name="start" class="java.util.Date">
+		<fieldDescription><![CDATA[start]]></fieldDescription>
+	</field>
+	<field name="end" class="java.util.Date">
+		<fieldDescription><![CDATA[end]]></fieldDescription>
+	</field>
+	<field name="percentComplete" class="java.lang.Integer">
+		<fieldDescription><![CDATA[percentComplete]]></fieldDescription>
+	</field>
+	<field name="milestoneText" class="java.lang.String">
+		<fieldDescription><![CDATA[milestoneText]]></fieldDescription>
+	</field>
+	<field name="milestoneDate" class="java.util.Date">
+		<fieldDescription><![CDATA[milestoneDate]]></fieldDescription>
+	</field>
+	<variable name="dateFormatter" class="java.text.DateFormat" calculation="System">
+		<initialValueExpression><![CDATA[new java.text.SimpleDateFormat("MM/dd/yyyy")]]></initialValueExpression>
+	</variable>
+	<title>
+		<band height="700">
+			<componentElement>
+				<reportElement x="0" y="0" width="565" height="350"/>
+				<f:ganttChart xmlns:f="http://jaspersoft.com/fusion" xsi:schemaLocation="http://jaspersoft.com/fusion http://jaspersoft.com/schema/fusion.xsd" evaluationTime="Report">
+					<f:widgetProperty name="palette">
+						<f:propertyExpression><![CDATA[new Integer(2)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:widgetProperty name="showSlackAsFill">
+						<f:propertyExpression><![CDATA[Boolean.FALSE]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:categorySet>
+						<f:category>
+							<f:startExpression><![CDATA[$V{dateFormatter}.parse("02/01/2007")]]></f:startExpression>
+							<f:endExpression><![CDATA[$V{dateFormatter}.parse("03/01/2007")]]></f:endExpression>
+							<f:labelExpression><![CDATA["Feb"]]></f:labelExpression>
+						</f:category>
+						<f:category>
+							<f:startExpression><![CDATA[$V{dateFormatter}.parse("03/01/2007")]]></f:startExpression>
+							<f:endExpression><![CDATA[$V{dateFormatter}.parse("04/01/2007")]]></f:endExpression>
+							<f:labelExpression><![CDATA["Mar"]]></f:labelExpression>
+						</f:category>
+						<f:category>
+							<f:startExpression><![CDATA[$V{dateFormatter}.parse("04/01/2007")]]></f:startExpression>
+							<f:endExpression><![CDATA[$V{dateFormatter}.parse("05/01/2007")]]></f:endExpression>
+							<f:labelExpression><![CDATA["Apr"]]></f:labelExpression>
+						</f:category>
+						<f:category>
+							<f:startExpression><![CDATA[$V{dateFormatter}.parse("05/01/2007")]]></f:startExpression>
+							<f:endExpression><![CDATA[$V{dateFormatter}.parse("06/01/2007")]]></f:endExpression>
+							<f:labelExpression><![CDATA["May"]]></f:labelExpression>
+						</f:category>
+						<f:category>
+							<f:startExpression><![CDATA[$V{dateFormatter}.parse("06/01/2007")]]></f:startExpression>
+							<f:endExpression><![CDATA[$V{dateFormatter}.parse("07/01/2007")]]></f:endExpression>
+							<f:labelExpression><![CDATA["Jun"]]></f:labelExpression>
+						</f:category>
+						<f:category>
+							<f:startExpression><![CDATA[$V{dateFormatter}.parse("07/01/2007")]]></f:startExpression>
+							<f:endExpression><![CDATA[$V{dateFormatter}.parse("08/01/2007")]]></f:endExpression>
+							<f:labelExpression><![CDATA["Jul"]]></f:labelExpression>
+						</f:category>
+						<f:category>
+							<f:startExpression><![CDATA[$V{dateFormatter}.parse("08/01/2007")]]></f:startExpression>
+							<f:endExpression><![CDATA[$V{dateFormatter}.parse("09/01/2007")]]></f:endExpression>
+							<f:labelExpression><![CDATA["Aug"]]></f:labelExpression>
+						</f:category>
+					</f:categorySet>
+					<f:processes>
+						<f:processesProperty name="fontSize">
+							<f:propertyExpression><![CDATA[new Integer(12)]]></f:propertyExpression>
+						</f:processesProperty>
+						<f:processesProperty name="isBold">
+							<f:propertyExpression><![CDATA[Boolean.TRUE]]></f:propertyExpression>
+						</f:processesProperty>
+						<f:processesProperty name="align">
+							<f:propertyExpression><![CDATA["right"]]></f:propertyExpression>
+						</f:processesProperty>
+					</f:processes>
+					<f:tasks>
+						<dataset/>
+						<f:task>
+							<f:process>
+								<f:labelExpression><![CDATA[$F{name}]]></f:labelExpression>
+							</f:process>
+							<f:startExpression><![CDATA[$F{start}]]></f:startExpression>
+							<f:endExpression><![CDATA[$F{end}]]></f:endExpression>
+							<f:percentCompleteExpression><![CDATA[$F{percentComplete}]]></f:percentCompleteExpression>
+							<f:milestone>
+								<f:milestoneProperty name="shape">
+									<f:propertyExpression>"star"</f:propertyExpression>
+								</f:milestoneProperty>
+								<f:dateExpression>$F{milestoneDate}</f:dateExpression>
+								<f:hyperlink>
+									<hyperlinkTooltipExpression>$F{milestoneText}</hyperlinkTooltipExpression>
+								</f:hyperlink>
+							</f:milestone>
+						</f:task>
+					</f:tasks>
+					<f:trendLine color="#FF4400">
+						<f:startValueExpression><![CDATA[$V{dateFormatter}.parse("06/17/2007")]]></f:startValueExpression>
+						<f:labelExpression><![CDATA["Today"]]></f:labelExpression>
+					</f:trendLine>
+				</f:ganttChart>
+			</componentElement>
+		</band>
+	</title>
+</jasperReport>

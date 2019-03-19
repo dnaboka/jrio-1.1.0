@@ -1,0 +1,24 @@
+grant codeBase "file:${java.home}/lib/-" {
+        permission java.security.AllPermission;
+};
+
+grant codeBase "file:${java.home}/lib/ext/-" {
+        permission java.security.AllPermission;
+};
+
+grant codeBase "file:${user.dir}/jetty/-" {
+        permission java.security.AllPermission;
+};
+
+grant codeBase "file:${user.dir}/jrio/webapps/-" {
+        permission java.security.AllPermission;
+};
+
+//permissions for JRIO repository jars
+grant codeBase "file:/__jrio/repository/jars/" {
+        //permission java.security.AllPermission;
+};
+
+//permissions for JR reports
+grant codeBase "file:/__jrio/repository/reports/" {
+};

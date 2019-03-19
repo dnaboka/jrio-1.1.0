@@ -1,0 +1,62 @@
+<schedule>
+	<emp id="johns">
+		<name>John S.</name>
+		<team>Marketing</team>
+		<task>
+			<name>Product A Logo</name>
+			<start>07/16/2007</start>
+			<end>07/17/2007</end>
+		</task>
+		<task>
+			<name>Website design</name>
+			<start>07/17/2007</start>
+			<end>07/19/2007</end>
+		</task>
+		<task>
+			<name>Brochure design</name>
+			<start>07/20/2007</start>
+			<end>07/21/2007</end>
+		</task>
+	</emp>
+	<emp id="davidg">
+		<name>David. G</name>
+		<team>Eng</team>
+		<task>
+			<name>C# Wrapper development</name>
+			<start>07/16/2007</start>
+			<end>07/21/2007</end>
+		</task>
+	</emp>
+	<emp id="maryo">
+		<name>Mary O.</name>
+		<team>PS</team>
+		<task>
+			<name>PHP Blueprint application</name>
+			<start>07/18/2007</start>
+			<end>07/20/2007</end>
+		</task>
+	</emp>
+	<emp id="tomh">
+		<name>Tom H.</name>
+		<team>Eng</team>
+		<task>
+			<name>Pie Chart Bug Fix</name>
+			<start>07/16/2007</start>
+			<end>07/17/2007</end>
+		</task>
+		<task>
+			<name>Flex Research</name>
+			<start>07/18/2007</start>
+			<end>07/21/2007</end>
+		</task>
+	</emp>
+	<emp id="henryg">
+		<name>Henry G.</name>
+		<team>Doc</team>
+		<task>
+			<name>Documentation</name>
+			<start>07/18/2007</start>
+			<end>07/21/2007</end>
+		</task>
+	</emp>
+</schedule>

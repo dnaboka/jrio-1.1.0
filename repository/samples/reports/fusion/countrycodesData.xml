@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xmlDataAdapter class="net.sf.jasperreports.data.xml.XmlDataAdapterImpl">
+	<name>countrycodes</name>
+	<fileName>/samples/reports/fusion/countrycodes.xml</fileName>
+	<selectExpression>/countries/country</selectExpression>
+	<locale xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="java:java.lang.String">en</locale>
+</xmlDataAdapter>

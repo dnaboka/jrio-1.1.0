@@ -1,0 +1,2767 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="images/favicon.ico" rel="icon" type="image/ico" />
+    <title>API Reference</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc" class="toc-list-h1">
+          <li>
+              <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+              <a href="#quick-start-guide" class="toc-h1 toc-link" data-title="Quick Start Guide">Quick Start Guide</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#installation" class="toc-h2 toc-link" data-title="Installation">Installation</a>
+                  </li>
+                  <li>
+                    <a href="#configuration" class="toc-h2 toc-link" data-title="Configuration">Configuration</a>
+                      <ul class="toc-list-h2">
+                        <li>
+                          <a href="#web-application-server" class="toc-h3 toc-link" data-title="Web Application Server">Web Application Server</a>
+                        </li>
+                        <li>
+                          <a href="#repository" class="toc-h3 toc-link" data-title="Repository">Repository</a>
+                        </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#report-execution-contexts" class="toc-h2 toc-link" data-title="Report Execution Contexts">Report Execution Contexts</a>
+                      <ul class="toc-list-h2">
+                        <li>
+                          <a href="#report-execution-context-inheritance" class="toc-h3 toc-link" data-title="Report Execution Context Inheritance">Report Execution Context Inheritance</a>
+                        </li>
+                        <li>
+                          <a href="#report-execution-context-classpath" class="toc-h3 toc-link" data-title="Report Execution Context Classpath">Report Execution Context Classpath</a>
+                        </li>
+                        <li>
+                          <a href="#report-execution-context-configuration-properties" class="toc-h3 toc-link" data-title="Report Execution Context Configuration Properties">Report Execution Context Configuration Properties</a>
+                        </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#security" class="toc-h2 toc-link" data-title="Security">Security</a>
+                      <ul class="toc-list-h2">
+                        <li>
+                          <a href="#protection-domain" class="toc-h3 toc-link" data-title="Protection Domain">Protection Domain</a>
+                        </li>
+                        <li>
+                          <a href="#security-manager" class="toc-h3 toc-link" data-title="Security Manager">Security Manager</a>
+                        </li>
+                        <li>
+                          <a href="#customizing-permissions" class="toc-h3 toc-link" data-title="Customizing Permissions">Customizing Permissions</a>
+                        </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#server-side-rendering" class="toc-h2 toc-link" data-title="Server Side Rendering">Server Side Rendering</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+              <a href="#rest-api-reference" class="toc-h1 toc-link" data-title="REST API Reference">REST API Reference</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#the-serverinfo-service" class="toc-h2 toc-link" data-title="The <code>serverInfo</code> Service">The <code>serverInfo</code> Service</a>
+                  </li>
+                  <li>
+                    <a href="#the-reports-service" class="toc-h2 toc-link" data-title="The <code>reports</code> Service">The <code>reports</code> Service</a>
+                      <ul class="toc-list-h2">
+                        <li>
+                          <a href="#running-a-report" class="toc-h3 toc-link" data-title="Running a Report">Running a Report</a>
+                        </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#the-reportexecutions-service" class="toc-h2 toc-link" data-title="The <code>reportExecutions</code> Service">The <code>reportExecutions</code> Service</a>
+                      <ul class="toc-list-h2">
+                        <li>
+                          <a href="#running-a-report-asynchronously" class="toc-h3 toc-link" data-title="Running a Report Asynchronously">Running a Report Asynchronously</a>
+                        </li>
+                        <li>
+                          <a href="#polling-report-execution" class="toc-h3 toc-link" data-title="Polling Report Execution">Polling Report Execution</a>
+                        </li>
+                        <li>
+                          <a href="#requesting-report-execution-details" class="toc-h3 toc-link" data-title="Requesting Report Execution Details">Requesting Report Execution Details</a>
+                        </li>
+                        <li>
+                          <a href="#requesting-page-status" class="toc-h3 toc-link" data-title="Requesting Page Status">Requesting Page Status</a>
+                        </li>
+                        <li>
+                          <a href="#requesting-report-output" class="toc-h3 toc-link" data-title="Requesting Report Output">Requesting Report Output</a>
+                        </li>
+                        <li>
+                          <a href="#exporting-a-report-asynchronously" class="toc-h3 toc-link" data-title="Exporting a Report Asynchronously">Exporting a Report Asynchronously</a>
+                        </li>
+                        <li>
+                          <a href="#modifying-report-parameters" class="toc-h3 toc-link" data-title="Modifying Report Parameters">Modifying Report Parameters</a>
+                        </li>
+                        <li>
+                          <a href="#polling-export-execution" class="toc-h3 toc-link" data-title="Polling Export Execution">Polling Export Execution</a>
+                        </li>
+                        <li>
+                          <a href="#stopping-running-reports" class="toc-h3 toc-link" data-title="Stopping Running Reports">Stopping Running Reports</a>
+                        </li>
+                        <li>
+                          <a href="#removing-report-execution" class="toc-h3 toc-link" data-title="Removing Report Execution">Removing Report Execution</a>
+                        </li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
+              <a href="#javascript-api-samples" class="toc-h1 toc-link" data-title="Javascript API Samples">Javascript API Samples</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#basic-embed" class="toc-h2 toc-link" data-title="Basic Embed">Basic Embed</a>
+                  </li>
+                  <li>
+                    <a href="#pagination" class="toc-h2 toc-link" data-title="Pagination">Pagination</a>
+                  </li>
+                  <li>
+                    <a href="#report-parameters" class="toc-h2 toc-link" data-title="Report Parameters">Report Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#hyperlinks" class="toc-h2 toc-link" data-title="Hyperlinks">Hyperlinks</a>
+                  </li>
+                  <li>
+                    <a href="#bookmarks" class="toc-h2 toc-link" data-title="Bookmarks">Bookmarks</a>
+                  </li>
+                  <li>
+                    <a href="#report-content-search" class="toc-h2 toc-link" data-title="Report content search">Report content search</a>
+                  </li>
+                  <li>
+                    <a href="#events" class="toc-h2 toc-link" data-title="Events">Events</a>
+                  </li>
+                  <li>
+                    <a href="#ui-controls" class="toc-h2 toc-link" data-title="UI Controls">UI Controls</a>
+                  </li>
+                  <li>
+                    <a href="#export" class="toc-h2 toc-link" data-title="Export">Export</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+              <a href="#report-gallery" class="toc-h1 toc-link" data-title="Report Gallery">Report Gallery</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#data-grouping" class="toc-h2 toc-link" data-title="Data Grouping">Data Grouping</a>
+                  </li>
+                  <li>
+                    <a href="#tables" class="toc-h2 toc-link" data-title="Tables">Tables</a>
+                  </li>
+                  <li>
+                    <a href="#crosstabs" class="toc-h2 toc-link" data-title="Crosstabs">Crosstabs</a>
+                  </li>
+                  <li>
+                    <a href="#charts-static" class="toc-h2 toc-link" data-title="Charts (Static)">Charts (Static)</a>
+                      <ul class="toc-list-h2">
+                        <li>
+                          <a href="#chart-types" class="toc-h3 toc-link" data-title="Chart Types">Chart Types</a>
+                        </li>
+                        <li>
+                          <a href="#chart-themes" class="toc-h3 toc-link" data-title="Chart Themes">Chart Themes</a>
+                        </li>
+                        <li>
+                          <a href="#chart-customizers" class="toc-h3 toc-link" data-title="Chart Customizers">Chart Customizers</a>
+                        </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#charts-pro-interactive" class="toc-h2 toc-link" data-title="Charts Pro (Interactive)">Charts Pro (Interactive)</a>
+                  </li>
+                  <li>
+                    <a href="#images" class="toc-h2 toc-link" data-title="Images">Images</a>
+                  </li>
+                  <li>
+                    <a href="#barcodes" class="toc-h2 toc-link" data-title="Barcodes">Barcodes</a>
+                  </li>
+                  <li>
+                    <a href="#maps" class="toc-h2 toc-link" data-title="Maps">Maps</a>
+                  </li>
+                  <li>
+                    <a href="#internationalization" class="toc-h2 toc-link" data-title="Internationalization">Internationalization</a>
+                  </li>
+                  <li>
+                    <a href="#styled-text" class="toc-h2 toc-link" data-title="Styled Text">Styled Text</a>
+                  </li>
+                  <li>
+                    <a href="#hyperlinks-2" class="toc-h2 toc-link" data-title="Hyperlinks">Hyperlinks</a>
+                  </li>
+                  <li>
+                    <a href="#report-books" class="toc-h2 toc-link" data-title="Report Books">Report Books</a>
+                  </li>
+                  <li>
+                    <a href="#custom-visualizations" class="toc-h2 toc-link" data-title="Custom Visualizations">Custom Visualizations</a>
+                  </li>
+                  <li>
+                    <a href="#other-reports" class="toc-h2 toc-link" data-title="Other Reports">Other Reports</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+              <a href="#license" class="toc-h1 toc-link" data-title="License">License</a>
+          </li>
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="introduction">Welcome to the <b>JasperReports IO</b> Demo App</h1>
+
+<p>This is the sample web application that demonstrates the capabilities of the <a href="https://community.jaspersoft.com/project/jasperreports-io"
+target="_blank">JasperReports IO</a> reporting service.</p>
+
+<p>The JasperReports IO (JRIO) is an HTTP based service which exposes its report generating functionality through a REST API.</p>
+
+<p>The reporting service inside JRIO is based on the functionality of the <a href="https://community.jaspersoft.com/project/jasperreports-library"
+target="_blank">JasperReports Library</a> (JRL).
+JRIO acts like a REST API wrapper on top of the reporting Java API of the JRL.</p>
+
+<blockquote>
+<p>In this demo application, you&#39;ll find sample reports and examples showing how to embed the reporting service
+into your own application.</p>
+</blockquote>
+
+<!--
+> For more details, please see the [JasperReport IO Guide (FIXME)](https://www.jaspersoft.com).
+-->
+
+<p>The JRIO service can be deployed in various ways, ranging from monolithic web application, with all its specialized
+sub-services placed together in the same application (good for testing and small scale deployments),
+to container based deployments in the Cloud, where specialized sub-services run in separate containers and are able
+to scale independently while working together to deliver a single embeddable reporting service (suited for large scale deployments).</p>
+<h1 id='quick-start-guide'>Quick Start Guide</h1>
+<blockquote>
+<p>For more detailed documentation, see the <a href="pdfs/JasperReports-IO-User-Guide.pdf" target="_blank">TIBCO JasperReports IO User Guide</a>.</p>
+</blockquote>
+
+<p>You see this demo application because you have already installed and launched one of the JasperReports IO distributions,
+which provides this demo application as a convenience, to help you getting started with the product.</p>
+<h2 id='installation'>Installation</h2>
+<p>There are several types of distributions available for JRIO and you have probably used one of the following:</p>
+
+<ul>
+<li><strong>JasperReports IO Standalone Binary Archive</strong>
+<br/>
+Archive containing the JRIO binaries as well as the demo web application and the sample repository.</li>
+</ul>
+
+<!--
+<br/>
+`Download it:` <a href="https://www.jaspersoft.com" target="_blank">Linux</a> &#149; <a href="https://www.jaspersoft.com" target="_blank">Windows</a> &#149; <a href="https://www.jaspersoft.com" target="_blank">macOS (FIXME)</a>
+
+* **JasperReports IO Standalone AMI at AWS**
+<br/>
+An Amazon Machine Image (AMI) containing the JRIO binaries as well as the demo web application and the sample repository.
+<br/>
+`Try it:` <a href="https://www.jaspersoft.com" target="_blank">Amazon (FIXME)</a>
+-->
+<h2 id='configuration'>Configuration</h2>
+<p>You have probably launched the JRIO reporting service using the default configuration it came with in the distribution you have used.
+<br/>
+Below is a list of some of the configuration settings you can change, to improve your experience with the product or to customize it to your needs.</p>
+<h3 id='web-application-server'>Web Application Server</h3>
+<blockquote>
+<p>JRIO start command on Linux:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>./jre/bin/java -Xms256m -Xmx512m -jar ./jetty/start.jar
+    jetty.base<span class="o">=</span>./jrio --start
+    -Djetty.http.port<span class="o">=</span>8080 -DSTOP.PORT<span class="o">=</span>8989 -DSTOP.KEY<span class="o">=</span>st0p_J3Tty
+</code></pre>
+<blockquote>
+<p>JRIO start command on Windows:</p>
+</blockquote>
+<pre class="highlight shell_session tab-shell_session"><code>jre\bin\java -Xms256m -Xmx512m -jar jetty\start.jar
+    jetty.base=jrio --start
+    -Djetty.http.port=8080 -DSTOP.PORT=8989 -DSTOP.KEY=st0p_J3Tty
+</code></pre>
+<blockquote>
+<p>JRIO start command on macOS:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>./jre/Contents/Home/bin/java -Xms256m -Xmx512m -jar ./jetty/start.jar
+    jetty.base<span class="o">=</span>./jrio --start
+    -Djetty.http.port<span class="o">=</span>8080 -DSTOP.PORT<span class="o">=</span>8989 -DSTOP.KEY<span class="o">=</span>st0p_J3Tty
+</code></pre>
+<blockquote>
+<p>Setting cache size to 4000 objects, to match 4Gb of heap memory:</p>
+</blockquote>
+<pre class="highlight xml tab-xml"><code><span class="nt">&lt;local-cache</span> <span class="na">name=</span><span class="s">"virt"</span> <span class="na">configuration=</span><span class="s">"virtPassivation"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;memory&gt;</span>
+    <span class="nt">&lt;object</span> <span class="na">size=</span><span class="s">"4000"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/memory&gt;</span>
+<span class="nt">&lt;/local-cache&gt;</span>
+</code></pre>
+<p>The JRIO reporting service is delivered by a Java web application deployed in an <a href="https://www.eclipse.org/jetty/" target="_blank">Eclipse Jetty</a>
+server instance shipped inside the JRIO distribution package.</p>
+
+<p>In the <strong>JRIO Standalone Binary Archive</strong> distributions, there are two scripts placed in the root folder of the archives, which help you
+start and stop the Eclipse Jetty server and thus the JRIO reporting service deployed inside it.</p>
+
+<p>The start script contains the command which starts the Eclipse Jetty server and it specifies several
+startup configuration parameters that can be changed to better suit your particular environment and needs.</p>
+
+<ul>
+<li><p><strong>Java Heap Memory</strong>
+<br/>
+There are two command line arguments for specifying the amount of heap memory allocated to the
+Java Virtual Machine:
+<br/>
+<code>-Xms256m -Xmx512m</code>
+<br/>
+<br/>
+Most of the heap memory allocated to the JVM is used to cache report execution related objects. 
+When increasing the size of the allocated heap memory, it is recommended that the maximum number of objects that can be 
+cached by the reporting application to be increased proportionally, to thus make use of the additional memory.
+This settings is controlled by the object <code>size</code> property of the local-cache entry named <code>virt</code>, of the <code>virtPassivation</code> 
+configuration found in the <code>[JRIO_WEB_APP]/WEB-INF/infinispan.xml</code> file.
+A good practice is to match this size property to the number of megabytes of heap memory allocated to the JVM.</p></li>
+<li><p><strong>Jetty Port</strong>
+<br/>
+By default, the Jetty server starts on port <code>8080</code>, but in case this port is already used on your target machine,
+you can change it to some other available port number:
+<br/>
+<code>-Djetty.http.port=8080</code></p></li>
+<li><p><strong>Jetty Stop Port and Key</strong>
+<br/>
+The last two settings are needed by the stop script. If you change them in the start script, make sure
+you also change them in the stop script:
+<br/>
+<code>-DSTOP.PORT=8989 -DSTOP.KEY=st0p_J3Tty</code></p></li>
+</ul>
+
+<p>For more details about how to further configure Eclipse Jetty server at startup, please consult the
+<a href="https://www.eclipse.org/jetty/documentation/9.3.x/startup.html" target="_blank">Jetty documentation</a>.</p>
+
+<p><br/></p>
+<h3 id='repository'>Repository</h3>
+<p>The report samples presented in this demo application are delivered by the JRIO reporting service using
+report templates, sample report data and other required resources found in a file based repository which is part of
+the same JRIO distribution you are currently using.</p>
+
+<p>The type of repository, its location and other specific repository implementation properties can be specified in a
+<a href="https://spring.io/" target="_blank">Spring</a> configuration file at:</p>
+
+<p><code>[JRIO_WEB_APP]/WEB-INF/applicationContext-repository.xml</code></p>
+
+<blockquote>
+<p>Repository location relative to Web application real path:</p>
+</blockquote>
+<pre class="highlight xml tab-xml"><code><span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">"com.jaspersoft.jrio.common.repository.WebappRelativeRepositoryFactory"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"jasperReportsContext"</span> <span class="na">ref=</span><span class="s">"baseJasperReportsContext"</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"root"</span> <span class="na">value=</span><span class="s">"../../../repository"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/bean&gt;</span>
+</code></pre>
+<ul>
+<li><strong>Repository folder relative to Webapp folder</strong>
+<br/>
+In the <em>JRIO Standalone Binary Archive</em> distributions, the file based repository containing the sample reports used by
+this demo application is placed under the <code>/repository</code> folder of the extracted archive.
+<br/>
+<br/>
+Since this repository folder is located relative to the folder where the JRIO web application is deployed,
+we are using a special repository implementation (<code>WebappRelativeRepositoryFactory</code>) which is able to locate the real path
+on disk for the web application at runtime, and then moves up 3 folders to reach the JRIO installation folder,
+from where the repository folder is found.</li>
+</ul>
+
+<blockquote>
+<p>Absolute path repository location:</p>
+</blockquote>
+<pre class="highlight xml tab-xml"><code><span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">"com.jaspersoft.jrio.common.repository.FileSystemRepository"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;constructor-arg&gt;&lt;ref</span> <span class="na">bean=</span><span class="s">"baseJasperReportsContext"</span><span class="nt">/&gt;&lt;/constructor-arg&gt;</span>
+  <span class="nt">&lt;constructor-arg&gt;&lt;value&gt;</span>/mnt/jrio-repository<span class="nt">&lt;/value&gt;&lt;/constructor-arg&gt;</span>
+<span class="nt">&lt;/bean&gt;</span>
+</code></pre>
+<ul>
+<li><strong>Repository folder absolute path</strong>
+<br/>
+There is another file based repository implementation available in the product, for specifying the absolute path on disk
+for the repository folder (<code>FileSystemRepository</code>). You could use it to point JRIO to some other repository of your own,
+or to add a new repository to the existing ones.</li>
+</ul>
+
+<p><br/>
+<br/>
+<br/></p>
+
+<blockquote>
+<p>AWS S3 bucket repository:</p>
+</blockquote>
+<pre class="highlight xml tab-xml"><code><span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">"com.jaspersoft.jrio.common.repository.s3.S3RepositoryService"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"jasperReportsContext"</span> <span class="na">ref=</span><span class="s">"baseJasperReportsContext"</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"s3Service"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">"com.jaspersoft.jrio.common.repository.s3.S3ServiceFactory"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"region"</span> <span class="na">value=</span><span class="s">"us-east-1"</span><span class="nt">/&gt;</span>
+      <span class="c">&lt;!--
+      &lt;property name="accessKey" value="put-id-here"/&gt;
+      &lt;property name="secretKey" value="put-key-here"/&gt;
+      --&gt;</span>
+    <span class="nt">&lt;/bean&gt;</span>
+  <span class="nt">&lt;/property&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"bucketName"</span> <span class="na">value=</span><span class="s">"jrio-repo-sample"</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"pathPrefix"</span> <span class="na">value=</span><span class="s">"jrio-repository/"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/bean&gt;</span>
+</code></pre>
+<ul>
+<li><strong>AWS S3 bucket repository</strong>
+<br/>
+The product comes also with a built-in repository implementation (<code>S3RepositoryService</code>) which allows connecting
+to an AWS S3 bucket as repository for report resources. The bucket can be public, accessed without credentials,
+as it is the case with one such bucket we use in this demo, or can be accessed securely, using AWS credentials.</li>
+</ul>
+
+<aside class="warning">
+The sample report below is loaded from a public S3 bucket repository, but you need to open the
+<code class="text-nowrap">[JRIO_WEB_APP]/WEB-INF/applicationContext-repository.xml</code> configuration file and 
+uncomment the two S3 beans you find at the end of the file, to activate this repository and be able to test the report.
+</aside>
+
+<p><code>Try it:</code>
+<a href="viewer/viewer.html?jr_report_uri=/samples/ShapesReport" target="_blank">VIEW</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/crosstabs/ShapesReport.pdf">PDF</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/crosstabs/ShapesReport.xlsx">XLSX</a></p>
+<h2 id='report-execution-contexts'>Report Execution Contexts</h2>
+<p>The JRIO repository is a folder based structure where the report templates and other report related resources
+are stored and from where they are retrieved when reports are executed by the JRIO reporting service.</p>
+
+<p>The main entry point into the report execution process is the master report template (source <code>*.jrxml</code> file or
+compiled <code>*.jasper</code> file), which is specified using its absolute path within the repository folder structure
+(its extension being optional), and which in turn can reference other resources from the repository during
+the report execution.</p>
+
+<p>Since the JRIO reporting service leverages the reporting functionality of the JasperReports Library,
+you can learn more about how to create report templates and how to deploy them in the repository by following
+the <a href="https://community.jaspersoft.com/project/jasperreports-library/resources"
+target="_blank">JasperReports Library documentation</a>.</p>
+
+<blockquote>
+<p>For example, a report having its main template file at the following location within the repository:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>/samples/reports/chartcustomizers/ChartCustomizersReport.jrxml
+</code></pre>
+<blockquote>
+<p>has its report execution context configured using the following file:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>/samples/reports/chartcustomizers/JR_INF/context.xml
+</code></pre>
+<blockquote>
+<p>Notice that the <code>ChartCustomizersReport.jrxml</code> file and the <code>JR-INF</code> folder have the same parent folder.</p>
+</blockquote>
+
+<p>When a report is executed by JRIO, it is executed into a so called <strong>report execution context</strong>.
+Each report has such context defined by the <em>classpath</em> it uses when it is run and by the <em>configuration properties</em>
+which are set in this context and tailor the behavior of the reporting engine.</p>
+
+<p>The report execution context for a report is configured using a <code>context.xml</code> file placed in a folder called <code>JR-INF</code>,
+which has the same parent as the report&#39;s main template file.</p>
+
+<p>If multiple report templates are found in the same folder, they share the same context found in
+the <code>JR-INF</code> subfolder that accompanies them.
+<br/>
+This means that one way to make sure a report template has its own report execution context that it does
+not share with any other report, is to isolate this report template into its own subfolder,
+where a <code>JR-INF</code> folder would define a report execution only for this single report present there.</p>
+<h3 id='report-execution-context-inheritance'>Report Execution Context Inheritance</h3>
+<p>Report execution contexts inherit from one another and this inheritance can be controlled.</p>
+
+<blockquote>
+<p>For example, the report execution context defined at:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>/samples/reports/chartcustomizers/JR_INF/
+</code></pre>
+<blockquote>
+<p>inherits from both the:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>/samples/reports/JR-INF/
+</code></pre>
+<blockquote>
+<p>context and the:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>/samples/JR-INF/
+</code></pre>
+<blockquote>
+<p>context, if the respective <code>JR-INF</code> folders and their <code>context.xml</code> are present
+(<code>JR-INF</code> folders are optional).</p>
+</blockquote>
+
+<ul>
+<li><em>Folder Inheritance (Default)</em>
+<br/>
+By default, any report execution context defined by a <code>JR-INF</code> folder somewhere in the repository,
+inherits from the contexts defined by the <code>JR-INF</code> folders found in the parent folders up towards
+the root folder of the repository.
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/></li>
+</ul>
+
+<blockquote>
+<p>For example, if we want the report execution context at:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>/samples/reports/chartcustomizers/JR-INF/context.xml
+</code></pre>
+<blockquote>
+<p>to inherit from a sibling context at:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>/samples/reports/unicode/JR-INF/context.xml
+</code></pre>
+<blockquote>
+<p>instead of the default parent folder inheritance, we need to add this to the <code>context.xml</code>:</p>
+</blockquote>
+<pre class="highlight xml tab-xml"><code><span class="nt">&lt;context&gt;</span>
+  <span class="nt">&lt;parentContext&gt;</span>
+    <span class="nt">&lt;path&gt;</span>/samples/reports/unicode<span class="nt">&lt;/path&gt;</span>
+  <span class="nt">&lt;/parentContext&gt;</span>
+  ...
+<span class="nt">&lt;/context&gt;</span>
+</code></pre>
+<ul>
+<li><em>Direct Inheritance</em>
+<br/>
+The default inheritance mechanism which follows repository structure can be disabled and replaced
+by direct parent context reference within the <code>context.xml</code> file using the <code>&lt;parentContext&gt;</code> tag as follows:
+<br/>
+<br/>
+<code class="middle">
+&lt;context&gt;<br/>
+&nbsp;&nbsp;&lt;parentContext&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;path&gt;/parent&lt;/path&gt;<br/>
+&nbsp;&nbsp;&lt;/parentContext&gt;<br/>
+&nbsp;&nbsp;...<br/>
+&lt;/context&gt;
+</code></li>
+</ul>
+
+<p>The path to the parent context needs to specify the absolute repository path of the parent folder
+containing the target <code>JR-INF</code> context that we want to use as parent context.</p>
+
+<p>Notice that the path does not contain the <code>JR-INF</code> folder, just the parent folder of that target
+report execution context.</p>
+
+<aside class="notice">
+All execution contexts inherit from a parent context using either the default inheritance mechanism or
+the direct inheritance mechanism, and cascade up, reaching eventually the root report execution context, if any.
+</aside>
+<h3 id='report-execution-context-classpath'>Report Execution Context Classpath</h3>
+<blockquote>
+<p>For example, the report having its main template file at:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>/samples/reports/chartcustomizers/ChartCustomizersReport.jrxml
+</code></pre>
+<blockquote>
+<p>uses custom Java code packaged in the <code>JAR</code> file at:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>/samples/reports/chartcustomizers/JR_INF/lib/repo-sample.jar
+</code></pre>
+<blockquote>
+<p>by referencing it in the <code>context.xml</code> file at:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>/samples/reports/chartcustomizers/JR_INF/context.xml
+</code></pre>
+<blockquote>
+<p>as follows:</p>
+</blockquote>
+<pre class="highlight xml tab-xml"><code><span class="nt">&lt;context&gt;</span>
+  <span class="nt">&lt;classpath&gt;</span>
+    <span class="nt">&lt;entry&gt;&lt;path&gt;</span>samples/reports/chartcustomizers/JR-INF/lib/repo-sample.jar<span class="nt">&lt;/path&gt;&lt;/entry&gt;</span>
+  <span class="nt">&lt;/classpath&gt;</span>
+  ...
+<span class="nt">&lt;/context&gt;</span>
+
+</code></pre>
+<p>As a Java reporting library, JasperReports has various extension points which allow the customization
+of its functionality using custom code in the form of compiled Java classes.
+<br/>
+These classes are among the various types of resources that a report might need at execution time and
+they can also be stored in the repository, along with the subreports, style templates, images, fonts
+and other report resources.</p>
+
+<p>Since the Java classes containing the custom functionality need to be loaded by the Java Virtual Machine
+when a particular report is executed, they need to be referenced in a special way by the reports that use them.</p>
+
+<p>The custom Java classes needed during a certain report execution need to be packaged as <code>JAR</code> files
+and placed in the repository, preferably under the <code>JR-INF/lib</code> subfolder of the target report execution context.
+<br/>
+The <code>JAR</code> then needs to be referenced from within the target <code>JR-INF/context.xml</code> file using a pair of
+<code>&lt;entry&gt;&lt;path&gt;</code> tags in the <code>&lt;classpath&gt;</code> tag, so that it will be loaded as part of the dynamic Java
+classpath used by the reporting service when running reports in this report execution context.</p>
+
+<p><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/></p>
+<h3 id='report-execution-context-configuration-properties'>Report Execution Context Configuration Properties</h3>
+<blockquote>
+<p>Example of setting the chart render type configuration property in a <code>JR-INF/context.xml</code> file:</p>
+</blockquote>
+<pre class="highlight xml tab-xml"><code><span class="nt">&lt;context&gt;</span>
+  ...
+  <span class="nt">&lt;properties&gt;</span>
+    <span class="nt">&lt;property&gt;</span>
+      <span class="nt">&lt;name&gt;</span>net.sf.jasperreports.chart.render.type<span class="nt">&lt;/name&gt;</span>
+      <span class="nt">&lt;value&gt;</span>svg<span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;/property&gt;</span>
+    ...
+  <span class="nt">&lt;/properties&gt;</span>
+<span class="nt">&lt;/context&gt;</span>
+</code></pre>
+<p>The JasperReports Library has many configuration settings that allow tailoring its behavior to specific needs.</p>
+
+<p>Some of these configuration settings can be set at report context execution level using configuration properties specified
+in the <code>JR-INF/contex.xml</code> file using <code>&lt;property&gt;</code> tags.</p>
+
+<p>More details about the configuration settings available for use in report executions contexts, please check
+the <a href="http://jasperreports.sourceforge.net/config.reference.html" target="_blank">JasperReports Configuration Reference</a>.</p>
+<h2 id='security'>Security</h2>
+<p>The JasperReports Library which provides the reporting functionality behind the JasperReports IO service, 
+allows reports to call Java code through report expressions during the report execution.
+While this is a powerful feature of the reporting engine, which gives great flexibility to users to further customize 
+their reports and be able to support complex reporting requirements, it can also be a security vulnerability in case 
+the people deploying the report templates in the JRIO repository are not to be trusted.</p>
+
+<p>For instance, calls for disk access and calls to <code>System.Exit</code> can be hidden in the report classpath. 
+The previous section of this guide explains how report classpath is configured and controlled by the users 
+who have access to repository content.</p>
+<h3 id='protection-domain'>Protection Domain</h3>
+<blockquote>
+<p>Security policy file with the default permissions:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>grant codeBase "file:${java.home}/lib/-" {
+        permission java.security.AllPermission;
+};
+
+grant codeBase "file:${java.home}/lib/ext/-" {
+        permission java.security.AllPermission;
+};
+
+grant codeBase "file:${user.dir}/jetty/-" {
+        permission java.security.AllPermission;
+};
+
+grant codeBase "file:${user.dir}/jrio/webapps/-" {
+        permission java.security.AllPermission;
+};
+
+//permissions for JRIO repository jars
+grant codeBase "file:/__jrio/repository/jars/" {
+        //permission java.security.AllPermission;
+};
+
+//permissions for JR reports
+grant codeBase "file:/__jrio/repository/reports/" {
+};
+</code></pre>
+<p>An effective measure against such intrusions is to implement a protection domain. The <code>ProtectionDomain</code> class encloses 
+a group of classes whose instances have the same permissions, public keys, and URI. A given class can belong to only 
+one <code>ProtectionDomain</code>. For more information on <code>ProtectionDomain</code>, see the 
+<a href="https://docs.oracle.com/javase/8/docs/api/java/security/ProtectionDomain.html" target="_blank">Java documentation</a>.</p>
+
+<p>JRIO has preconfigured protection domain that by default <strong>gives all permissions</strong> to:
+<ul>
+<li>classes from the Java Virtual Machine distribution</li>
+<li>classes from the Jetty server distribution</li>
+<li>classes from the web applications that make up the JRIO reporting service</li>
+</ul></p>
+
+<p>At the same time, this preconfigured protection domain <strong>does not give any permission</strong> to:
+<ul>
+<li>classes from the repository JARs</li>
+<li>classes which evaluate the report expressions</li>
+</ul></p>
+
+<p>This default configuration offers a reasonable restrictive security environment which can then be customized to the 
+actual security needs of your specific JRIO deployment.</p>
+<h3 id='security-manager'>Security Manager</h3>
+<p>Although JRIO is shipped with this preconfigured protection domain as explained above, the security infrastructure is 
+not activated by default. For activating the protection domain support, the Java security manager needs to be specified 
+when launching the Jetty server. This is done by providing two Java configuration properties when starting the 
+Java Virtual Machine from command line:</p>
+
+<p><code>-Djava.security.manager -Djava.security.policy=jrio/security.policy</code></p>
+
+<p>The JRIO startup scripts have these configurations present but commented out. Simply uncommenting the respective lines 
+in the scripts would be enough to activate the Java security infrastructure and its preconfigured protection domain 
+on JRIO service startup.</p>
+<h3 id='customizing-permissions'>Customizing Permissions</h3>
+<p>When activating the security manager for the Java Virtual Machine using the above mentioned configuration properties, 
+a security policy file is specified (<code class="text-nowrap">jrio/security.policy</code>). 
+This file stores the permissions for each defined protection domain and it can be altered to better suit the specific 
+security needs of the current JRIO deployment.</p>
+
+<p>More details about the syntax of this policy file and what permissions are available can be found in the 
+<a href="https://docs.oracle.com/javase/8/docs/technotes/guides/security/spec/security-specTOC.fm.html" target="_blank">Java Security documentation</a>.</p>
+<h2 id='server-side-rendering'>Server Side Rendering</h2>
+<blockquote>
+<p>The following property needs to be set in the <code class="text-nowrap">[JRIO_WEB_APP]/WEB-INF/classes/jasperreports.properties</code>
+file to point to either the PhantomJS or the SlimerJS executable, which is expected to be found on the same machine where the JRIO service runs:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>net.sf.jasperreports.phantomjs.executable.path=/path/to/phantomjs
+</code></pre>
+<p>The reports generated by the JRIO service can sometimes have visualizations and graphics that are produced by Javascript and other Web-based drawing libraries 
+(see <a href="#charts-pro-interactive">Charts Pro</a> and <a href="#custom-visualizations">Custom Visualizations</a>). 
+These work out-of-the-box when the reports are displayed in HTML format and are viewed in the Web browser.
+<br/>
+However, when these reports are exported to PDF and other non-HTML document formats, the Web-based visualizations need to be rendered as images on the server side, 
+where their inclusion in the exported documents occurs.</p>
+
+<p>For rendering Web visualizations as images, the JRIO service needs a headless browser on the server side so that it can basically make snapshots of these visualizations off-screen. 
+This headless browser functionality is offered by several third party products, and JRIO does not ship any of these in its distribution. 
+They have to be installed separately and the JRIO needs to be configured to make use of them.</p>
+
+<p>JRIO can be configured to work with either <a href="http://phantomjs.org" target="_blank">PhantomJS</a> or <a href="https://slimerjs.org" target="_blank">SlimerJS</a> for server side rendering of Web visualizations during non-HTML exports of the reports. 
+These two products are interchangeable as they expose the same public API and work the same way, as far as JRIO is concerned. This is why the same configuration property can be used for both.</p>
+<h1 id='rest-api-reference'>REST API Reference</h1>
+<p>The JasperReports IO REST API is an Application Programming Interface that follows the guidelines of
+REpresentational State Transfer design to allow client application to interact with the server through the HTTP protocol.</p>
+<h2 id='the-serverinfo-service'>The <code>serverInfo</code> Service</h2>
+<p>Use the following methods to verify the server information, such as version number, build number, build time and others for compatibility with your REST client application.</p>
+
+<table>
+  <tr>
+    <th>Method</th>
+    <th colspan="2">URL</th>
+  </tr>
+  <tr>
+    <td>GET</td>
+    <td colspan="2">http://&lt;host>:&lt;port>/jrio/<b>rest_v2/serverInfo</b></td>
+  </tr>
+  <tr>
+    <th colspan="2">Options</th>
+    <th>Sample Return Value</th>
+  </tr>
+  <tr>
+    <td colspan="2">accept: application/xml</td>
+    <td><code class="middle">&lt;serverInfo></br>
+&nbsp;&nbsp;&lt;buildRevision>49e791ed...&lt;/buildRevision></br>
+&nbsp;&nbsp;&lt;buildTime>20181203_2028&lt;/buildTime></br>
+&nbsp;&nbsp;&lt;concurrentReportExecutions>2</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/concurrentReportExecutions></br>
+&nbsp;&nbsp;&lt;edition>Professional&lt;/edition></br>
+&nbsp;&nbsp;&lt;expirationDate>2019-01-27 00:59:59</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/expirationDate></br>
+&nbsp;&nbsp;&lt;licenseType>Evaluation&lt;/licenseType></br>
+&nbsp;&nbsp;&lt;version>1.1.0&lt;/version></br>
+&lt;/serverInfo>
+    </code></td>
+  </tr>
+  <tr>
+    <td colspan="2">accept: application/json</td>
+    <td><code class="middle">{</br>
+&nbsp;&nbsp;"version": "1.1.0",</br>
+&nbsp;&nbsp;"buildTime": "20181203_2028",</br>
+&nbsp;&nbsp;"buildRevision": "49e791ed...",</br>
+&nbsp;&nbsp;"edition": "Professional",</br>
+&nbsp;&nbsp;"licenseType": "Evaluation",</br>
+&nbsp;&nbsp;"expirationDate": "2019-01-27 00:59:59",</br>
+&nbsp;&nbsp;"concurrentReportExecutions": "2"</br>
+}</code></td>
+  </tr>
+  <tr>
+    <th colspan="2">Return Value on Success</th>
+    <th>Typical Return Values on Failure</th>
+  </tr>
+  <tr>
+    <td colspan="2">200 OK – Body described above.</td>
+    <td>This request should always succeed when the server is running.</td>
+  </tr>
+</table>
+
+<p>You can access each value separately with the following URLs. The response is the raw value, XML or JSON are not accepted formats.</p>
+
+<table>
+  <tr>
+    <th width="10%">Method</th>
+    <th width="40%">URL</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>GET</td>
+    <td colspan="2">http://&lt;host>:&lt;port>/jrio/<b>rest_v2/serverInfo/version</b></br>
+http://&lt;host>:&lt;port>/jrio/<b>rest_v2/serverInfo/buildTime</b></br>
+http://&lt;host>:&lt;port>/jrio/<b>rest_v2/serverInfo/buildRevision</b></br>
+http://&lt;host>:&lt;port>/jrio/<b>rest_v2/serverInfo/edition</b></br>
+http://&lt;host>:&lt;port>/jrio/<b>rest_v2/serverInfo/licenseType</b></br>
+http://&lt;host>:&lt;port>/jrio/<b>rest_v2/serverInfo/expirationDate</b></br>
+http://&lt;host>:&lt;port>/jrio/<b>rest_v2/serverInfo/</br>concurrentReportExecutions</b>
+    </td>
+  </tr>
+  <tr>
+    <th colspan="2">Return Value on Success</th>
+    <th>Typical Return Values on Failure</th>
+  </tr>
+  <tr>
+    <td colspan="2">200 OK – The requested value.</td>
+    <td>These requests should always succeed when the server is running.</td>
+  </tr>
+</table>
+<h2 id='the-reports-service'>The <code>reports</code> Service</h2>
+<p>The <code>rest_v2/reports</code> service has a simple API for obtaining report output, such as PDF and XLS. The service also
+provides functionality to interact with running reports, report options, and parameter values.</p>
+<h3 id='running-a-report'>Running a Report</h3>
+<p>The reports service allows clients to receive report output in a single request-response. The reports service is a
+synchronous request, meaning the caller will be blocked until the report is generated and returned in the
+response. For large datasets or long reports, the delay can be significant. If you want to use a non-blocking
+(asynchronous) request, see <a href="#the-reportexecutions-service">The reportExecutions Service</a> section.</p>
+
+<p>The output format is specified in the URL as a file extension to the report URI.</p>
+
+<blockquote>
+<p>The following examples show various combinations of formats, page ranges, and report parameters:</p>
+
+<p><strong>All pages</strong></p>
+</blockquote>
+<pre class="highlight plaintext"><code>http://&lt;host&gt;:&lt;port&gt;/jrio/rest_v2/reports/samples/AllAccounts.html
+
+http://&lt;host&gt;:&lt;port&gt;/jrio/rest_v2/reports/samples/AllAccounts.pdf
+</code></pre>
+<blockquote>
+<p><strong>Specific page</strong></p>
+</blockquote>
+<pre class="highlight plaintext"><code>http://&lt;host&gt;:&lt;port&gt;/jrio/rest_v2/reports/samples/AllAccounts.html?page=43
+
+http://&lt;host&gt;:&lt;port&gt;/jrio/rest_v2/reports/samples/AllAccounts.pdf?page=1
+</code></pre>
+<blockquote>
+<p><strong>Parameter values</strong></p>
+</blockquote>
+<pre class="highlight plaintext"><code>http://&lt;host&gt;:&lt;port&gt;/jrio/rest_v2/reports/samples/EmployeeAccounts.html?
+EmployeeID=sarah_id
+
+http://&lt;host&gt;:&lt;port&gt;/jrio/rest_v2/reports/samples/Cascading_multi_select_report.html?
+Country_multi_select=USA&amp;Cascading_state_multi_select=WA&amp;Cascading_state_multi_select=CA
+</code></pre>
+<table>
+  <tr>
+    <th>Method</th>
+    <th colspan="2">URL</th>
+  </tr>
+  <tr>
+    <td>GET</td>
+    <td colspan="2">http://&lt;host>:&lt;port>/jrio/<b>rest_v2/reports</b>/<br/>path/to/report.&lt;format>?&lt;arguments></td>
+  </tr>
+  <tr>
+    <th>Argument</th>
+    <th>Type/Value</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>&lt;format></td>
+    <td>output type</td>
+    <td>One of the following formats: 
+    <ul>
+     <li>Regular output: <br/><code class="middle">html, pdf, csv, docx, pptx, <br/> xls, xlsx, rtf, odt, ods, xml</code></li>
+     <li>Metadata output: <br/><code class="middle">data_csv, data_xls, data_json</code></li>
+    </ul>
+  </tr>
+  <tr>
+    <td>page?</td>
+    <td>Integer > 0</td>
+    <td>An integer value used to export a specific page.</td>
+  </tr>
+  <tr>
+    <td>anchor?</td>
+    <td>String</td>
+    <td>An anchor name in the generated report.</td>
+  </tr>
+  <tr>
+    <td>ignore
+pagination?</td>
+    <td>Boolean</td>
+    <td>When set to true, the report will be generated as a single page. This can be
+useful for some formats such as csv. When omitted, this argument's default
+value is false and the report is paginated normally.</td>
+  </tr>
+  <tr>
+    <td>&lt;parameter></td>
+    <td>String</td>
+    <td>Any parameter that is defined for the report. Parameters that are multivalue
+may appear more than once. See examples below.</td>
+  </tr>
+  <tr>
+    <td>baseUrl</td>
+    <td>String</td>
+    <td>Specifies the base URL that the report will use to load static resources such as JavaScript files.</td>
+  </tr>
+  <tr>
+    <td>attachmentsPrefix</td>
+    <td>attachments</td>
+    <td colspan="3">For HTML output, this property specifies the URL path to use for downloading the attachment files (JavaScript and images).</td>
+  </tr>
+  <tr>
+    <th colspan="2">Return Value on Success</th>
+    <th>Typical Return Values on Failure</th>
+  </tr>
+  <tr>
+    <td colspan="2">200 OK – The content is the requested file.</td>
+    <td>404 Not Found – When the specified
+report URI is not found in the
+repository.</td>
+  </tr>
+</table>
+
+<aside class="warning">
+JRIO does not support exporting Highcharts charts with background images to PDF,
+ODT, DOCX, or RTF formats. When exporting or downloading reports with Highcharts that have
+background images to these formats, the background image is removed from the chart. The data in the
+chart is not affected.
+</aside>
+<h2 id='the-reportexecutions-service'>The <code>reportExecutions</code> Service</h2>
+<p>As described in <a href="#the-reports-service">The reports Service</a> section, synchronous report execution blocks the
+client waiting for the response. When managing large reports that may take minutes to complete, or when running a large
+number of reports simultaneously, synchronous report execution slows down the client or uses many threads, each waiting for a report.</p>
+
+<p>The <code>rest_v2/reportExecutions</code> service provides asynchronous report execution, so that the client does not need to
+wait for report output. Instead, the client obtains a report execution ID and periodically checks the status of the report to
+know when it is ready (also called polling). When the report is finished, the client can download the output.
+The client can also send an asynchronous request for other export formats (PDF, Excel, and others) of the same
+report. Again, the client can check the status of the export and download the result when the export has completed.</p>
+<h3 id='running-a-report-asynchronously'>Running a Report Asynchronously</h3>
+<p>In order to run a report asynchronously, the <code class="text-nowrap">reportExecutions</code> service provides a method to specify all the
+parameters needed to launch a report. Report parameters are all sent as a <code class="text-nowrap">reportExecutionRequest</code> object. The
+response from the server contains the report execution ID needed to track the execution until completion.</p>
+
+<blockquote>
+<p>The following example shows the structure of the <code>ReportExecutionRequest</code>:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"reportUnitUri"</span><span class="p">:</span><span class="s2">"/samples/reports/chartthemes/ChartThemesReport"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"async"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"interactive"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"pages"</span><span class="p">:</span><span class="s2">"1-5"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"attachmentsPrefix"</span><span class="p">:</span><span class="s2">"/jrio/rest_v2/reportExecutions/
+      {reportExecutionId}/exports/{exportExecutionId}/attachments/"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"baseUrl"</span><span class="p">:</span><span class="s2">"/jrio"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"parameters"</span><span class="p">:</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"reportParameter"</span><span class="p">:</span><span class="w">
+    </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"chartTheme"</span><span class="p">,</span><span class="s2">"value"</span><span class="p">:[</span><span class="s2">"aegean"</span><span class="p">]},</span><span class="w">
+      </span><span class="p">{</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"anotherParamName"</span><span class="p">,</span><span class="s2">"value"</span><span class="p">:[</span><span class="s2">"value 1"</span><span class="p">,</span><span class="s2">"value 2"</span><span class="p">]}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table>
+  <tr>
+    <th>Method</th>
+    <th colspan="3">URL</th>
+  </tr>
+  <tr>
+    <td>POST</td>
+    <td colspan="3">http://&lt;host>:&lt;port>/jrio/<b>rest_v2/reportExecutions</b></td>
+  </tr>
+  <tr>
+    <th>Content-Type</th>
+    <th colspan="3">Content</th>
+  </tr>
+  <tr>
+    <td>application/json</td>
+    <td colspan="3">A complete <code>ReportExecutionRequest</code> in JSON format. See the example and table below for an explanation of its properties.</td>
+  </tr>
+  <tr>
+    <th colspan="2">Return Value on Success</th>
+    <th colspan="2">Typical Return Values on Failure</th>
+  </tr>
+  <tr>
+    <td colspan="2">200 OK – The content contains a <code>ReportExecution</code> descriptor. See the example</td>
+    <td colspan="2">404 Not Found – When the report URI specified in the request does not exist.</td>
+  </tr>
+  <tr>
+    <td width="25%"></td>
+    <td width="25%"></td>
+    <td width="25%"></td>
+    <td width="25%"></td>
+  </tr>
+</table>
+
+<p>The following table describes the properties you can specify in the <code class="text-nowrap">ReportExecutionRequest</code>:</p>
+
+<blockquote>
+<p><br/>The following descriptor shows that the report was placed in the report execution queue<br/>
+(<code>&quot;status&quot;:&quot;queued&quot;</code>):</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"requestId"</span><span class="p">:</span><span class="s2">"9ecf5c6f-b70d-4170-8a3b-b305db4c2253"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"reportURI"</span><span class="p">:</span><span class="s2">"/samples/reports/chartthemes/ChartThemesReport"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"queued"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table>
+  <tr>
+    <th style="vertical-align:top"><a name="table-13-1">Property</a></th>
+    <th style="vertical-align:top">Required <br/>or Default</th>
+    <th colspan="3" style="vertical-align:top">Description</th>
+  </tr>
+  <tr>
+    <td>reportUnitUri</td>
+    <td>Required</td>
+    <td colspan="3">Repository path (URI) of the report to run.</td>
+  </tr>
+  <tr>
+    <td>outputFormat</td>
+    <td>Required</td>
+    <td colspan="3">Specifies the desired output format: 
+    <ul>
+     <li>Regular output: <br/><code class="middle">html, pdf, csv, docx, pptx, <br/> xls, xlsx, rtf, odt, ods, xml</code></li>
+     <li>Metadata output: <br/><code class="middle">data_csv, data_xls, data_json</code></li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>ignorePagination</td>
+    <td>Optional</td>
+    <td colspan="3">When set to true, the report is generated as a single long page. This can be used with HTML output to avoid pagination.
+    When omitted, the <code>ignorePagination</code> property on the  JRXML, if any, is used.</td>
+  </tr>
+  <tr>
+    <td>pages</td>
+    <td>Optional</td>
+    <td colspan="3">Specifies a page range to generate a partial report. The format is:<br/>
+<code class="middle">&lt;startPageNumber> - &lt;endPageNumber></code></td>
+  </tr>
+  <tr>
+    <td>async</td>
+    <td>false</td>
+    <td colspan="3">Determines whether <code class="text-nowrap">reportExecution</code> is synchronous or asynchronous. When set to
+    true, the response is sent immediately and the client must poll the report status and later download the result when ready. By default, this
+    property is false and the operation will wait until the report execution is complete, forcing the client to wait as well, but allowing the
+    client to download the report immediately after the response.</td>
+  </tr>
+  <tr>
+    <td>attachmentsPrefix</td>
+    <td>attachments</td>
+    <td colspan="3">For HTML output, this property specifies the URL path to use for downloading the attachment files (JavaScript and images). The full
+    path of the default value is:
+<br/><br/>
+<code class="middle">{contextPath}/rest_v2/reportExecutions/<br/>
+{reportExecutionId}/exports/<br/>
+{exportExecutionId}/attachments/</code>
+<br/><br/>
+You can specify a different URL path using the placeholders {contextPath}, {reportExecutionId}, and {exportExecutionId}.</td>
+  </tr>
+  <tr>
+    <td>baseUrl</td>
+    <td>String</td>
+    <td colspan="3">Specifies the base URL that the report will use to load static resources such as JavaScript files.</td>
+  </tr>
+  <tr>
+    <td>parameters</td>
+    <td>see example</td>
+    <td colspan="3">A list of parameters and their values.</td>
+  </tr>
+  <tr>
+    <td width="20%"></td>
+    <td width="20%"></td>
+    <td width="20%"></td>
+    <td width="20%"></td>
+    <td width="20%"></td>
+  </tr>
+</table>
+
+<p>When successful, the reply from the server contains the <code class="text-nowrap">reportExecution</code> descriptor. This descriptor contains the report execution ID and status needed in order for the client to request the output. There are two statuses, one for the
+report execution itself, and one for the chosen output format (see the example).</p>
+
+<p>The value of the <code>async</code> property in the request determines whether or not the report output is available when
+the response is received. Your client should implement either synchronous or asynchronous processing of the response
+depending on the value you set for the <code>async</code> property.</p>
+<h3 id='polling-report-execution'>Polling Report Execution</h3>
+<p>When requesting reports asynchronously, use the following method to poll the status of the report execution.
+The report execution ID in the URL is the one returned in the <code class="text-nowrap">reportExecution</code> descriptor. This service supports the extended status value that includes an appropriate message.</p>
+
+<table>
+  <tr>
+    <th>Method</th>
+    <th colspan="3">URL</th>
+  </tr>
+  <tr>
+    <td>GET</td>
+    <td colspan="3">http://&lt;host>:&lt;port>/jrio/<br/><b>rest_v2/reportExecutions</b>/executionID/<b>status</b>/</td>
+  </tr>
+  <tr>
+    <th colspan="2">Options</th>
+    <th colspan="2">Sample Return Value</th>
+  </tr>
+  <tr>
+    <td colspan="2">accept: application/json</td>
+    <td colspan="2"><code class="middle">{ "value": "ready" }</code></td>
+  </tr>
+  <tr>
+    <td colspan="2">accept: application/status+json</td>
+    <td colspan="2"><code class="middle">{<br/>
+&nbsp;&nbsp;"value": "failed",<br/>
+&nbsp;&nbsp;"errorDescriptor": {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;"message": "Input controls<br/>validation failure",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;"errorCode":<br/>"input.controls.validation.error",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;"parameters": ["Specify a valid value<br/>for type Integer."]<br/>
+&nbsp;&nbsp;}<br/>
+}</code></td>
+  </tr>
+  <tr>
+    <th colspan="2">Return Value on Success</th>
+    <th colspan="2">Typical Return Values on Failure</th>
+  </tr>
+  <tr>
+    <td colspan="2">200 OK – The content contains the report status, as shown above. In the extended format, error reports contain error messages suitable for display.</td>
+    <td colspan="2">404 Not Found – When the specified report execution ID does not exist</td>
+  </tr>
+  <tr>
+    <td width="25%"></td>
+    <td width="25%"></td>
+    <td width="25%"></td>
+    <td width="25%"></td>
+  </tr>
+</table>
+<h3 id='requesting-report-execution-details'>Requesting Report Execution Details</h3>
+<blockquote>
+<p>The reportExecution descriptor:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ready"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">47</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"requestId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b487a05a-4989-8b53-b2b9-b54752f998c4"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"reportURI"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/reports/samples/AllAccounts"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"exports"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"195a65cb-1762-450a-be2b-1196a02bb625"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"outputFormat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"html"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attachmentsPrefix"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./images/"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ready"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"outputResource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"contentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text/html"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"attachments"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="s2">"contentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fileName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_0_46_0"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"contentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fileName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_0_0_0"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"contentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/jpeg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fileName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_0_46_1"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4bac4889-0e63-4f09-bbe8-9593674f0700"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"outputFormat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"html"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attachmentsPrefix"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{contextPath}/rest_v2/reportExecutions/
+         {reportExecutionId}/exports/
+         {exportExecutionId}/attachments/"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"baseUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:8080/jrio"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ready"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"outputResource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"contentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text/html"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"attachments"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="s2">"contentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fileName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img_0_0_0"</span><span class="w">
+  </span><span class="p">}]</span><span class="w">
+  </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Once the report is ready, your client must determine the names of the files to download by requesting the <code class="text-nowrap">reportExecution</code> descriptor again. Specify the <span class="text-nowrap">executionID</span> in the URL as follows:</p>
+
+<table>
+ <tr>
+    <th>Method</th>
+    <th colspan="3">URL</th>
+  </tr>
+  <tr>
+    <td>GET</td>
+    <td colspan="3">http://&lt;host>:&lt;port>/jrio/<br/><b>rest_v2/reportExecutions</b>/executionID</td>
+  </tr>
+  <tr>
+    <th colspan="4">Options</th>
+  </tr>
+  <tr>
+    <td colspan="4">accept: application/json</td>
+  </tr>
+  <tr>
+    <th colspan="2">Return Value on Success</th>
+    <th colspan="2">Typical Return Values on Failure</th>
+  </tr>
+  <tr>
+    <td colspan="2">200 OK – The content contains a <code>ReportExecution</code> descriptor. See the example</td>
+    <td colspan="2">404 Not Found – When the report execution ID specified in the request does not exist.</td>
+  </tr>
+  <tr>
+    <td width="25%"></td>
+    <td width="25%"></td>
+    <td width="25%"></td>
+    <td width="25%"></td>
+  </tr>
+</table>
+
+<p>The <code>reportExecution</code> descriptor now contains the list of exports for the report, including the report output
+itself and any other file attachments. File attachments such as images and JavaScript occur only with HTML export.</p>
+
+<p><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/></p>
+<h3 id='requesting-page-status'>Requesting Page Status</h3>
+<p>When requesting reports asynchronously, use the following method to poll the page status during the report execution.
+The <code>executionId</code> in the URL is the one returned in the <code class="text-nowrap">reportExecution</code> descriptor. This
+service returns a response containing <code class="text-nowrap">reportStatus</code>, <code>pageFinal</code> and <code>pageTimestamp</code> attributes.</p>
+
+<table>
+  <tr>
+    <th>Method</th>
+    <th colspan="3">URL</th>
+  </tr>
+  <tr>
+    <td>GET</td>
+    <td colspan="3">http://&lt;host>:&lt;port>/jrio/<br/><b>rest_v2/reportExecutions</b>/{executionId}/<br/><b>pages</b>/{pages}/<b>status</b></td>
+  </tr>
+  <tr>
+    <th colspan="2">Options</th>
+    <th colspan="2">Sample Return Value</th>
+  </tr>
+  <tr>
+    <td colspan="2">accept: application/json</td>
+    <td colspan="2"><code class="middle">{<br/>
+&nbsp;&nbsp;"reportStatus": "ready",<br/>
+&nbsp;&nbsp;"pageTimestamp": "0", <br/>
+&nbsp;&nbsp;"pageFinal": "true" <br/>
+}</code></td>
+  </tr>
+  <tr>
+    <th colspan="2">Return Value on Success</th>
+    <th colspan="2">Typical Return Values on Failure</th>
+  </tr>
+  <tr>
+    <td colspan="2">200 OK – The content contains the page status, as shown above. In the extended format, error reports contain error messages suitable for display.</td>
+    <td colspan="2">404 Not Found – When the specified executionID does not exist</td>
+  </tr>
+  <tr>
+    <td width="25%"></td>
+    <td width="25%"></td>
+    <td width="25%"></td>
+    <td width="25%"></td>
+  </tr>
+</table>
+<h3 id='requesting-report-output'>Requesting Report Output</h3>
+<p>After requesting a report execution and waiting synchronously or asynchronously for it to finish, your client is
+ready to download the report output.</p>
+
+<p>Every export format of the report has an ID that is used to retrieve it.<br/>
+For example, the HTML export in the previous example has the ID
+<span class="text-nowrap">195a65cb-1762-450a-be2b-1196a02bb625</span>.
+To download the main report output, specify this export ID in the following method:</p>
+
+<blockquote>
+<p>For example, to download the main HTML of the report execution response above, use the following URL:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET http://localhost:8080/jrio/rest_v2/reportExecutions/
+b487a05a-4989-8b53-b2b9-b54752f998c4/exports/
+195a65cb-1762-450a-e2b-1196a02bb625/outputResource
+</code></pre>
+<table>
+ <tr>
+    <th>Method</th>
+    <th colspan="3">URL</th>
+  </tr>
+  <tr>
+    <td>GET</td>
+    <td colspan="3">http://&lt;host>:&lt;port>/jrio/<br/><b>rest_v2/reportExecutions</b>/executionID/<br/><b>exports</b>/exportID/<b>outputResource</b></td>
+  </tr>
+  <tr>
+    <th>Response Header</th>
+    <th colspan="3">Description</th>
+  </tr>
+  <tr>
+    <td>output-final</td>
+    <td colspan="3">This value indicates whether the output is in its final form or not.
+    When false, report items such as total page count are not finalized, but output is available early.
+    You should reload the output resource again until this value is true.</td>
+  </tr>
+  <tr>
+    <th colspan="2">Return Value on Success</th>
+    <th colspan="2">Typical Return Values on Failure</th>
+  </tr>
+  <tr>
+    <td colspan="2">200 OK – The content is the main output of the report, in the format specified by the <code>contentType</code> property
+    of the <code>outputResource</code> descriptor, for example: <code>text/html</code></td>
+    <td colspan="2">404 Not Found – When the report execution ID specified in the request does not exist.</td>
+  </tr>
+  <tr>
+    <td width="25%"></td>
+    <td width="25%"></td>
+    <td width="25%"></td>
+    <td width="25%"></td>
+  </tr>
+</table>
+
+<aside class="warning">
+JRIO does not support exporting Highcharts charts with background images to PDF,
+ODT, DOCX, or RTF formats. When exporting or downloading reports with Highcharts that have
+background images to these formats, the background image is removed from the chart. The data in the
+chart is not affected.
+</aside>
+
+<p>To download file attachments for HTML output, use the following method. You must download all attachments
+to display the HTML content properly. The given URL is the default path, but it can be modified with the
+<code class="text-nowrap">attachmentsPrefix</code> property in the <code class="text-nowrap">reportExecutionRequest</code>,
+as described in <a href="#table-13-1"><span class="text-nowrap">Report Execution Properties</span></a> table.</p>
+
+<blockquote>
+<p>For example, to download the one of the images for the HTML report execution response above, use the
+following URL:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET http://localhost:8080/jrio/rest_v2/reportExecutions/
+912382875_1366638024956_2/exports/html/attachments/img_0_46_0
+</code></pre>
+<table>
+ <tr>
+    <th>Method</th>
+    <th colspan="3">URL</th>
+  </tr>
+  <tr>
+    <td>GET</td>
+    <td colspan="3">http://&lt;host>:&lt;port>/jrio/<br/><b>rest_v2/reportExecutions</b>/executionID/<br/><b>exports</b>/exportID/<b>attachments</b>/fileName</td>
+  </tr>
+  <tr>
+    <th colspan="2">Return Value on Success</th>
+    <th colspan="2">Typical Return Values on Failure</th>
+  </tr>
+  <tr>
+    <td colspan="2">200 OK – The content is the attachment in the format specified in the <code>contentType</code> property of the
+    <code>attachment</code> descriptor, for example: <code>image/png</code></td>
+    <td colspan="2">404 Not Found – When the report execution ID specified in the request does not exist.</td>
+  </tr>
+  <tr>
+    <td width="25%"></td>
+    <td width="25%"></td>
+    <td width="25%"></td>
+    <td width="25%"></td>
+  </tr>
+</table>
+<h3 id='exporting-a-report-asynchronously'>Exporting a Report Asynchronously</h3>
+<p>After running a report and downloading its content in a given format, you can request the same report in other
+formats. As with exporting report formats through the user interface, the report does not run again because the
+export process is independent of the report.</p>
+
+<blockquote>
+<p>The following example shows the exportExecution descriptor that the server sends in response to the export request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"6b7ce8fa-f1d7-4d53-9af6-4569edb05d1b"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"queued"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table>
+ <tr>
+    <th>Method</th>
+    <th colspan="3">URL</th>
+  </tr>
+  <tr>
+    <td>POST</td>
+    <td colspan="3">http://&lt;host>:&lt;port>/jrio/<br/><b>rest_v2/reportExecutions</b>/executionID/<b>exports</b>/</td>
+  </tr>
+  <tr>
+    <th>Content-Type</th>
+    <th colspan="3">Content</th>
+  </tr>
+  <tr>
+    <td>application/json</td>
+    <td colspan="3">Send an <code>export</code> descriptor in JSON format to specify the format and details of your request. For example: <br/>
+<code class="middle">{<br/>
+&nbsp;&nbsp;"outputFormat": "html",<br/>
+&nbsp;&nbsp;"pages": "10-20",<br/>
+&nbsp;&nbsp;"attachmentsPrefix": "./images/"<br/>
+}</code></td>
+  </tr>
+  <tr>
+    <th colspan="4">Options</th>
+  </tr>
+  <tr>
+    <td colspan="4">accept: application/json</td>
+  </tr>
+  <tr>
+    <th colspan="2">Return Value on Success</th>
+    <th colspan="2">Typical Return Values on Failure</th>
+  </tr>
+  <tr>
+    <td colspan="2">200 OK – The content contains an <code>exportExecution</code> descriptor. See the example.</td>
+    <td colspan="2">404 Not Found – When the report execution ID specified in the request does not exist.</td>
+  </tr>
+  <tr>
+    <td width="25%"></td>
+    <td width="25%"></td>
+    <td width="25%"></td>
+    <td width="25%"></td>
+  </tr>
+</table>
+<h3 id='modifying-report-parameters'>Modifying Report Parameters</h3>
+<p>Use the following method to reexecute the report with a different set of parameter values:</p>
+
+<table>
+ <tr>
+    <th>Method</th>
+    <th colspan="5">URL</th>
+  </tr>
+  <tr>
+    <td>POST</td>
+    <td colspan="5">http://&lt;host>:&lt;port>/jrio/<br/><b>rest_v2/reportExecutions</b>/executionID/<b>parameters</b></td>
+  </tr>
+   <tr>
+    <th colspan="2">Media-Type</th>
+    <th colspan="4">Content</th>
+   </tr>
+   <tr>
+    <td colspan="2">application/json</td>
+    <td colspan="4"><code class="middle">[<br/>
+&nbsp;&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;"name":"someParameterName",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;"value":["value 1", "value 2"]<br/>
+&nbsp;&nbsp;},<br/>
+&nbsp;&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;"name":"someAnotherParameterName",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;"value":["another value"]<br/>
+&nbsp;&nbsp;}<br/>
+]</class></td>
+   </tr>
+   <tr>
+    <th colspan="3">Return Value on Success</th>
+    <th colspan="3">Typical Return Values on Failure</th>
+   </tr>
+   <tr>
+    <td colspan="3">204 No Content – There is no content to return.</td>
+    <td colspan="3">404 Not Found – When the report execution ID specified in the request does not exist.</td>
+   </tr>
+   <tr>
+    <td width="20%"></td>
+    <td width="20%"></td>
+    <td width="15%"></td>
+    <td width="15%"></td>
+    <td width="15%"></td>
+    <td></td>
+   </tr>
+</table>
+<h3 id='polling-export-execution'>Polling Export Execution</h3>
+<p>As with the execution of the main report, you can also poll the execution of the export process. This service
+supports the extended status value that includes an appropriate message.</p>
+
+<blockquote>
+<p>For example, to get the status of the HTML export in the previous example, use the following URL:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET http://localhost:8080/jrio/rest_v2/reportExecutions/
+912382875_1366638024956_2/exports/html/status
+</code></pre>
+<blockquote>
+<p>When the status is &quot;ready&quot; your client can download the new export output and any attachments as described in
+<a href="#requesting-report-output"><span class="text-nowrap">Requesting Report Output</span></a> section. For example:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET http://localhost:8080/jrio/rest_v2/reportExecutions/
+912382875_1366638024956_2/exports/html/outputResource
+
+GET http://localhost:8080/jrio/rest_v2/reportExecutions/
+912382875_1366638024956_2/exports/html/images/img_0_46_0
+</code></pre>
+<table>
+ <tr>
+    <th>Method</th>
+    <th colspan="5">URL</th>
+  </tr>
+  <tr>
+    <td>GET</td>
+    <td colspan="5">http://&lt;host>:&lt;port>/jrio/<br/><b>rest_v2/reportExecutions</b>/executionID/<b>exports</b>/exportID/<b>status</b></td>
+  </tr>
+   <tr>
+    <th colspan="2">Options</th>
+    <th colspan="4">Sample Return Value</th>
+   </tr>
+   <tr>
+    <td colspan="2">accept: application/json</td>
+    <td colspan="4"><code class="middle">{ "value": "ready" }</code></td>
+   </tr>
+   <tr>
+    <td colspan="2">accept: application/status+json</td>
+    <td colspan="4"><code class="middle">{<br/>
+&nbsp;&nbsp;"value": "failed",<br/>
+&nbsp;&nbsp;"errorDescriptor": {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;"message": "Input controls validation failure",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;"errorCode": "input.controls.validation.error",<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;"parameters": ["Specify a valid value<br/>for type Integer."]<br/>
+&nbsp;&nbsp;}<br/>
+}</code></td>
+   </tr>
+   <tr>
+    <th colspan="3">Return Value on Success</th>
+    <th colspan="3">Typical Return Values on Failure</th>
+   </tr>
+   <tr>
+    <td colspan="3">200 OK – The content contains the export status, as shown above. In the extended format, error reports contain error messages suitable for display.</td>
+    <td colspan="3">404 Not Found – When the specified report execution ID does not exist.</td>
+   </tr>
+   <tr>
+    <td width="20%"></td>
+    <td width="20%"></td>
+    <td width="15%"></td>
+    <td width="15%"></td>
+    <td width="15%"></td>
+    <td></td>
+   </tr>
+</table>
+<h3 id='stopping-running-reports'>Stopping Running Reports</h3>
+<p>To stop a report that is running and cancel its output, use the PUT method and specify a status of <code class="text-nowrap">cancelled</code> in the body of the request.</p>
+
+<table>
+ <tr>
+    <th>Method</th>
+    <th colspan="3">URL</th>
+  </tr>
+  <tr>
+    <td>PUT</td>
+    <td colspan="3">http://&lt;host>:&lt;port>/jrio/<br/><b>rest_v2/reportExecutions</b>/executionID/<b>status</b>/</td>
+  </tr>
+  <tr>
+    <th>Content-Type</th>
+    <th colspan="3">Content</th>
+  </tr>
+  <tr>
+    <td>application/json</td>
+    <td colspan="3">Send a <code>status</code> descriptor in JSON format with the value <code>cancelled</code>. For example:<br/>
+    <code class="middle">{ "value": "cancelled" }</code></td>
+  </tr>
+  <tr>
+    <th colspan="4">Options</th>
+  </tr>
+  <tr>
+    <td colspan="4">accept: application/json</td>
+  </tr>
+  <tr>
+    <th colspan="2">Return Value on Success</th>
+    <th colspan="2">Typical Return Values on Failure</th>
+  </tr>
+  <tr>
+    <td colspan="2">200 OK – When the report execution was successfully stopped, the server replies with the same status:<br/>
+ <code class="middle">{ "value": "cancelled" }</code><br/><br/>
+204 No Content – When the report specified by the report execution ID is not running, either because it finished running, failed, or was stopped by another process.</td>
+    <td colspan="2">404 Not Found – When the report execution ID specified in the request does not exist.</td>
+  </tr>
+  <tr>
+    <td width="25%"></td>
+    <td width="25%"></td>
+    <td width="25%"></td>
+    <td width="25%"></td>
+  </tr>
+</table>
+<h3 id='removing-report-execution'>Removing Report Execution</h3>
+<p>Use the DELETE method to remove a report execution from cache. If the report execution is still
+running, it will first be stopped automatically and then removed.</p>
+
+<table>
+  <tr>
+    <th>Method</th>
+    <th colspan="3">URL</th>
+  </tr>
+  <tr>
+    <td>DELETE</td>
+    <td colspan="3">http://&lt;host>:&lt;port>/jrio/<br/><b>rest_v2/reportExecutions</b>/&lt;executionID></td>
+  </tr>
+  <tr>
+    <th colspan="4">Options</th>
+  </tr>
+  <tr>
+    <td colspan="4">accept: application/json</td>
+  </tr>
+  <tr>
+    <th colspan="2">Return Value on Success</th>
+    <th colspan="2">Typical Return Values on Failure</th>
+  </tr>
+  <tr>
+    <td colspan="2">204 No Content – There is no content to return.</td>
+    <td colspan="2">204 No Content – When the specified execution ID is not found on the server.</td>
+  </tr>
+  <tr>
+    <td width="25%"></td>
+    <td width="25%"></td>
+    <td width="25%"></td>
+    <td width="25%"></td>
+  </tr>
+</table>
+<h1 id='javascript-api-samples'>Javascript API Samples</h1>
+<aside class="notice">
+The report viewer page used to view the sample reports in the <a href="#report-gallery">Report Gallery</a>
+section below has been created using the JRIO Javascript API and it is thus the ultimate example of using this API.
+</aside>
+<h3 id='basic-embed'>Basic Embed</h3>
+<p>Initialization of the jrio.js library with simple rendering of an HTML report.</p>
+
+<p><code>Try it:</code> <a href="http://jsfiddle.net/teodord/nyt7hkaL/" target="_blank">Simple report rendering</a>,
+<a href="http://jsfiddle.net/teodord/fv7tbw73/" target="_blank">from a list</a></p>
+
+<p>Use a common configuration to load multiple reports.</p>
+
+<p><code>Try it:</code> <a href="http://jsfiddle.net/teodord/khg5uajt/" target="_blank">Load multiple reports</a></p>
+<h3 id='pagination'>Pagination</h3>
+<p><code>Try it:</code> <a href="http://jsfiddle.net/teodord/399j5xgh/" target="_blank">Next/previous</a></p>
+<h3 id='report-parameters'>Report Parameters</h3>
+<p>Pass a simple set of hard-coded parameters to control report output. This can be expanded with custom input controls such as a drop-down.</p>
+
+<p><code>Try it:</code> <a href="http://jsfiddle.net/teodord/efjgetsf/" target="_blank">Parameter passing</a>,
+<a href="http://jsfiddle.net/teodord/2rt17kvk/" target="_blank">basic drop-down</a></p>
+<h3 id='hyperlinks'>Hyperlinks</h3>
+<p>Select a report hyperlink to open a new &quot;drill-down&quot; report with selected parameter.</p>
+
+<p><code>Try it:</code> <a href="http://jsfiddle.net/teodord/syshs63e/" target="_blank">Basic drill-down</a>,
+<a href="http://jsfiddle.net/teodord/bzsrg4dL/" target="_blank">open report in a new page</a></p>
+<h3 id='bookmarks'>Bookmarks</h3>
+<p>Click on the bookmarks to navigate to the page and anchor they point to.</p>
+
+<p><code>Try it:</code> <a href="http://jsfiddle.net/teodord/3aqbsn93/" target="_blank">Bookmarks</a></p>
+<h3 id='report-content-search'>Report content search</h3>
+<p>Search the report content for specific words or phrases.</p>
+
+<p><code>Try it:</code> <a href="http://jsfiddle.net/teodord/tzxqnvbe/" target="_blank">Search</a></p>
+<h3 id='events'>Events</h3>
+<p>Listen through events for a change in the page totals and report completed status.</p>
+
+<p><code>Try it:</code> <a href="http://jsfiddle.net/teodord/xgf7mgkg/" target="_blank">Page totals</a>,
+<a href="http://jsfiddle.net/teodord/edpndc8k/" target="_blank">reports status</a></p>
+<h3 id='ui-controls'>UI Controls</h3>
+<p>Dynamically control UI elements for table columns.</p>
+
+<p><code>Try it:</code> <a href="http://jsfiddle.net/teodord/j5at336q/" target="_blank">Table column sorting order</a>,
+<a href="http://jsfiddle.net/teodord/x6r1rgzx/" target="_blank">table column conditional formatting</a></p>
+<h3 id='export'>Export</h3>
+<p>Custom export options with various formats.</p>
+
+<p><code>Try it:</code> <a href="http://jsfiddle.net/teodord/rxx3nxhg/" target="_blank">Export formats</a></p>
+<h1 id='report-gallery'>Report Gallery</h1>
+<blockquote>
+<p><a href="https://community.jaspersoft.com/project/jaspersoft-studio" target="_blank">
+<img src="images/jaspersoft.studio.png" width="270px"/></a> <br/> Jaspersoft Studio</p>
+</blockquote>
+
+<p>This section presents a series of sample reports that are meant to show some of the basic reporting capabilities
+of the JasperReports Library, which are available through the REST API exposed by JRIO.</p>
+
+<aside class="notice">
+These reports were created using the <a href="https://community.jaspersoft.com/project/jaspersoft-studio" target="_blank">Jaspersoft Studio</a>,
+which is an advanced visual designer for the JasperReports Library templates.
+</aside>
+<h2 id='data-grouping'>Data Grouping</h2>
+<blockquote>
+<p><a href="viewer/viewer.html?jr_report_uri=/samples/reports/FirstJasper" target="_blank">
+<img src="images/reports/data.grouping.jpg" width="80px"/></a> <br/> Repository URI : <code>/samples/reports/FirstJasper</code></p>
+</blockquote>
+
+<p>This is a fairly complex report which displays customer orders grouped by country,
+in a list format that runs on two columns per page, from top to bottom and then from left to right.
+The report connects to a demo database through a JDBC data adapter and retrieves the orders by executing
+an SQL query found in the report template. The report also performs various group, column and page level
+calculations and displays the values formatted using special format patterns.</p>
+
+<p><code>Try it:</code>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/FirstJasper" target="_blank">VIEW</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/FirstJasper.pdf">PDF</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/FirstJasper.xlsx">XLSX</a></p>
+<h2 id='tables'>Tables</h2>
+<p>The following reports show how the built-in table component can be used and configured to produce interactive output
+in which table columns can be selected to open up a pop-up menu with options to format, hide, filter or sort the values.</p>
+
+<blockquote>
+<p><a href="viewer/viewer.html?jr_report_uri=/samples/reports/TableReport" target="_blank">
+<img src="images/reports/table.jpg" height="80px"/></a> <br/> Repository URI : <code>/samples/reports/TableReport</code> <br/></p>
+</blockquote>
+
+<p>The first table report uses a CSV data adapter (<code>CsvDataAdapter.xml</code>) to retrieve person information, including addresses.
+Data is grouped by <code>city</code> field, which is displayed once in the table group header. Clicking on the city name will open
+another report containing a map centered on that city coordinates.
+The table group footer displays the record count for the current city.</p>
+
+<p><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/TableReport" target="_blank">VIEW</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/TableReport.pdf">PDF</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/TableReport.xlsx">XLSX</a></p>
+
+<blockquote>
+<p><a href="viewer/viewer.html?jr_report_uri=/samples/reports/OrdersTable" target="_blank">
+<img src="images/reports/orders.table.jpg" height="80px"/></a> <br/> Repository URI : <code>/samples/reports/OrdersTable</code></p>
+</blockquote>
+
+<p>This second table report displays customer orders from a demo database table, which are grouped by city and filtered on a parameter 
+called <code>city</code> using a <em>contains characters</em> criteria. It signals if the shipped freight quantity is either above or below a certain 
+threshold specified by the optional <code>freight</code> parameter using either green or red arrows pointing up or down, respectively.</p>
+
+<p><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/OrdersTable" target="_blank">VIEW</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/OrdersTable.pdf">PDF</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/OrdersTable.xlsx">XLSX</a></p>
+
+<blockquote>
+<p><a href="viewer/viewer.html?jr_report_uri=/samples/reports/CustomersTable" target="_blank">
+<img src="images/reports/customers.table.jpg" width="80px"/></a> <br/> Repository URI : <code>/samples/reports/CustomersTable</code></p>
+</blockquote>
+
+<p>The third table report uses an XML data adapter (<code>northwindData.xml</code>) to retrieve the customers data from the <code>northwind.xml</code> file,
+which will be displayed in a table component.
+<br/>
+Orders for each customer are read from the same data file and get collected in a subreport that uses a table component as well.</p>
+
+<p><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/CustomersTable" target="_blank">VIEW</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/CustomersTable.pdf">PDF</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/CustomersTable.xlsx">XLSX</a></p>
+<h2 id='crosstabs'>Crosstabs</h2>
+<blockquote>
+<p><a href="viewer/viewer.html?jr_report_uri=/samples/reports/crosstabs/OrdersReport" target="_blank">
+<img src="images/reports/crosstabs.01.jpg" height="80px"/></a> <br/> Repository URI : <code>/samples/reports/crosstabs/OrdersReport</code></p>
+</blockquote>
+
+<p>This report connects to a demo database using a JDBC data adapter and retrieves customer orders using an SQL query
+that is stored in the report template itself.
+<br/>
+It then processes the customer orders and aggregates the information into a crosstab which displays the number of orders
+and the latest order date grouped by country on rows and by freight range on columns.</p>
+
+<p><code>Try it:</code>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/crosstabs/OrdersReport" target="_blank">VIEW</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/crosstabs/OrdersReport.pdf">PDF</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/crosstabs/OrdersReport.xlsx">XLSX</a></p>
+
+<blockquote>
+<p><a href="viewer/viewer.html?jr_report_uri=/samples/reports/crosstabs/ShipmentsReport" target="_blank">
+<img src="images/reports/crosstabs.02.jpg" height="80px"/></a> <br/> Repository URI : <code>/samples/reports/crosstabs/ShipmentsReport</code></p>
+</blockquote>
+
+<p>This second crosstab report uses the same customer order data, but aggregates orders freight by region
+and city on rows and by year and month on columns.
+<br/>
+Besides showing multi level grouping on both rows and columns, it also shows how a crosstab breaks and wraps
+when its width is larger than the page width.</p>
+
+<p><code>Try it:</code>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/crosstabs/ShipmentsReport" target="_blank">VIEW</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/crosstabs/ShipmentsReport.pdf">PDF</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/crosstabs/ShipmentsReport.xlsx">XLSX</a></p>
+<h2 id='charts-static'>Charts (Static)</h2>
+<p>The following reports connect to a demo database through a JDBC data adapter and retrieve orders data by performing an SQL query,
+also stored in the report template.
+<br/>
+Then they process the orders and aggregate the information to be displayed into various chart types, rendered with the
+<a href="http://www.jfree.org/jfreechart" target="_blank">JFreeChart</a> library. The available data is grouped by both
+country and by country&#39;s name first letter.</p>
+
+<blockquote>
+<p><a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/AreaChartReport" target="_blank"><img src="images/reports/charts.01.svg" height="60px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/BarChartReport" target="_blank"><img src="images/reports/charts.02.svg" height="60px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/Bar3DChartReport" target="_blank"><img src="images/reports/charts.03.svg" height="60px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/BubbleChartReport" target="_blank"><img src="images/reports/charts.04.svg" height="60px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/CandlestickChartReport" target="_blank"><img src="images/reports/charts.05.svg" height="60px"/></a>
+<br/>
+Repository URI : <code>/samples/reports/charts/AreaChartReport</code> <br/>
+Repository URI : <code>/samples/reports/charts/BarChartReport</code> <br/>
+Repository URI : <code>/samples/reports/charts/Bar3DChartReport</code> <br/>
+Repository URI : <code>/samples/reports/charts/BubbleChartReport</code> <br/>
+Repository URI : <code>/samples/reports/charts/CandlestickChartReport</code></p>
+
+<p><a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/GanttChartReport" target="_blank"><img src="images/reports/charts.06.svg" height="60px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/HighLowChartReport" target="_blank"><img src="images/reports/charts.07.svg" height="60px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/LineChartReport" target="_blank"><img src="images/reports/charts.08.svg" height="60px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/MeterChartReport" target="_blank"><img src="images/reports/charts.09.svg" height="60px"/></a>
+<br/>
+Repository URI : <code>/samples/reports/charts/GanttChartReport</code> <br/>
+Repository URI : <code>/samples/reports/charts/HighLowChartReport</code> <br/>
+Repository URI : <code>/samples/reports/charts/LineChartReport</code> <br/>
+Repository URI : <code>/samples/reports/charts/MeterChartReport</code></p>
+
+<p><a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/MultipleAxisChartReport" target="_blank"><img src="images/reports/charts.10.svg" height="60px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/PieChartReport" target="_blank"><img src="images/reports/charts.11.svg" height="60px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/Pie3DChartReport" target="_blank"><img src="images/reports/charts.12.svg" height="60px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/ScatterChartReport" target="_blank"><img src="images/reports/charts.13.svg" height="60px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/StackedAreaChartReport" target="_blank"><img src="images/reports/charts.14.svg" height="60px"/></a>
+<br/>
+Repository URI : <code>/samples/reports/charts/MultipleAxisChartReport</code> <br/>
+Repository URI : <code>/samples/reports/charts/PieChartReport</code> <br/>
+Repository URI : <code>/samples/reports/charts/Pie3DChartReport</code> <br/>
+Repository URI : <code>/samples/reports/charts/ScatterChartReport</code> <br/>
+Repository URI : <code>/samples/reports/charts/StackedAreaChartReport</code></p>
+
+<p><a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/StackedBarChartReport" target="_blank"><img src="images/reports/charts.15.svg" height="60px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/StackedBar3DChartReport" target="_blank"><img src="images/reports/charts.16.svg" height="60px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/ThermometerChartReport" target="_blank"><img src="images/reports/charts.17.svg" height="60px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/TimeSeriesChartReport" target="_blank"><img src="images/reports/charts.18.svg" height="60px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/XYAreaChartReport" target="_blank"><img src="images/reports/charts.19.svg" height="60px"/></a>
+<br/>
+Repository URI : <code>/samples/reports/charts/StackedBarChartReport</code> <br/>
+Repository URI : <code>/samples/reports/charts/StackedBar3DChartReport</code> <br/>
+Repository URI : <code>/samples/reports/charts/ThermometerChartReport</code> <br/>
+Repository URI : <code>/samples/reports/charts/TimeSeriesChartReport</code> <br/>
+Repository URI : <code>/samples/reports/charts/XYAreaChartReport</code></p>
+
+<p><a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/XYBarChartReport" target="_blank"><img src="images/reports/charts.20.svg" height="60px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/XYBarChartTimePeriodReport" target="_blank"><img src="images/reports/charts.21.svg" height="60px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/XYBarChartTimeSeriesReport" target="_blank"><img src="images/reports/charts.22.svg" height="60px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/XYLineChartReport" target="_blank"><img src="images/reports/charts.23.svg" height="60px"/></a>
+<br/>
+Repository URI : <code>/samples/reports/charts/XYBarChartReport</code> <br/>
+Repository URI : <code>/samples/reports/charts/XYBarChartTimePeriodReport</code> <br/>
+Repository URI : <code>/samples/reports/charts/XYBarChartTimeSeriesReport</code> <br/>
+Repository URI : <code>/samples/reports/charts/XYLineChartReport</code></p>
+</blockquote>
+<h3 id='chart-types'>Chart Types</h3>
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+<th style="text-align: right"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Area</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/AreaChartReport" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/AreaChartReport.pdf">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/AreaChartReport.xlsx">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>Bar</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/BarChartReport" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/BarChartReport.pdf">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/BarChartReport.xlsx">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>Bar 3D</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/Bar3DChartReport" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/Bar3DChartReport.pdf">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/Bar3DChartReport.xlsx">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>Bubble</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/BubbleChartReport" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/BubbleChartReport.pdf">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/BubbleChartReport.xlsx">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>Candlestick</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/CandlestickChartReport" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/CandlestickChartReport.pdf">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/CandlestickChartReport.xlsx">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>Gantt</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/GanttChartReport" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/GanttChartReport.pdf">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/GanttChartReport.xlsx">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>High Low</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/HighLowChartReport" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/HighLowChartReport.pdf">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/HighLowChartReport.xlsx">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>Line</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/LineChartReport" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/LineChartReport.pdf">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/LineChartReport.xlsx">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>Meter</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/MeterChartReport" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/MeterChartReport.pdf">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/MeterChartReport.xlsx">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>Multiple Axis</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/MultipleAxisChartReport" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/MultipleAxisChartReport.pdf">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/MultipleAxisChartReport.xlsx">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>Pie</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/PieChartReport" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/PieChartReport.pdf">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/PieChartReport.xlsx">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>Pie 3D</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/Pie3DChartReport" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/Pie3DChartReport.pdf">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/Pie3DChartReport.xlsx">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>Scatter</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/ScatterChartReport" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/ScatterChartReport.pdf">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/ScatterChartReport.xlsx">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>Stacked Area</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/StackedAreaChartReport" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/StackedAreaChartReport.pdf">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/StackedAreaChartReport.xlsx">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>Stacked Bar</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/StackedBarChartReport" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/StackedBarChartReport.pdf">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/StackedBarChartReport.xlsx">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>Stacked Bar 3D</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/StackedBar3DChartReport" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/StackedBar3DChartReport.pdf">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/StackedBar3DChartReport.xlsx">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>Thermometer</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/ThermometerChartReport" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/ThermometerChartReport.pdf">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/ThermometerChartReport.xlsx">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>Time Series</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/TimeSeriesChartReport" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/TimeSeriesChartReport.pdf">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/TimeSeriesChartReport.xlsx">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>XY Area</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/XYAreaChartReport" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/XYAreaChartReport.pdf">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/XYAreaChartReport.xlsx">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>XY Bar</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/XYBarChartReport" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/XYBarChartReport.pdf">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/XYBarChartReport.xlsx">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>XY Bar Time Period</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/XYBarChartTimePeriodReport" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/XYBarChartTimePeriodReport.pdf">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/XYBarChartTimePeriodReport.xlsx">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>XY Bar Time Series</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/XYBarChartTimeSeriesReport" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/XYBarChartTimeSeriesReport.pdf">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/XYBarChartTimeSeriesReport.xlsx">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>XY Line</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/charts/XYLineChartReport" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/XYLineChartReport.pdf">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/charts/XYLineChartReport.xlsx">XLSX</a></td>
+</tr>
+</tbody></table>
+<h3 id='chart-themes'>Chart Themes</h3>
+<blockquote>
+<p><a href="viewer/viewer.html?jr_report_uri=/samples/reports/chartthemes/ChartThemesReport" target="_blank"><img src="images/reports/chart.themes.01.svg" height="50px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/chartthemes/ChartThemesReport&page=3" target="_blank"><img src="images/reports/chart.themes.02.svg" height="50px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/chartthemes/ChartThemesReport&page=4" target="_blank"><img src="images/reports/chart.themes.03.svg" height="50px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/chartthemes/ChartThemesReport&page=5" target="_blank"><img src="images/reports/chart.themes.04.svg" height="50px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/chartthemes/ChartThemesReport&page=7" target="_blank"><img src="images/reports/chart.themes.05.svg" height="50px"/></a>
+<br/>
+Repository URI : <code>/samples/reports/chartthemes/ChartThemesReport</code></p>
+
+<p><a href="viewer/viewer.html?jr_report_uri=/samples/reports/chartthemes/ChartThemesReport&chartTheme=aegean" target="_blank"><img src="images/reports/chart.themes.06.svg" height="50px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/chartthemes/ChartThemesReport&chartTheme=aegean&page=3" target="_blank"><img src="images/reports/chart.themes.07.svg" height="50px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/chartthemes/ChartThemesReport&chartTheme=aegean&page=4" target="_blank"><img src="images/reports/chart.themes.08.svg" height="50px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/chartthemes/ChartThemesReport&chartTheme=aegean&page=5" target="_blank"><img src="images/reports/chart.themes.09.svg" height="50px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/chartthemes/ChartThemesReport&chartTheme=aegean&page=7" target="_blank"><img src="images/reports/chart.themes.10.svg" height="50px"/></a>
+<br/>
+Repository URI : <code>/samples/reports/chartthemes/ChartThemesReport</code></p>
+</blockquote>
+
+<p>This report retrieves sales data from various CSV data files, based on report subdatasets that use CSV data adapters.
+<br/>
+The sales data is then processed and aggregated to be displayed into various chart types, rendered with the
+<a href="http://www.jfree.org/jfreechart" target="_blank">JFreeChart</a> library.
+All charts in the report share the same chart theme who&#39;s name can be passed in as <code>chartTheme</code> report parameter.</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+<th style="text-align: right"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Eye Candy Sixties</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/chartthemes/ChartThemesReport" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/chartthemes/ChartThemesReport.pdf">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/chartthemes/ChartThemesReport.xlsx">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>Aegean</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/chartthemes/ChartThemesReport&chartTheme=aegean" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/chartthemes/ChartThemesReport.pdf?chartTheme=aegean">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/chartthemes/ChartThemesReport.xlsx?chartTheme=aegean">XLSX</a></td>
+</tr>
+</tbody></table>
+<h3 id='chart-customizers'>Chart Customizers</h3>
+<blockquote>
+<p><a href="viewer/viewer.html?jr_report_uri=/samples/reports/chartcustomizers/ChartCustomizersReport" target="_blank"><img src="images/reports/chart.customizers.01.svg" height="80px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/chartcustomizers/ChartCustomizersReport" target="_blank"><img src="images/reports/chart.customizers.02.svg" height="80px"/></a>
+<br/>
+Repository URI : <code>/samples/reports/chartcustomizers/ChartCustomizersReport</code></p>
+</blockquote>
+
+<p>This report uses report subdatasets to retrieve sales data from two CSV data files (<code>category.csv</code> and  <code>xy.csv</code>) based on built-in CSV data adapters.
+<br/>
+Then the data is processed and aggregated to be displayed into a customized bar chart / XY line chart, based on specific chart customizer classes.
+The customized bar chart displays star-like legend shapes and a category marker placed on a given category (<code>sally</code>).
+The customized XY line chart displays step lines with no shapes.</p>
+
+<p><code>Try it:</code>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/chartcustomizers/ChartCustomizersReport" target="_blank">VIEW</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/chartcustomizers/ChartCustomizersReport.pdf">PDF</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/chartcustomizers/ChartCustomizersReport.xlsx">XLSX</a></p>
+<h2 id='charts-pro-interactive'>Charts Pro (Interactive)</h2>
+<blockquote>
+<p><a href="viewer/viewer.html?jr_report_uri=/samples/reports/highcharts/HighchartsChart" target="_blank"><img src="images/reports/highcharts.01.jpg" height="80px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/highcharts/HighchartsChart" target="_blank"><img src="images/reports/highcharts.02.jpg" height="80px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/highcharts/HighchartsChart" target="_blank"><img src="images/reports/highcharts.03.jpg" height="80px"/></a>
+<br/>
+Repository URI : <code>/samples/reports/highcharts/HighchartsChart</code></p>
+</blockquote>
+
+<p>The <code>HighchartsChart</code> report connects to a CSV data file through a CSV data adapter to retrieve customer orders data.
+<br/>
+This data is then processed and aggregated to be displayed into various chart types, rendered with the
+<a href="https://www.highcharts.com" target="_blank">Highcharts</a> library. The orders are filtered by country name and grouped by regions.
+<br/>
+The report presents two interactive charts: pie and multiaxis. Tooltips appear when mouse comes over a given region
+in the pie chart or over a given point or bar in the multiaxis chart.
+One can change the chart type by clicking on the <code>Chart Types...</code> button displayed near each chart.
+A dialog will open with available chart types and we can then select the desired type.
+The related chart will change automatically to the new type.</p>
+
+<p><code>Try it:</code>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/highcharts/HighchartsChart" target="_blank">VIEW</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/highcharts/HighchartsChart.pdf">PDF</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/highcharts/HighchartsChart.xlsx">XLSX</a></p>
+
+<!--
+> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/fusion/FusionChart" target="_blank"><img src="images/reports/fusion.charts.01.jpg" height="80px"/></a>
+<br/>
+Repository URI : `/samples/reports/fusion/FusionChart` <br/>
+
+The `FusionChart` report is generated using the <a href="https://www.fusioncharts.com/" target="_blank">Fusion Charts</a> library. It connects to a demo database through a JDBC data adapter and retrieves orders data grouped by state region. The information is then processed to be rendered in the form of a animated bar chart displaying the number of orders per state. Tooltips appear when mouse comes over a given bar in this chart. Several chart properties (such as `animation`, `placeValuesInside`,`use3DLighting`, etc) were set in order to configure the particular L&F of the chart.
+
+`Try it:`
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/fusion/FusionChart" target="_blank">VIEW</a> &#149;
+[PDF](/jrio/rest_v2/reports/samples/reports/fusion/FusionChart.pdf) &#149;
+[XLSX](/jrio/rest_v2/reports/samples/reports/fusion/FusionChart.xlsx)
+
+> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/fusion/FusionGantt" target="_blank"><img src="images/reports/fusion.gantt.01.jpg" height="80px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/fusion/FusionGanttMulti" target="_blank"><img src="images/reports/fusion.gantt.02.jpg" height="80px"/></a>
+<br/>
+Repository URI : `/samples/reports/fusion/FusionGantt` <br/>
+Repository URI : `/samples/reports/fusion/FusionGanttMulti` <br/>
+
+Both `FusionGantt` and `FusionGanttMulti` reports are based on <a href="https://www.fusioncharts.com/dev/chart-guide/advanced-charts/gantt-chart/introduction">Fusion Gantt Chart</a> and show how this component can be embedded into a report. These reports connect to XML data files through XML data adapters to retrieve task data that are processed and aggregated for a proper Gantt chart representation. The `FusionGantt` represents monthly allocated tasks along with their milestones, while `FusionGanttMulti` describes a daily distribution of tasks per team employee.
+
+| | | |
+|---|---|---:|
+| **Fusion Gantt** | | `Try it:` <a href="viewer/viewer.html?jr_report_uri=/samples/reports/fusion/FusionGantt" target="_blank">VIEW</a> &#149; [PDF](/jrio/rest_v2/reports/samples/reports/fusion/FusionGantt.pdf) &#149; [XLSX](/jrio/rest_v2/reports/samples/reports/fusion/FusionGantt.xlsx) |
+| **Fusion Gantt Multi** | | `Try it:` <a href="viewer/viewer.html?jr_report_uri=/samples/reports/fusion/FusionGanttMulti" target="_blank">VIEW</a> &#149; [PDF](/jrio/rest_v2/reports/samples/reports/fusion/FusionGanttMulti.pdf) &#149; [XLSX](/jrio/rest_v2/reports/samples/reports/fusion/FusionGanttMulti.xlsx) |
+
+> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/fusion/FusionWidgets" target="_blank"><img src="images/reports/fusion.widgets.01.jpg" height="80px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/fusion/FusionWidgets" target="_blank"><img src="images/reports/fusion.widgets.02.jpg" height="80px"/></a>
+<br/>
+Repository URI : `/samples/reports/fusion/FusionWidgets` </br/>
+
+The `FusionWidgets` report rely on advanced features of the <a href="https://www.fusioncharts.com/" target="_blank">Fusion Charts</a> library, such as gauges and widgets, funnel chart, pyramid, etc. It exposes a collection of these components, each one displaying a particular set of sample data.
+
+`Try it:`
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/fusion/FusionWidgets" target="_blank">VIEW</a> &#149;
+[PDF](/jrio/rest_v2/reports/samples/reports/fusion/FusionWidgets.pdf) &#149;
+[XLSX](/jrio/rest_v2/reports/samples/reports/fusion/FusionWidgets.xlsx)
+
+-->
+<h2 id='images'>Images</h2>
+<blockquote>
+<p><a href="viewer/viewer.html?jr_report_uri=/samples/reports/ImagesReport" target="_blank">
+<img src="images/reports/images.01.jpg" height="100px"/></a> <br/><br/>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/ImagesReport" target="_blank">
+<img src="images/reports/images.02.jpg" height="80px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/ImagesReport" target="_blank">
+<img src="images/reports/images.03.jpg" height="80px"/></a> <br/>
+Repository URI : <code>/samples/reports/ImagesReport</code></p>
+</blockquote>
+
+<p>This report shows how various image types (JPEG, GIF, SVG, PNG, TIFF) can be embedded into a report. Images are collected from different locations, including the local file system and network URLs. The <code>scaleImage</code> attribute is used to adjust/clip the image size within its container. Some of the images provide hyperlinks.</p>
+
+<p><code>Try it:</code>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/ImagesReport" target="_blank">VIEW</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/ImagesReport.pdf">PDF</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/ImagesReport.xlsx">XLSX</a></p>
+<h2 id='barcodes'>Barcodes</h2>
+<blockquote>
+<p><a href="viewer/viewer.html?jr_report_uri=/samples/reports/Barcode4JReport" target="_blank">
+<img src="images/reports/barcodes.01.jpg" height="80px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/Barcode4JReport" target="_blank">
+<img src="images/reports/barcodes.02.jpg" height="80px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/Barcode4JReport" target="_blank">
+<img src="images/reports/barcodes.03.jpg" height="80px"/></a> <br/>
+Repository URI : <code>/samples/reports/Barcode4JReport</code></p>
+</blockquote>
+
+<p>The <code>Barcode4JReport</code> shows how barcode images generated either with the <a href="http://barcode4j.sourceforge.net" target="_blank">Barcode4J</a> library or with  the Google <a href="https://opensource.google.com/projects/zxing" target="_blank">zxing</a> library (for the QRCode component) can be embedded into a report.</p>
+
+<p><code>Try it:</code>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/Barcode4JReport" target="_blank">VIEW</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/Barcode4JReport.pdf">PDF</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/Barcode4JReport.xlsx">XLSX</a></p>
+
+<blockquote>
+<p><a href="viewer/viewer.html?jr_report_uri=/samples/reports/barbecue/BarbecueReport" target="_blank">
+<img src="images/reports/barbecue.jpg" height="80px"/></a> <br/>
+Repository URI : <code>/samples/reports/barbecue/BarbecueReport</code></p>
+</blockquote>
+
+<p>The <code>BarbecueReport</code> shows how barcode images generated with the <a href="http://barbecue.sourceforge.net" target="_blank">Barbecue</a> library
+can be embedded into a report.</p>
+
+<p><code>Try it:</code>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/barbecue/BarbecueReport" target="_blank">VIEW</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/barbecue/BarbecueReport.pdf">PDF</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/barbecue/BarbecueReport.xlsx">XLSX</a></p>
+<h2 id='maps'>Maps</h2>
+<blockquote>
+<p><a href="viewer/viewer.html?jr_report_uri=/samples/reports/MapReport" target="_blank">
+<img src="images/reports/google.map.01.jpg" height="80px"/></a> <br/> Repository URI : <code>/samples/reports/MapReport</code></p>
+</blockquote>
+
+<p>The Google Map report (<code>MapReport</code>) shows how Google maps can be embedded into a report, based on the built-in Google map component. Both markers and paths are supported by this component. The main report connects to an empty data adapter with 5 records, and 5 different map components are loaded as subreports into detail sections. In order to configure maps, markers and paths data are supplied through report subdatasets using CSV data adapters (<code>MapCsvDataAdapter.xml</code>, <code>PathLocationDataAdapter.xml</code>, <code>PathStyleDataAdapter.xml</code>) to connect to data files.</p>
+
+<p><code>Try it:</code>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/MapReport" target="_blank">VIEW</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/MapReport.pdf">PDF</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/MapReport.xlsx">XLSX</a></p>
+
+<!--
+Both following reports are based on the <a href="https://www.fusioncharts.com/dev/map-guide/setup">Fusion Maps</a> library:
+
+> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/fusion/FusionMap" target="_blank"><img src="images/reports/fusion.map.01.jpg" height="80px"/></a>
+<br/>
+Repository URI : `/samples/reports/fusion/FusionMap`
+
+The `FusionMap` report connects to a demo database to retrieve orders filtered by country (`"USA"`). An animated country states map is then displayed, with each state's color depending on its total freight quantity, which can be "Low" (0 - 100), "Medium" (100 - 1000) and "High" (1000 - 5000). When mouse comes over a given state a tooltip will appear while the background color will change.
+<br/>
+States with medium and high freight quantity are also pinned with various markers.
+
+`Try it:`
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/fusion/FusionMap" target="_blank">VIEW</a> &#149;
+[PDF](/jrio/rest_v2/reports/samples/reports/fusion/FusionMap.pdf) &#149;
+[XLSX](/jrio/rest_v2/reports/samples/reports/fusion/FusionMap.xlsx)
+
+> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/fusion/WorldMap" target="_blank"><img src="images/reports/fusion.map.02.jpg" height="80px"/></a>
+<br/>
+Repository URI : `/samples/reports/fusion/WorldMap`
+
+The `WorldMap` presents an animated world map with all countries. Tooltips will appear and the background color will change when the mouse comes over a given country.
+
+`Try it:`
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/fusion/WorldMap" target="_blank">VIEW</a> &#149;
+[PDF](/jrio/rest_v2/reports/samples/reports/fusion/WorldMap.pdf) &#149;
+[XLSX](/jrio/rest_v2/reports/samples/reports/fusion/WorldMap.xlsx)
+
+-->
+<h2 id='internationalization'>Internationalization</h2>
+<blockquote>
+<p><a href="viewer/viewer.html?jr_report_uri=/samples/reports/unicode/UnicodeReport" target="_blank">
+<img src="images/reports/unicode.01.jpg" height="80px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/unicode/UnicodeReport" target="_blank">
+<img src="images/reports/unicode.02.jpg" height="80px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/unicode/UnicodeReport" target="_blank">
+<img src="images/reports/unicode.03.jpg" height="80px"/></a> <br/>
+Repository URI : <code>/samples/reports/unicode/UnicodeReport</code></p>
+</blockquote>
+
+<p>The <code>UnicodeReport</code> shows how Unicode characters can be rendered into a report. It uses either the <code>\uXXXX</code> unicode character notation or the character itself, since the JRXML file encoding is set by default to <code>&quot;UTF-8&quot;</code>. In order to properly represent these characters, the report makes use of 3 font libraries added as font extensions: <a href="https://dejavu-fonts.github.io" target="_blank">DejaVu</a>, <a href="https://www.fonts.com/browse/designers/arphic-font-design-team" target="_blank">Arphic</a> and <a href="https://www.google.com/get/noto" target="_blank">Google Noto</a>.</p>
+
+<p><code>Try it:</code>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/unicode/UnicodeReport" target="_blank">VIEW</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/unicode/UnicodeReport.pdf">PDF</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/unicode/UnicodeReport.xlsx">XLSX</a></p>
+
+<p>The internationalized <code>I18nReport</code> illustrates how resource bundle files can be used to render the same report in different languages. In order to do so, it sets the <code>resourceBundle</code> attribute with the appropriate path value for the resource bundle files location: <code>resourceBundle=&quot;/samples/reports/i18n/i18n&quot;</code>. To render a i18n text, the report uses the <code>$R{}</code> syntax. It can be rendered in the following languages:</p>
+
+<blockquote>
+<p><a href="viewer/viewer.html?jr_report_uri=/samples/reports/i18n/I18nReport&reportLocale=de_DE" target="_blank">
+<img src="images/reports/i18n.01.jpg" height="80px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/i18n/I18nReport&reportLocale=fr_FR" target="_blank">
+<img src="images/reports/i18n.02.jpg" height="80px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/i18n/I18nReport&reportLocale=pt_PT" target="_blank">
+<img src="images/reports/i18n.03.jpg" height="80px"/></a>
+<br/><br/>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/i18n/I18nReport&reportLocale=ro" target="_blank">
+<img src="images/reports/i18n.04.jpg" height="80px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/i18n/I18nReport&reportLocale=en" target="_blank">
+<img src="images/reports/i18n.05.jpg" height="80px"/></a>
+<br/>
+Repository URI : <code>/samples/reports/unicode/i18n/I18nReport</code></p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+<th style="text-align: right"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>German</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/i18n/I18nReport&reportLocale=de_DE" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/i18n/I18nReport.pdf?reportLocale=de_DE">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/i18n/I18nReport.xlsx?reportLocale=de_DE">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>English</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/i18n/I18nReport&reportLocale=en" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/i18n/I18nReport.pdf?reportLocale=en">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/i18n/I18nReport.xlsx?reportLocale=en">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>French</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/i18n/I18nReport&reportLocale=fr_FR" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/i18ni18n/I18nReport.pdf?reportLocale=fr_FR">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/i18n/I18nReport.xlsx?reportLocale=fr_FR">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>Portuguese</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/i18n/I18nReport&reportLocale=pt_PT" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/i18n/I18nReport.pdf?reportLocale=pt_PT">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/i18n/I18nReport.xlsx?reportLocale=pt_PT">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>Romanian</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/i18n/I18nReport&reportLocale=ro" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/i18n/I18nReport.pdf?reportLocale=ro">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/i18n/I18nReport.xlsx?reportLocale=ro">XLSX</a></td>
+</tr>
+</tbody></table>
+<h2 id='styled-text'>Styled Text</h2>
+<blockquote>
+<p><a href="viewer/viewer.html?jr_report_uri=/samples/reports/markup/MarkupReport" target="_blank">
+<img src="images/reports/markup.01.jpg" height="60px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/markup/MarkupReport" target="_blank">
+<img src="images/reports/markup.02.jpg" height="60px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/markup/MarkupReport" target="_blank">
+<img src="images/reports/markup.03.jpg" height="60px"/></a> <br/>
+Repository URI : <code>/samples/reports/markup/MarkupReport</code></p>
+</blockquote>
+
+<p>The <code>MarkupReport</code> shows how various types of styled text can be used in report, by setting the <code>markup</code> attribute of the element with one of the following values:
+<ul>
+<li><code>none</code> - text is interpreted as plain text, with no local style attributes</li>
+<li><code>styled</code> - text is considered as marked with JasperReports styled text features</li>
+<li><code>html</code> - text is interpreted as HTML markup</li>
+<li><code>rtf</code> - text is interpreted as RTF markup</li>
+</ul></p>
+
+<p><code>Try it:</code>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/markup/MarkupReport" target="_blank">VIEW</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/markup/MarkupReport.pdf">PDF</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/markup/MarkupReport.xlsx">XLSX</a></p>
+<h2 id='hyperlinks-2'>Hyperlinks</h2>
+<blockquote>
+<p><a href="viewer/viewer.html?jr_report_uri=/samples/reports/HyperlinkReport" target="_blank">
+<img src="images/reports/hyperlinks.01.jpg" width="80px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/HyperlinkReport&page=2" target="_blank">
+<img src="images/reports/hyperlinks.02.jpg" width="80px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/HyperlinkReport&page=3" target="_blank">
+<img src="images/reports/hyperlinks.03.jpg" width="80px"/></a> <br/>
+Repository URI : <code>/samples/reports/HyperlinkReport</code></p>
+</blockquote>
+
+<p>This report shows how hyperlinks of different types, such as:
+<ul>
+<li><code>LocalAnchor</code></li>
+<li><code>LocalPage</code></li>
+<li><code>Reference</code></li>
+<li><code>RemoteAnchor</code></li>
+</ul></p>
+
+<p>can be configured and used within a report.</p>
+
+<p><code>Try it:</code>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/HyperlinkReport" target="_blank">VIEW</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/HyperlinkReport.pdf">PDF</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/HyperlinkReport.xlsx">XLSX</a></p>
+<h2 id='report-books'>Report Books</h2>
+<p>The following reports are based on report parts, used instead of bands inside report sections. A report part is somehow similar to a subreport, but pages generated from a part are directly included within the generated report, and not embedded into the pages of the parent report. One of the main advantages of using a report part is that each part may have its own page layout settings, therefore the generated document can consist in sections with different page layout and L&amp;F settings. Also, table of contents sections can be easily generated, based on available local anchor elements and bookmark levels set in the report.</p>
+
+<blockquote>
+<p><a href="viewer/viewer.html?jr_report_uri=/samples/reports/book/BookReport" target="_blank">
+<img src="images/reports/book.01.jpg" width="80px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/book/BookReport&page=4" target="_blank">
+<img src="images/reports/book.02.jpg" height="80px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/book/BookReport&page=5" target="_blank">
+<img src="images/reports/book.03.jpg" width="80px"/></a> <br/>
+Repository URI : <code>/samples/reports/book/BookReport</code></p>
+</blockquote>
+
+<p>The <code>BookReport</code> report is made of 3 report parts: <code>Table of Contents</code>, <code>Overview</code> and <code>Shipments</code>. It connects to a demo database through a JDBC data adapter and retrieves data by performing a SQL query stored in the report template. The <code>Overview</code> and <code>Shipments</code> parts use the same connection to retrieve their data.
+<br/>
+The <code>Table of Contents</code> section is generated using the <code>net.sf.jasperreports.bookmarks.data.source.parameter</code> property, which tells about the bookmarks datasource object. In our case the property value is set to <code>&quot;REPORT_DATA_SOURCE&quot;</code>, instructing the JR engine that report bookmarks should be used directly to populate the bookmark datasource.
+<br/>
+The <code>Overview</code> part processes the customer orders collected from the demo database and aggregates the information into a crosstab which displays the number of orders and the latest order date grouped by country on rows and by freight range on columns. The page layout orientation for this section is set as <code>Landscape</code>.
+<br/>
+The <code>Shipments</code> part is placed in the <code>detail</code> section of the report, so it will be loaded once per each distinct country in the report datasource. For a given country orders data are grouped by city and represented in the form of both a pie chart and a table. The page layout orientation for this section is set back as <code>Portrait</code>.</p>
+
+<p><code>Try it:</code>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/book/BookReport" target="_blank">VIEW</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/book/BookReport.pdf">PDF</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/book/BookReport.xlsx">XLSX</a></p>
+
+<blockquote>
+<p><a href="viewer/viewer.html?jr_report_uri=/samples/reports/tableofcontents/TableOfContentsReport" target="_blank">
+<img src="images/reports/toc.01.jpg" width="80px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/tableofcontents/TableOfContentsReport&page=2" target="_blank">
+<img src="images/reports/toc.02.jpg" width="80px"/></a> <br/>
+Repository URI : <code>/samples/reports/tableofcontents/TableOfContentsReport</code></p>
+</blockquote>
+
+<p>The <code>TableOfContentsReport</code> is made of 2 report parts: <code>Table of Contents</code> and <code>Countries</code>. It connects to a demo database through a JDBC data adapter to retrieve the total number of orders. The <code>Countries</code> part uses the same connection to retrieve orders. Data is then grouped by the first letter of the country name and further by the county name. It is displayed in a table-like structure.
+<br/>
+To be generated, the <code>Table of Contents</code> section needs a bookmark datasource, characterized by 3 fields:
+<ul>
+<li>level - used to indent entries in the TOC</li>
+<li>label - the bookmark label</li>
+<li>pageIndex - the temporary page index where the bookmark is anchored in</li>
+</ul></p>
+
+<p>When the <code>net.sf.jasperreports.bookmarks.data.source.parameter</code> property is set to <code>&quot;REPORT_DATA_SOURCE&quot;</code>, this tells the JR engine that report bookmarks should be used to populate the bookmark datasource.
+<br/>
+One can see in the <code>Table of Contents</code> section country names&#39; starting letter as bookmarks of level 1, and subsequent country names as bookmarks of level 2.</p>
+
+<p><code>Try it:</code>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/tableofcontents/TableOfContentsReport" target="_blank">VIEW</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/tableofcontents/TableOfContentsReport.pdf">PDF</a> &#149;
+<a href="/jrio/rest_v2/reports/samples/reports/tableofcontents/TableOfContentsReport.xlsx">XLSX</a></p>
+<h2 id='custom-visualizations'>Custom Visualizations</h2>
+<blockquote>
+<p><a href="viewer/viewer.html?jr_report_uri=/samples/reports/cvc/Figures" target="_blank"><img src="images/reports/cvc.01.jpg" height="60px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/cvc/LeafletMarkers" target="_blank"><img src="images/reports/cvc.02.jpg" height="60px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/cvc/RadialProgress" target="_blank"><img src="images/reports/cvc.03.jpg" height="60px"/></a>
+<a href="viewer/viewer.html?jr_report_uri=/samples/reports/cvc/Sparkline" target="_blank"><img src="images/reports/cvc.04.jpg" height="60px"/></a>
+<br/>
+Repository URI : <code>/samples/reports/cvc/Figures</code> <br/>
+Repository URI : <code>/samples/reports/cvc/LeafletMarkers</code> <br/>
+Repository URI : <code>/samples/reports/cvc/RadialProgress</code> <br/>
+Repository URI : <code>/samples/reports/cvc/Sparkline</code></p>
+</blockquote>
+
+<p>The Custom Visualization Components are an extension point that the JasperReports Library exposes to allow you to embed third-party Javascript-based visualizations into the reports.
+<br/>
+The following reports show a few basic examples of custom-made visualizations that leverage <a href="https://d3js.org" target="_blank">D3</a>, 
+<a href="https://leafletjs.com" target="_blank">Leaflet</a> and other Javascript libraries to render interactive and animated graphics.</p>
+
+<aside class="warning">
+In order to export these reports containing Custom Visualization Components into PDF and other non-HTML document formats, the graphics need to be rendered to static images during the export process on the server side. This server side rendering uses either the <a href="http://phantomjs.org" target="_blank">PhantomJS</a> or the <a href="https://slimerjs.org" target="_blank">SlimerJS</a> for headless web content rendering and needs to be configured as explained in the <a href="#server-side-rendering">Server Side Rendering</a> section.
+</aside>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+<th style="text-align: right"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Figures</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/cvc/Figures" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/cvc/Figures.pdf">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/cvc/Figures.xlsx">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>Leaflef Markers</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/cvc/LeafletMarkers" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/cvc/LeafletMarkers.pdf">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/cvc/LeafletMarkers.xlsx">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>Radial Progress</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/cvc/RadialProgress" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/cvc/RadialProgress.pdf">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/cvc/RadialProgress.xlsx">XLSX</a></td>
+</tr>
+<tr>
+<td><strong>Sparkline</strong></td>
+<td></td>
+<td style="text-align: right"><code>Try it:</code> <a href="viewer/viewer.html?jr_report_uri=/samples/reports/cvc/Sparkline" target="_blank">VIEW</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/cvc/Sparkline.pdf">PDF</a> &#149; <a href="/jrio/rest_v2/reports/samples/reports/cvc/Sparkline.xlsx">XLSX</a></td>
+</tr>
+</tbody></table>
+<h2 id='other-reports'>Other Reports</h2>
+<table><thead>
+<tr>
+<th>Repo URI</th>
+<th>PDF</th>
+<th>Excel</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="viewer/viewer.html?jr_report_uri=/samples/reports/fonts/FontsReport" target="_blank">/samples/reports/fonts/FontsReport</a></td>
+<td><a href="/jrio/rest_v2/reports/samples/reports/fonts/FontsReport.pdf" target="_blank">PDF</a></td>
+<td><a href="/jrio/rest_v2/reports/samples/reports/fonts/FontsReport.xlsx" target="_blank">XLSX</a></td>
+</tr>
+<tr>
+<td><a href="viewer/viewer.html?jr_report_uri=/samples/reports/NoPagesReport" target="_blank">/samples/reports/NoPagesReport</a></td>
+<td><a href="/jrio/rest_v2/reports/samples/reports/NoPagesReport.pdf" target="_blank">PDF</a></td>
+<td><a href="/jrio/rest_v2/reports/samples/reports/NoPagesReport.xlsx" target="_blank">XLSX</a></td>
+</tr>
+<tr>
+<td><a href="viewer/viewer.html?jr_report_uri=/samples/reports/SlowReport" target="_blank">/samples/reports/SlowReport</a></td>
+<td><a href="/jrio/rest_v2/reports/samples/reports/SlowReport.pdf" target="_blank">PDF</a></td>
+<td><a href="/jrio/rest_v2/reports/samples/reports/SlowReport.xlsx" target="_blank">XLSX</a></td>
+</tr>
+<tr>
+<td><a href="viewer/viewer.html?jr_report_uri=/samples/reports/GroovyReport" target="_blank">/samples/reports/GroovyReport</a></td>
+<td><a href="/jrio/rest_v2/reports/samples/reports/GroovyReport.pdf" target="_blank">PDF</a></td>
+<td><a href="/jrio/rest_v2/reports/samples/reports/GroovyReport.xlsx" target="_blank">XLSX</a></td>
+</tr>
+</tbody></table>
+<h1 id='license'>License</h1>
+<blockquote>
+<p>For complete license and notices, see the <a href="pdfs/TIBCO_JasperReportsIO_1.0.1_LicenseAndNotices.pdf" target="_blank">TIBCO JasperReports IO License and Notices</a>.</p>
+</blockquote>
+
+<p><strong>End User License Agreement</strong></p>
+
+<p>If you have another valid, signed agreement with Licensor or a Licensor authorized reseller which applies to the specific products or services you are downloading, accessing, or otherwise receiving, that other agreement controls; otherwise, by using, downloading, installing, copying, or accessing Software, Maintenance, or Consulting Services, or by clicking on &quot;I accept&quot; on or adjacent to the screen where these Master Terms may be displayed, you hereby agree to be bound by and accept these Master Terms.  These Master Terms also apply to any Maintenance or Consulting Services you later acquire from Licensor relating to the Software.  </p>
+
+<p><strong>You may place orders under these Master Terms by submitting separate Order Form(s).</strong> Capitalized terms used in the Agreement and not otherwise defined herein are defined at <a href="https://terms.tibco.com/posts/845635-definitions" target="_blank">https://terms.tibco.com/posts/845635-definitions</a>.  </p>
+
+<ol>
+<li><p>Applicability.  These Master Terms represent one component of the Agreement for Licensor&#39;s products, services, and partner programs and apply to the commercial arrangements between Licensor and Customer (or Partner) listed below.  Additional terms referenced below shall apply.<br>
+a)  Products:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;i.  Subscription, Perpetual, or Term license Software<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ii. Cloud Service (Subject to the <a href="https://terms.tibco.com/posts/3328104-cloud-service" target="_blank">Cloud Service terms</a>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;iii.    Equipment (Subject to the <a href="https://terms.tibco.com/posts/2283212-equipment" target="_blank">Equipment terms</a>)<br>
+b)  Services:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;i.  Maintenance (Subject to the <a href="https://terms.tibco.com/posts/2287503-maintenance" target="_blank">Maintenance terms</a>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ii. Consulting Services (Subject to the <a href="https://terms.tibco.com/posts/2289641-consulting-services" target="_blank">Consulting terms</a>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;iii.    Education and Training (Subject to the <a href="https://www.tibco.com/services/education/training-restrictions-limitations" target="_blank">Training Restrictions and Limitations</a>)<br>
+c)  Partners:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;i.  Partners (Subject to the <a href="https://terms.tibco.com/posts/2560552-partner-terms" target="_blank">Partner terms</a>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ii. Distribution, Reseller, and VAR Partner (Subject to the <a href="https://terms.tibco.com/posts/2560071-supplemental-terms-distribution-reseller-and-var-partners" target="_blank">Partner Terms and Distributor/Reseller/VAR terms</a>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;iii.    Developer and Solution/Technology Partner (Subject to the <a href="https://terms.tibco.com/posts/2556354-supplemental-terms-developer-and-technology-partners" target="_blank">Partner Terms and Developer and Technology Partner terms</a>)<br>
+d)  OEM (Subject to the <a href="https://terms.tibco.com/posts/2742381-oem-terms" target="_blank">OEM terms</a>)  </p></li>
+<li><p>License and Delivery.<br>
+a)  Subject to Customer&#39;s compliance with the terms of this Agreement, including payment of fees, for any Software delivered to Customer, Licensor grants Customer a limited, non-transferable, non-sublicensable, non-exclusive license to install, run, and use the Number of Units of Software stated in an Order Form in accordance with the Documentation for the Term solely for Customer&#39;s internal business purposes.  Maintenance, if purchased or provided, is delivered pursuant to the Order Form.<br>
+b)  Software does not include multiple Platforms if the Software product is licensed on a Platform specific basis as designated in the Software product name or listed in an Order Form or purchase order.<br>
+c)  Unless otherwise permitted under this Agreement and the Documentation, Customer shall not:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;i.  make more copies of the Software than the specified Number of Units stated in an Order Form (except for a reasonable number of copies for archival purposes) or use any unlicensed versions of the Software;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ii. use any Software that is not listed in an Order Form even if such unlicensed software is made available to Customer as part of Licensor&#39;s general delivery mechanisms;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;iii.    provide access to the Software to anyone other than Authorized Users;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;iv. sublicense, distribute or pledge the Software or any of the rights herein;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;v.  lease, rent or commercially share (including time-share) or use the Software for purposes of providing processing services, including, providing third-party hosting, application integration, application service provider-type services, or service bureau;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;vi. use or access any embedded or bundled component of Software on a stand-alone basis where such embedded or bundled component is provided to Customer for the sole purpose of enabling the functionality of such Software;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;vii.    use Third Party Software except in conjunction with the Licensor Software and subject to the same use rights that it has to the Licensor Software.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;viii.   use any third party software, including any open source software, in conjunction with any Software, unless Customer ensures that such use does not cause the Software to become subject to any third party license applicable to such third party software or require the public disclosure or distribution of any Software or the licensing of any Software for Materials or the purpose of making derivative works; and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ix. modify, translate, reverse engineer, decrypt, decompile, disassemble, create derivative works based on, or otherwise attempt to discover the Software source code or underlying ideas, techniques or algorithms, provided, however, that Customer may engage in such conduct as is necessary to ensure the interoperability of the Software as required by law. Prior to commencing any de-compilation or reverse engineering, Customer will observe strict obligations of confidentiality and provide Licensor with reasonable advance written notice and the opportunity to assist with or conduct such activity on Customer&#39;s behalf and at Customer‘s expense.<br>
+d)  Licensor shall deliver the Software electronically and delivery is deemed complete when such Software is made available to Customer.<br>
+e)  ISV Customer and SaaS Customer specific terms are stated at: <a href="https://terms.tibco.com/posts/1143002" target="_blank">https://terms.tibco.com/posts/1143002</a>.<br>
+f)  Additional product specific terms are stated at <a href="https://terms.tibco.com/posts/860094-additional-licensor-product-specific-terms" target="_blank">https://terms.tibco.com/posts/860094-additional-licensor-product-specific-terms</a>.<br>
+g)  Should the Order Form include the Foresight Software the terms stated at <a href="https://terms.tibco.com/posts/1452906-supplemental-terms-tibco-foresight" target="_blank">https://terms.tibco.com/posts/1452906-supplemental-terms-tibco-foresight</a> apply.  </p></li>
+<li><p>Financial Terms.<br>
+a)  Customer shall pay Licensor any fees or payments net 30 days from Licensor&#39;s invoice. Licensor may charge Customer an additional 1.5% per month (or such lower amount as required by applicable law) for all fees that are not paid on time.<br>
+b)  Licensor may increase annual recurring fees at any time upon 60 days prior written notice.<br>
+c)  Customer shall pay all sales, use, value-added, goods and services, consumption, withholding, excise and any other similar taxes or government charges, exclusive of Licensor&#39;s income taxes.<br>
+d)  Except as expressly stated in the &quot;Term and Termination&quot; or &quot;Warranties&quot; section, all fees paid by Customer are non-refundable and no right of set off exists.<br>
+e)  Licensor does not permit aggregation of products, services, purchase or license models or cumulative fees paid across separate Product Lines to trigger preferred pricing or discounts.  </p></li>
+<li><p>Ownership. Licensor and its licensors own all Software, Materials, and Documentation and all derivatives thereof (collectively &quot;Protected Materials&quot;), which are protected by applicable U.S. and international patent, copyright, trademark and trade secret laws.  Customer must duplicate unaltered copies of all proprietary notices incorporated in or affixed to any Protected Materials. Except as stated in the Agreement, Customer receives no other rights to use any of Licensor&#39;s Marks.  </p></li>
+<li><p>Confidentiality.<br>
+a)  Neither party shall disclose Confidential Information to any third party without the disclosing party&#39;s prior consent. Confidential Information may only be disclosed to individuals that need to know such information, and on the condition that the individual is subject to a written agreement to protect information with terms as protective as this Agreement. For the purposes of this section, the definition of Licensor and Customer includes Affiliates of either party. Licensor may use data collected during the Term in an aggregated, anonymized form, provided that such data is aggregated from more than one customer and does not identify Customer, Customer employees, or Customers&#39; customers.<br>
+b)  The duty to protect Confidential Information does not apply to information that is shown to be:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;i.  available to the public other than by a breach of a confidentiality obligation;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ii. rightfully received from a third party not in breach of a confidentiality obligation;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;iii.    independently developed by one party without use of the Confidential Information of the other;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;iv. known to the recipient at the time of disclosure (other than under a separate confidentiality obligation);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;v.  produced in compliance with applicable law or court order, provided the other party is given reasonable advance notice of the obligation to produce Confidential Information (to the extent legally permitted) and reasonable assistance, at the disclosing party&#39;s cost, if the disclosing party wishes to contest the disclosure.<br>
+c)  Each party shall indemnify the other for any damages (including reasonable expenses) the other may sustain resulting from a breach of this Section. Money damages may not be a sufficient remedy for a breach of confidentiality. If either party breaches the confidentiality obligations, the non-breaching party may seek injunctive or other equitable relief without the necessity of posting a bond even if otherwise normally required. Such injunctive or equitable relief is in addition to all other rights and remedies available at law or in equity.<br>
+d)  Confidential Information remains the sole property of the disclosing party; except for rights explicitly granted in the Agreement, the receiving party does not acquire any rights to such Confidential Information.  </p></li>
+<li><p>Data Protection and Back-up.<br>
+a)  If Customer exposes Licensor to an individual&#39;s Protected Data, Licensor will process and store such information pursuant to Licensor&#39;s Security Policies, Practices and Processes found at <a href="https://terms.tibco.com/posts/2301934-tibco-security-guidelines" target="_blank">https://terms.tibco.com/posts/2301934-tibco-security-guidelines</a>. If the European Union&#39;s General Data Protection Regulation (EU/2016/679) (GDPR) applies to Protected Data that Licensor processes on behalf of Customer as a data processor, then the Licensor&#39;s Data Processing terms at <a href="https://terms.tibco.com/posts/3309971-tibco-data-processing-agreement" target="_blank">https://terms.tibco.com/posts/3309971-tibco-data-processing-agreement</a> apply to such Protected Data.<br>
+b)  Except when Licensor stores Customer data in connection with the delivery of a Cloud Service, Customer is responsible for backing-up its data and under no circumstances is Licensor responsible for the protection, loss, destruction, or maintenance of Customer&#39;s data.  </p></li>
+<li><p>Indemnity.<br>
+a)  Licensor shall, at its own expense, defend or at its option, settle, any claim or action brought against Customer to the extent it is based on a claim that the Software, or Materials, all as updated by Licensor and used in accordance with the Agreement, infringes any patent, copyright, or any trade secret of a third party. Furthermore, Licensor will indemnify and hold Customer harmless from and against damages, costs, and fees reasonably incurred (including reasonable attorneys&#39; fees) that are attributable exclusively to such claim or action and which are assessed against Customer in a final judgment. Licensor&#39;s obligations to defend, settle, or indemnify Customer are subject to (i) Customer promptly notifying Licensor in writing of such claim; (ii) Licensor having the exclusive right to control such defense and/or settlement; and (iii) Customer providing reasonable assistance (at Licensor&#39;s expense) in the defense thereof. Customer shall not settle any claim, action or proceeding without Licensor&#39;s prior written approval.<br>
+b)  LICENSOR SHALL NOT DEFEND, INDEMNIFY, OR HOLD CUSTOMER HARMLESS FOR ANY CLAIM IF: (A) CUSTOMER MADE MODIFICATIONS TO THE SOFTWARE OR MATERIALS OR PORTIONS THEREOF; (B) SUCH CLAIM WOULD HAVE BEEN AVOIDED BY USE OF THE THEN CURRENT RELEASE OF THE SOFTWARE MADE AVAILABLE TO CUSTOMER; (C) CUSTOMER CONTINUED ITS ALLEGEDLY INFRINGING ACTIVITY AFTER BEING PROVIDED WITH MODIFICATIONS THAT WOULD HAVE AVOIDED THE ALLEGED INFRINGEMENT; OR (D) SUCH CLAIM IS BASED ON CUSTOMER&#39;S OUTPUT.<br>
+c)  IF LICENSOR DEFENDS OR SETTLES AN INFRINGEMENT CLAIM ARISING UNDER SECTION 7.A ABOVE, LICENSOR&#39;S LIABILITY AND CUSTOMER&#39;S SOLE AND EXCLUSIVE REMEDY (IN ADDITION TO THE &quot;INDEMNITY&quot;) SHALL BE FOR LICENSOR AT ITS OWN EXPENSE, TO EITHER (A) REPAIR, REPLACE OR MODIFY THE AFFECTED SOFTWARE OR RE-PERFORM THE AFFECTED CONSULTING SERVICES OR (B) ALTERNATIVELY, PROCURE FOR CUSTOMER THE RIGHT TO CONTINUE TO USE THE AFFECTED SOFTWARE OR MATERIALS.  IF THE FOREGOING REMEDIES ARE NOT COMMERCIALLY FEASIBLE (IN THE REASONABLE OPINION OF LICENSOR), LICENSOR MAY (I) CANCEL THE APPLICABLE ORDER FORM AND, AS APPLICABLE, FOR THE AFFECTED SOFTWARE REFUND THE LICENSE FEES AND ANY UNEARNED MAINTENANCE FEES PAID TO LICENSOR BY CUSTOMER FOR THE AFFECTED SOFTWARE, OR (II) FOR CONSULTING SERVICES REFUND ALL AMOUNTS PAID TO LICENSOR BY CUSTOMER FOR THE AFFECTED CONSULTING SERVICES.  </p></li>
+<li><p>Warranties.<br>
+a)  Licensor warrants that for 90 days following the Delivery Date (&quot;Warranty Period&quot;), the Software, as updated and used in accordance with the Documentation, will operate in all material respects in conformity with the functional specifications described in the Documentation.<br>
+b)  Licensor is not responsible for any claimed breach of any warranty caused by:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;i.  modifications made to the Licensor Software by anyone other than Licensor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ii. the combination, operation or use of the Licensor Software with any items that are not permitted in the Documentation;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;iii.    Customer&#39;s failure to use any new or corrected versions of the Licensor Software made available by Licensor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;iv. Licensor&#39;s adherence to Customer&#39;s specifications or instructions;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;v.  Customer deviating from the Licensor Software operating procedures described in the Documentation; or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;vi. Errors caused by customizations. Consulting services to correct defects or issues subject to one of the above warranty exclusions may be procured by Licensee under a Work Order pursuant to Licensor&#39;s standard time and material charges.<br>
+c)  If the Licensor Software does not perform as warranted during the Warranty Period, Licensor shall use commercially reasonable efforts to correct Errors. Customer shall promptly notify Licensor in writing of its claim within the Software Warranty Period.  Provided that such claim is determined by Licensor to be Licensor&#39;s responsibility, as Customer&#39;s exclusive remedy for any warranty claim, Licensor shall, within 30 days of its receipt of Customer&#39;s written notice, (i) correct such Error; (ii) provide Customer with a plan reasonably acceptable to Customer for correcting the Error, or (iii) if neither (i) nor (ii) can be accomplished with reasonable commercial efforts from Licensor, then Licensor may terminate the affected Licensor Software license and issue Customer a refund of the license fees paid for the affected Licensor Software. The preceding warranty cure constitutes Licensor&#39;s entire liability and Customer&#39;s exclusive remedy for Licensor&#39;s breach of the warranty stated herein.<br>
+d)  EXCEPT AS STATED ABOVE, LICENSOR, ITS LICENSORS, WEBHOST, DATACENTER AND SUPPLIERS EXPRESSLY DISCLAIM, TO THE MAXIMUM EXTENT PERMITTED BY LAW, ALL OTHER WARRANTIES, EXPRESS OR IMPLIED, ORAL OR WRITTEN, INCLUDING (i) ANY WARRANTY THAT ANY SOFTWARE, MATERIALS OR SERVICES ARE ERROR-FREE, ACCURATE OR RELIABLE OR WILL OPERATE WITHOUT INTERRUPTION OR THAT ALL ERRORS WILL BE CORRECTED OR WILL COMPLY WITH ANY LAW, RULE OR REGULATION (ii) ANY AND ALL IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT AND (iii) ANY AND ALL IMPLIED WARRANTIES ARISING FROM STATUTE, COURSE OF DEALING, COURSE OF PERFORMANCE OR USAGE OF TRADE.  LICENSOR CANNOT AND DOES NOT GUARANTEE THE PRIVACY, SECURITY OR AUTHENTICITY OF ANY INFORMATION SO TRANSMITTED OVER OR STORED IN ANY SYSTEM CONNECTED TO THE INTERNET.  </p></li>
+<li><p>Limitation of Liability. EXCEPT FOR (I) INFRINGEMENT OR MISAPPROPRIATION OF THE OTHER PARTY&#39;S INTELLECTUAL PROPERTY RIGHTS, INCLUDING TRADE SECRETS; (II) DAMAGES FOR BODILY INJURY, DEATH, DAMAGE TO REAL OR TANGIBLE PERSONAL PROPERTY; (III) INTENTIONAL MISCONDUCT OR GROSS NEGLIGENCE; OR (IV) ANY OTHER LIABILITY THAT MAY NOT BE LIMITED UNDER APPLICABLE LAW (THE &quot;EXCLUDED MATTERS&quot;), IN NO EVENT WILL EITHER PARTY BE LIABLE FOR ANY LOSS OR UNAVAILABILITY OF OR DAMAGE TO DATA, LOST REVENUE, LOST PROFITS, FAILURE TO REALIZE EXPECTED SAVINGS, DAMAGE TO REPUTATION, BUSINESS INTERRUPTION, DOWNTIME COSTS OR ANY INDIRECT, INCIDENTAL, CONSEQUENTIAL, SPECIAL, PUNITIVE, EXEMPLARY OR ANY SIMILAR TYPE OF DAMAGES ARISING OUT OF OR IN ANY WAY RELATED TO THE AGREEMENT, THE USE OR THE INABILITY TO USE THE SOFTWARE, MAINTENANCE OR CONSULTING SERVICES, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.  CUSTOMER ASSUMES ALL RESPONSIBILITY FOR THE SELECTION OF THE SOFTWARE AND OTHER PRODUCTS OR SERVICES PROVIDED HEREUNDER TO ACHIEVE CUSTOMER&#39;S INTENDED RESULTS. EXCEPT FOR THE EXCLUDED MATTERS, IN NO EVENT SHALL EITHER PARTY&#39;S TOTAL LIABILITY TO THE OTHER FOR ALL CLAIMS ARISING OUT OF OR AS A RESULT OF THE AGREEMENT EXCEED THE GREATER OF 1,000,000 USD OR THE FEES PAID BY CUSTOMER TO LICENSOR UNDER THE APPLICABLE ORDER FORM.  </p></li>
+<li><p>Export. Software, Documentation, Materials, and related technical data are subject to U.S. export control laws, including the U.S. Export Administration Act and its associated regulations and may be subject to export or import regulations of other countries.   Customer shall not export or re-export or provide access to the Software, Documentation, and Materials in any form in violation of any applicable export or import laws of any jurisdiction.  </p></li>
+<li><p>Government Use.  If the Software, Documentation, Materials and any other Licensor services are being or have been acquired with U.S. Federal Government funds, or Customer is an agency, department, or other entity of the United States Government (&quot;Government&quot;), the use, duplication, reproduction, release, modification, disclosure, or transfer of the Software or any related documentation of any kind, including technical data, manuals or Materials, is restricted in accordance with Federal Acquisition Regulation 12.212 for civilian agencies and Defense Federal Acquisition Regulation Supplement 227.7202 for military agencies. The Software, Materials, and any Licensor services are COMMERCIAL ITEMS AS DEFINED BY THE FEDERAL ACQUISITION REGULATION. Use of the Software and Materials by the Government is further restricted according to the Agreement and any amendment hereto.  </p></li>
+<li><p>Term and Termination.<br>
+a)  Except as otherwise stated below, this Agreement will remain in effect until terminated.<br>
+b)  The Term for any Software starts on the Effective Date stated in an Order Form and continues as indicated on the Order Form.<br>
+c)  Following the end of the initial Term for any Subscription, Term License, or Cloud Service, the Term will automatically renew continuously for the same length as the initial Term unless either party gives written notice at least 60 days prior to the end of the initial or any renewal Term of its intention to terminate.<br>
+d)  Either party may terminate:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;i.  this Agreement and/or any applicable Order Forms upon 30 days prior written notice if the other party breaches a material provision of this Agreement and fails to cure such breach within the 30 day notice period;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ii. Maintenance, Term License, or Subscription, upon written notice delivered at least 60 days prior to the end of any applicable annual Maintenance period or Term; or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;iii.    an Order Form for Consulting Services, upon 15 days prior written notice by Customer or 30 days prior written notice by Licensor.<br>
+e)  The Agreement automatically terminates if either party files for bankruptcy, goes into receivership, becomes insolvent, or makes an assignment for the benefit of creditors.<br>
+f)  Upon termination of this Agreement or an Order Form, Customer must cease using, de-install and permanently delete all of the applicable Software, whether modified or merged into other materials.<br>
+g)  Termination of this Agreement or any Order Form does not (i) relieve Customer of its obligation to pay all fees that have accrued or are otherwise owed by Customer under this Agreement or (ii) limit either party from pursuing other remedies available to it, including injunctive relief.<br>
+h)  The parties&#39; rights and obligations under this section and sections entitled &quot;Financial Terms&quot;, &quot;Ownership&quot;, &quot;Confidentiality&quot;, &quot;Warranties&quot;, &quot;Indemnity&quot;, &quot;Remedies&quot;, &quot;Limitation of Liability&quot;, &quot;General Provisions&quot; and those surviving provisions of the Exhibits survive the termination of this Agreement and/or an Order Form.  </p></li>
+<li><p>General Provisions.<br>
+a)  All notices must be in writing and will be effective if (i) delivered by facsimile, electronic mail, by hand, reliable overnight delivery service, or first-class, pre-paid mail and (ii) sent to the address for the intended recipient stated in an Order Form. Notices should be sent to the other party&#39;s general counsel or legal department, unless another recipient is expressly identified.<br>
+b)  The non-prevailing party shall pay all reasonable costs, including attorney&#39;s fees, incurred by the prevailing party in any action brought to enforce the prevailing party&#39;s rights under this Agreement.<br>
+c)  This Agreement does not create an agency or consignment relationship, and neither party is a partner, employee, agent or joint venture partner of, or with, the other.<br>
+d)  During the term of any Order Form and for a period of one year following termination of an Order Form, neither party shall actively solicit for employment any employee, contractor, consultant, or other representative of the other party who performed services in connection with the applicable Order Form, without the prior written consent of the other party.<br>
+e)  Licensor may designate any agent or subcontractor to perform such tasks and functions to complete any services covered under this Agreement, provided, however, that Licensor shall remain responsible for performance of its duties under the terms of this Agreement.<br>
+f)  During the term of any Order Form and for a period of one year following termination of an Order Form, Licensor and its independent auditors, at Licensor&#39;s expense, may audit Customer‘s compliance with this Agreement upon 10 days&#39; notice and at reasonable times and report any results to Licensor&#39;s licensors. Customer shall, at no cost to Licensor, (i) provide any assistance reasonably requested by Licensor or its designee in conducting any such audit, including installing and operating audit software, (ii) make requested personnel, records, and information available to Licensor or its designee, and (iii) provide such assistance, personnel, records, systems access, and information to facilitate the timely completion of such audit. Customer&#39;s failure to comply with the provisions of this section will constitute a material breach of this Agreement. If the audit reveals any noncompliance, Customer shall reimburse Licensor for the reasonable costs and expenses of the audit (including but not limited to reasonable attorneys&#39; fees), and Customer shall promptly cure any such noncompliance; provided, however, that the obligations under this section do not constitute a waiver of Licensor&#39;s termination rights and do not affect Licensor&#39;s right to payment for Software or Materials related to usage in excess of the Number of Units.<br>
+g)  A waiver by a party of any breach of any provision of this Agreement will not be construed as waiver of continuing or succeeding breach.<br>
+h)  Performance under the Agreement will be postponed automatically if a party is prevented from performing by any act of or failure to act by the other party.  No delay or default in performance of any obligation by either party (except payment obligations) will constitute a breach of the Agreement if caused by force majeure or any other cause which is beyond its reasonable control, including, fires, strikes, accidents, or acts of God.<br>
+i)  Except for an assignment, in whole or part, by Licensor to an Affiliate, neither party may assign this Agreement, in whole or in part, and/or any of its rights and/or obligations without the prior written consent of the other party, which will not be unreasonably withheld.  Any such attempted assignment is void. For the purposes of the foregoing, a change in control of Customer is deemed to cause or attempt to cause an assignment of the Agreement, in whole or part, and requires Licensor&#39;s prior written consent.<br>
+j)  If Customer or its successors or assigns enters into an Extraordinary Corporate Event after an Order Form Effective Date, those users, divisions, or entities that were added to or divested from Customer&#39;s organization as a result of the Extraordinary Corporate Event are not authorized to use the Software or Materials until those users, divisions, or entities are added to this Agreement by way of a written amendment signed by duly authorized officers of the Licensor and Customer, or in the case of a divesture, the divested entity.<br>
+k)  This Agreement is for the benefit of the parties and their successors and permitted assigns, and does not confer any rights or benefits on any third party, including any employee of a party, any client of a party, or any employee of a client of a party. Notwithstanding the above, the parties acknowledge that all rights and benefits afforded to Licensor under this Agreement apply equally to the owner of any Third Party Software, and such third party is an intended third party beneficiary of this Agreement.<br>
+l)  If Customer is entering into the Agreement from a European Union member country, Norway, Switzerland, Japan, India or Australia, then the Agreement is governed by the laws of Ireland and subject to the exclusive jurisdiction of the courts of Ireland.  Otherwise, the Agreement is governed by the laws of the State of California and subject to the exclusive jurisdiction of Federal Court for the Northern District Court of California, without giving effect to its conflict of laws principles. The United Nations Convention on Contracts for the International Sale of Goods and the Uniform Computer Information Transactions Act do not apply to this Agreement.<br>
+m)  If any sentence, clause, or other provision of this Agreement is held to be invalid, illegal, or unenforceable under applicable law, including, but not limited to, any limitation of liability, the validity, legality and enforceability of the remaining clauses and provisions are not affected or impaired. The parties shall interpret the affected provision in a manner that renders it enforceable while attempting to closely approximate the intent and the economic effect of the affected provision.<br>
+n)  If any terms and conditions of the Master Terms conflict with the Documentation, then such license requirements or notices pertaining to Third Party Software included with the Software will control. Any conflict between the terms of the Agreement will be resolved in the following order for precedence: (i) Order Form; (ii) Exhibits, (iii) Master Terms.<br>
+o)  The Agreement constitutes the parties&#39; entire agreement relating to its subject matter.  It supersedes all prior or contemporaneous communication between the parties relating to its subject matter. No modification to the Agreement will be binding unless in writing and signed by each party, except in the case of an Order Form where Licensor&#39;s acceptance shall be deemed to have occurred on Licensor&#39;s initial delivery of products or services under the Order Form. All pre-printed or standard terms of any Customer purchase order or other business processing document shall have no effect.  </p></li>
+<li><p>Alpha, Beta, Developer Evaluation, Free Trial and Evaluation License.<br>
+a)  In addition to all other applicable terms and conditions, Software provided or accessed for demonstration or evaluation purposes or for alpha or beta testing is subject to the following conditions:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;i.  Software may only be used for demonstration, evaluation or alpha or beta testing purposes,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ii. Customer must stop using the Software upon the earlier of (1) 30 days from the date Customer receives the right to install or access the Software, (2) Customer&#39;s receipt of notice of termination from Licensor, or (3) Customer no longer has access to the Software; and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;iii.    the Software is provided &quot;AS IS&quot; without Maintenance or any warranties or indemnities.<br>
+b)  In addition to all other applicable terms and conditions, Software provided or accessed for Developer evaluation is subject to the following conditions:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;i.  Software may only be used for such development evaluation purposes,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ii. Software must not used or deployed in or on a Production or development environment,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;iii.    Customer must stop using the Software upon the earlier of (1) 90 days from the date Customer receives the right to install or access the Software, (2) Customer`s receipt of notice of termination from Customer, or (3) Customer no longer has access to Cloud Service; and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;iv. the Software is provided &quot;AS IS&quot; without Maintenance or any warranties or indemnities.<br>
+c)  If Customer is using a free trial version of Software, Licensor may stop providing the Software to Customer or Customer&#39;s end users at Licensor&#39;s sole discretion without any prior notice, and the Software is provided &quot;AS IS&quot; without Maintenance or any warranties or indemnities.<br>
+d)  Notwithstanding anything to the contrary in this Agreement, Software subject to an alpha, beta, developer, evaluation, free trial and evaluation license may be deployed by Customer on AWS, Microsoft Azure, or similar environments.  </p></li>
+</ol>
+
+<p><a href="pdfs/TIBCO_JasperReportsIO_1.0.1_LicenseAndNotices.pdf#page=10" target="_blank"><b>Addenda</b></a></p>
+
+<p>Version 10.3 2018
+Copyright © 1994-2018 TIBCO Software Inc.</p>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>

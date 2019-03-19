@@ -1,0 +1,1 @@
+define([],function(){"use strict";return{loaderConfig:function(n){return new Function("requirejs","return "+n)({config:function(n){return n}})}}});

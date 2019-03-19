@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 7.2.0.qualifier using JasperReports Library version 6.4.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TableReport" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="515" leftMargin="40" rightMargin="40" topMargin="50" bottomMargin="50" isSummaryWithPageHeaderAndFooter="true" uuid="20c02a81-926f-493f-9f8f-e4c057233e8b">
+	<property name="net.sf.jasperreports.print.create.bookmarks" value="true"/>
+	<style name="Sans_Normal" isDefault="true" fontName="DejaVu Sans" fontSize="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="Sans_Bold" fontName="DejaVu Sans" fontSize="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="Sans_Italic" fontName="DejaVu Sans" fontSize="9" isBold="false" isItalic="true" isUnderline="false" isStrikeThrough="false"/>
+	<style name="TableHeader" style="Sans_Bold" mode="Opaque" backcolor="#046BBA" fontName="DejaVu Sans" fontSize="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box padding="2"/>
+	</style>
+	<style name="TableDetail" style="Sans_Normal" fontName="DejaVu Sans" fontSize="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{CityGroup_COUNT} % 2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#EEEEEE"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="TableDataset" uuid="9de86285-c230-447d-a7dd-7364b053026d">
+		<property name="net.sf.jasperreports.data.adapter" value="/samples/data/HsqldbDataAdapter.xml"/>
+		<parameter name="city" class="java.lang.String"/>
+		<parameter name="freight" class="java.lang.Float"/>
+		<parameter name="whereClause" class="java.lang.String">
+			<defaultValueExpression><![CDATA[$P{city} == null || $P{city}.trim().length() == 0 ? "" : ("where UPPER(shipcity) like '%" + $P{city}.toUpperCase() + "%'")]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[select * from orders $P!{whereClause} order by shipcountry, shipcity]]>
+		</queryString>
+		<field name="ORDERID" class="java.lang.Integer"/>
+		<field name="ORDERDATE" class="java.sql.Timestamp"/>
+		<field name="SHIPPEDDATE" class="java.sql.Timestamp"/>
+		<field name="SHIPVIA" class="java.lang.Integer"/>
+		<field name="FREIGHT" class="java.math.BigDecimal"/>
+		<field name="SHIPNAME" class="java.lang.String"/>
+		<field name="SHIPADDRESS" class="java.lang.String"/>
+		<field name="SHIPCITY" class="java.lang.String"/>
+		<field name="SHIPREGION" class="java.lang.String"/>
+		<field name="SHIPPOSTALCODE" class="java.lang.String"/>
+		<field name="SHIPCOUNTRY" class="java.lang.String"/>
+		<sortField name="SHIPCOUNTRY"/>
+		<sortField name="SHIPCITY"/>
+		<variable name="CityNumber" class="java.lang.Integer" incrementType="Group" incrementGroup="CityGroup" calculation="Count">
+			<variableExpression><![CDATA[Boolean.TRUE]]></variableExpression>
+		</variable>
+		<group name="CityGroup" minHeightToStartNewPage="60">
+			<groupExpression><![CDATA[$F{SHIPCITY}]]></groupExpression>
+		</group>
+	</subDataset>
+	<parameter name="city" class="java.lang.String"/>
+	<parameter name="freight" class="java.lang.Float">
+		<defaultValueExpression><![CDATA[100f]]></defaultValueExpression>
+	</parameter>
+	<title>
+		<band height="70">
+			<line>
+				<reportElement x="0" y="0" width="760" height="1" uuid="19cb2783-92b9-4670-aec5-ddd1c1bee5f8"/>
+			</line>
+			<image scaleImage="Clip">
+				<reportElement key="TransparentImage" x="0" y="10" width="165" height="40" uuid="a16a2532-d0b4-436c-b004-6928225490f2"/>
+				<imageExpression><![CDATA["/samples/images/jasperreports.png"]]></imageExpression>
+				<hyperlinkTooltipExpression><![CDATA["The JasperReports Logo"]]></hyperlinkTooltipExpression>
+			</image>
+			<textField isBlankWhenNull="true" bookmarkLevel="1">
+				<reportElement key="report_title" style="Sans_Normal" x="168" y="10" width="426" height="30" uuid="8750e756-b991-499d-8e33-e5e6ae579603"/>
+				<textElement textAlignment="Center">
+					<font size="22"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Orders by City Report"]]></textFieldExpression>
+				<anchorNameExpression><![CDATA["Title"]]></anchorNameExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Sans_Normal" x="168" y="40" width="426" height="20" uuid="476ca760-5b08-41b9-9270-c0e818af0db4"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{city} == null || $P{city}.trim().length() == 0 ? "" : ("City Filter: " + $P{city})) 
++ " " 
++ ($P{freight} == null ? "" : ("Freight Limit: " + $P{freight}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="605" y="10" width="80" height="15" uuid="a986f881-6dcf-4419-8e45-09e26512b42d"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Date:"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" pattern="MMMM d, yyyy">
+				<reportElement x="685" y="10" width="75" height="15" uuid="12a57ab3-e15e-4de6-90e8-c021ec8a6a41"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageFooter>
+		<band height="40">
+			<line>
+				<reportElement x="0" y="10" width="760" height="1" uuid="382d944b-ed05-4684-954d-5d005b04e7ed"/>
+			</line>
+			<textField>
+				<reportElement x="0" y="20" width="80" height="15" uuid="7af9f461-9afa-4611-ace8-191ab881af16"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page " + String.valueOf($V{PAGE_NUMBER}) + " of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="80" y="20" width="75" height="15" uuid="05253242-68cf-4f79-a534-c5963d6ca087"/>
+				<textFieldExpression><![CDATA[" " + String.valueOf($V{PAGE_NUMBER})]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="127">
+			<componentElement>
+				<reportElement x="0" y="0" width="760" height="120" uuid="e7f3596c-3182-417e-b910-7cfe9be699d9"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="AllSectionsNoDetail">
+					<datasetRun subDataset="TableDataset" uuid="1c2ee69b-b19e-4a5f-a4e0-ccb587bfb5ad">
+						<datasetParameter name="city">
+							<datasetParameterExpression><![CDATA[$P{city}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="freight">
+							<datasetParameterExpression><![CDATA[$P{freight}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:columnGroup width="760" uuid="c1b873b3-9f47-4033-9099-dcedfe467445">
+						<jr:groupHeader groupName="CityGroup">
+							<jr:cell height="20" rowSpan="1">
+								<box>
+									<bottomPen lineWidth="1.0"/>
+								</box>
+								<textField evaluationTime="Group" evaluationGroup="CityGroup" hyperlinkType="ReportExecution" bookmarkLevel="1">
+									<reportElement style="Sans_Bold" mode="Opaque" x="0" y="5" width="760" height="15" backcolor="#C0C0C0" uuid="b9e21a1a-7c24-4b13-a45d-094089843a06"/>
+									<box leftPadding="5">
+										<pen lineWidth="0.5"/>
+										<topPen lineWidth="0.0"/>
+										<leftPen lineWidth="0.0"/>
+										<bottomPen lineWidth="0.0"/>
+										<rightPen lineWidth="0.0"/>
+									</box>
+									<textFieldExpression><![CDATA["  " + String.valueOf($V{CityNumber}) + ". " + String.valueOf($F{SHIPCITY}) + ", " + String.valueOf($F{SHIPCOUNTRY})]]></textFieldExpression>
+								</textField>
+							</jr:cell>
+						</jr:groupHeader>
+						<jr:groupFooter groupName="CityGroup">
+							<jr:cell height="20" rowSpan="1">
+								<textField>
+									<reportElement style="Sans_Bold" x="724" y="2" width="30" height="15" uuid="f1542d97-5290-4bb4-883e-195ed3632c66"/>
+									<textElement textAlignment="Right"/>
+									<textFieldExpression><![CDATA[$V{CityGroup_COUNT}]]></textFieldExpression>
+								</textField>
+								<staticText>
+									<reportElement style="Sans_Bold" x="664" y="2" width="60" height="15" uuid="713ce62f-285d-46f4-97a3-d17805fdde5b"/>
+									<textElement textAlignment="Right"/>
+									<text><![CDATA[Count :]]></text>
+								</staticText>
+							</jr:cell>
+						</jr:groupFooter>
+						<jr:column width="60" uuid="75a9268d-370d-4663-9d76-5b163ce13fba">
+							<jr:columnHeader height="20" rowSpan="1">
+								<textField>
+									<reportElement style="TableHeader" stretchType="ContainerHeight" mode="Opaque" x="0" y="0" width="60" height="20" forecolor="#FFFFFF" uuid="1fb3810f-a1ff-42ff-9201-2402c66ff706"/>
+									<textElement textAlignment="Left"/>
+									<textFieldExpression><![CDATA["Order ID"]]></textFieldExpression>
+								</textField>
+							</jr:columnHeader>
+							<jr:detailCell height="15">
+								<textField bookmarkLevel="2">
+									<reportElement style="TableDetail" stretchType="RelativeToBandHeight" x="0" y="0" width="60" height="15" uuid="b6798271-1945-4996-805b-372775a434f2"/>
+									<box topPadding="2" leftPadding="5" bottomPadding="2" rightPadding="5"/>
+									<textElement textAlignment="Right"/>
+									<textFieldExpression><![CDATA[$F{ORDERID}]]></textFieldExpression>
+									<anchorNameExpression><![CDATA[$F{SHIPNAME} + " (" + $F{ORDERID} + ")"]]></anchorNameExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="155" uuid="de5742f5-aaa2-4b69-b603-e780f56f8d9e">
+							<jr:columnHeader height="20" rowSpan="1">
+								<staticText>
+									<reportElement style="TableHeader" stretchType="ContainerHeight" x="0" y="0" width="155" height="20" forecolor="#FFFFFF" uuid="d0166dbc-e721-445a-b5e6-cc21e31ac15f"/>
+									<text><![CDATA[Customer Name]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell height="15">
+								<textField isStretchWithOverflow="true">
+									<reportElement style="TableDetail" positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="155" height="15" uuid="b39be6e2-bc83-4207-a463-e6cd9a584652"/>
+									<box topPadding="2" leftPadding="5" bottomPadding="2" rightPadding="5"/>
+									<textFieldExpression><![CDATA[$F{SHIPNAME}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="80" uuid="66a9e037-1efd-470e-adf9-2fed375e0261">
+							<property name="net.sf.jasperreports.components.table.interactive" value="false"/>
+							<jr:columnHeader height="20" rowSpan="1">
+								<textField>
+									<reportElement style="TableHeader" stretchType="ContainerHeight" mode="Opaque" x="0" y="0" width="80" height="20" forecolor="#FFFFFF" uuid="451659b3-f3fe-417b-ba37-a318fa9fe127"/>
+									<textElement textAlignment="Center"/>
+									<textFieldExpression><![CDATA["Freight"]]></textFieldExpression>
+								</textField>
+							</jr:columnHeader>
+							<jr:detailCell height="15">
+								<textField isStretchWithOverflow="true" pattern="#,##0.00#;(#,##0.00#)">
+									<reportElement style="TableDetail" positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="65" height="15" uuid="50310975-9b64-4afd-a631-7d45beac8572"/>
+									<box topPadding="2" leftPadding="5" bottomPadding="2" rightPadding="5"/>
+									<textElement textAlignment="Right"/>
+									<textFieldExpression><![CDATA[$F{FREIGHT}]]></textFieldExpression>
+								</textField>
+								<image>
+									<reportElement style="TableDetail" positionType="Float" stretchType="RelativeToBandHeight" x="65" y="0" width="15" height="15" uuid="f971062a-d8ae-458a-81a2-5c5c2e96b118"/>
+									<box padding="3"/>
+									<imageExpression><![CDATA[$P{freight} == null || $F{FREIGHT} == null ? (null) : ($F{FREIGHT}.floatValue() >= $P{freight}.floatValue() ? "../images/up.arrow.png" : "../images/down.arrow.png")]]></imageExpression>
+								</image>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="75" uuid="cd97be8e-cb37-4a61-af5a-302272d5ab9f">
+							<jr:columnHeader height="20" rowSpan="1">
+								<textField>
+									<reportElement style="TableHeader" stretchType="ContainerHeight" mode="Opaque" x="0" y="0" width="75" height="20" forecolor="#FFFFFF" uuid="845fc09d-5ab6-4077-b2cb-b615bf45f66b"/>
+									<textFieldExpression><![CDATA["Order Date"]]></textFieldExpression>
+								</textField>
+							</jr:columnHeader>
+							<jr:detailCell height="15">
+								<textField isStretchWithOverflow="true" pattern="yyyy-MM-dd">
+									<reportElement style="TableDetail" positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="75" height="15" uuid="c8fd15a4-f27e-4577-b6f9-e63c63a09914"/>
+									<box topPadding="2" leftPadding="5" bottomPadding="2" rightPadding="5"/>
+									<textFieldExpression><![CDATA[$F{ORDERDATE}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="175" uuid="5aedd7cb-6171-494a-81f9-68f962d79d4e">
+							<jr:columnHeader height="20" rowSpan="1">
+								<textField>
+									<reportElement style="TableHeader" stretchType="ContainerHeight" mode="Opaque" x="0" y="0" width="175" height="20" forecolor="#FFFFFF" uuid="4f700135-a3aa-4e0c-bfa3-1eb963784217"/>
+									<textElement textAlignment="Left"/>
+									<textFieldExpression><![CDATA["Address"]]></textFieldExpression>
+								</textField>
+							</jr:columnHeader>
+							<jr:detailCell height="15">
+								<textField bookmarkLevel="2">
+									<reportElement style="TableDetail" stretchType="RelativeToBandHeight" x="0" y="0" width="175" height="15" uuid="91f43d82-97fd-4b70-9ca1-fc938a1cd4a7"/>
+									<box topPadding="2" leftPadding="5" bottomPadding="2" rightPadding="5"/>
+									<textElement textAlignment="Left"/>
+									<textFieldExpression><![CDATA[$F{SHIPADDRESS}]]></textFieldExpression>
+									<anchorNameExpression><![CDATA[$F{SHIPNAME} + " (" + $F{ORDERID} + ")"]]></anchorNameExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="80" uuid="eb36d9ea-4062-434f-ba5c-e0cf10722c5b">
+							<jr:columnHeader height="20" rowSpan="1">
+								<staticText>
+									<reportElement style="TableHeader" stretchType="ContainerHeight" mode="Opaque" x="0" y="0" width="80" height="20" forecolor="#FFFFFF" uuid="2f01f4f9-b543-45be-bd80-6a0f17b46565"/>
+									<text><![CDATA[Postal Code]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell height="15">
+								<textField isStretchWithOverflow="true">
+									<reportElement style="TableDetail" positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="80" height="15" uuid="07a32f93-8920-40a9-b65a-12e90bb89db7"/>
+									<box topPadding="2" leftPadding="5" bottomPadding="2" rightPadding="5"/>
+									<textFieldExpression><![CDATA[$F{SHIPPOSTALCODE}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="55" uuid="97d4b772-2acf-4a3a-93e7-1f61a9e92f69">
+							<jr:columnHeader height="20" rowSpan="1">
+								<textField>
+									<reportElement style="TableHeader" stretchType="ContainerHeight" mode="Opaque" x="0" y="0" width="55" height="20" forecolor="#FFFFFF" uuid="62d91369-cdbb-4b94-be2b-1cfebb71a9ad"/>
+									<textFieldExpression><![CDATA["Ship Via"]]></textFieldExpression>
+								</textField>
+							</jr:columnHeader>
+							<jr:detailCell height="15">
+								<textField isStretchWithOverflow="true">
+									<reportElement style="TableDetail" positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="55" height="15" uuid="33a77554-9b6c-464c-9b2f-89ecae432313"/>
+									<box topPadding="2" leftPadding="5" bottomPadding="2" rightPadding="5"/>
+									<textFieldExpression><![CDATA[$F{SHIPVIA}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="80" uuid="d20a029a-3661-41a9-b698-3295121c95bc">
+							<jr:columnHeader height="20" rowSpan="1">
+								<textField>
+									<reportElement style="TableHeader" stretchType="ContainerHeight" mode="Opaque" x="0" y="0" width="80" height="20" forecolor="#FFFFFF" uuid="0231eb95-3549-4fba-8782-7e7e3d9b50f9"/>
+									<textFieldExpression><![CDATA["Shipping Date"]]></textFieldExpression>
+								</textField>
+							</jr:columnHeader>
+							<jr:detailCell height="15">
+								<textField isStretchWithOverflow="true" pattern="yyyy-MM-dd">
+									<reportElement style="TableDetail" positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="80" height="15" uuid="3c15b20b-6db7-4f82-8a26-8afe1a6ead6e"/>
+									<box topPadding="2" leftPadding="5" bottomPadding="2" rightPadding="5"/>
+									<textFieldExpression><![CDATA[$F{SHIPPEDDATE}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:columnGroup>
+				</jr:table>
+			</componentElement>
+		</band>
+	</summary>
+</jasperReport>

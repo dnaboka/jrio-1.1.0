@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<infinispan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="urn:infinispan:config:9.0 http://www.infinispan.org/schemas/infinispan-config-9.0.xsd urn:infinispan:config:store:remote:9.0 http://infinispan.org/schemas/infinispan-cachestore-remote-config-9.0.xsd"
+	xmlns="urn:infinispan:config:9.0">
+	<cache-container default-cache="default">
+
+		<local-cache-configuration name="reportExecutions">
+			<expiration lifespan="3600000" max-idle="900000" interval="1000" />
+		</local-cache-configuration>
+
+		<local-cache-configuration name="exportExecutions">
+			<expiration lifespan="3600000" max-idle="900000" interval="1000" />
+			<persistence passivation="true">
+				<file-store path="${java.io.tmpdir}" max-entries="1000000" purge="true" />
+			</persistence>
+		</local-cache-configuration>
+
+		<local-cache-configuration name="reportConfig">
+			<expiration lifespan="5400000" interval="300000" />
+			<persistence passivation="true">
+				<file-store path="${java.io.tmpdir}" max-entries="1000000" purge="true" />
+			</persistence>
+		</local-cache-configuration>
+
+		<local-cache-configuration name="virtPassivation" configuration="reportConfig">
+			<persistence passivation="true">
+				<file-store path="${java.io.tmpdir}" max-entries="1000000" purge="true" />
+			</persistence>
+		</local-cache-configuration>
+
+		<local-cache name="default">
+		</local-cache>
+
+		<local-cache name="reportExecutionCache" configuration="reportExecutions">
+			<memory>
+				<object size="2000" />
+			</memory>
+		</local-cache>
+
+		<local-cache name="exportExecutionCache" configuration="exportExecutions">
+			<memory>
+				<object size="100" />
+			</memory>
+		</local-cache>
+
+		<local-cache name="virt" configuration="virtPassivation">
+			<memory>
+				<object size="500" />
+			</memory>
+		</local-cache>
+
+		<local-cache name="report" configuration="reportConfig">
+			<memory>
+				<object size="2500" />
+			</memory>
+		</local-cache>
+		
+		<local-cache name="reportCancelRequests" configuration="reportConfig">
+		</local-cache>
+		
+		<local-cache name="contextClassLoader">
+			<expiration max-idle="1500000" interval="60000"/>
+		</local-cache>
+		
+		<local-cache name="contextConfig">
+			<expiration lifespan="600000" interval="60000"/>
+		</local-cache>
+		
+		<local-cache name="compiledReport">
+			<expiration max-idle="10800000" interval="300000"/>
+		</local-cache>
+		
+		<local-cache name="conectionPool">
+			<expiration lifespan="1800000" max-idle="300000" interval="60000"/>
+		</local-cache>
+		
+		<local-cache name="jasperPrintCache">
+			<expiration lifespan="1200000" max-idle="600000" interval="20000"/>
+			<memory>
+				<object size="100"/>
+			</memory>
+		</local-cache>
+
+	</cache-container>
+</infinispan>

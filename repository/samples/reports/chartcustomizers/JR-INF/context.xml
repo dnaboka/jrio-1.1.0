@@ -1,0 +1,7 @@
+<context xmlns="">
+        <classpath>
+                <entry>
+                        <path>/samples/reports/chartcustomizers/JR-INF/lib/repo-sample.jar</path>
+                </entry>
+        </classpath>
+</context>

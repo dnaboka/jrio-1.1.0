@@ -1,0 +1,8 @@
+<context xmlns="">
+		<properties>
+			<property>
+				<name>net.sf.jasperreports.chart.theme</name>
+				<value>eye.candy.sixties</value>
+			</property>
+		</properties>        
+</context>

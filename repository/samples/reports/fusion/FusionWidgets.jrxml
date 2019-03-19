@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FusionWidgets" pageWidth="595" pageHeight="842" columnWidth="565" leftMargin="15" rightMargin="15" topMargin="30" bottomMargin="30">
+	<property name="net.sf.jasperreports.data.adapter" value="/samples/data/EmptyDataAdapter.xml"/>
+	<title>
+		<band height="700">
+			<componentElement>
+				<reportElement x="0" y="0" width="50" height="150"/>
+				<f:thermometer xmlns:f="http://jaspersoft.com/fusion" xsi:schemaLocation="http://jaspersoft.com/fusion http://jaspersoft.com/schema/fusion.xsd">
+					<f:widgetProperty name="palette">
+						<f:propertyExpression><![CDATA[new Integer(2)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:valueExpression><![CDATA[new Integer(20)]]></f:valueExpression>
+				</f:thermometer>
+			</componentElement>
+			<componentElement>
+				<reportElement x="60" y="0" width="90" height="150"/>
+				<f:cylinder xmlns:f="http://jaspersoft.com/fusion" xsi:schemaLocation="http://jaspersoft.com/fusion http://jaspersoft.com/schema/fusion.xsd">
+					<f:widgetProperty name="palette">
+						<f:propertyExpression><![CDATA[new Integer(2)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:valueExpression><![CDATA[new Integer(20)]]></f:valueExpression>
+				</f:cylinder>
+			</componentElement>
+			<componentElement>
+				<reportElement x="160" y="0" width="50" height="70"/>
+				<f:bulb xmlns:f="http://jaspersoft.com/fusion" xsi:schemaLocation="http://jaspersoft.com/fusion http://jaspersoft.com/schema/fusion.xsd">
+					<f:widgetProperty name="palette">
+						<f:propertyExpression><![CDATA[new Integer(2)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:valueExpression><![CDATA[new Integer(12)]]></f:valueExpression>
+					<f:colorRange color="#00FF00">
+						<f:minValueExpression><![CDATA[new Integer(0)]]></f:minValueExpression>
+						<f:maxValueExpression><![CDATA[new Integer(15)]]></f:maxValueExpression>
+						<f:labelExpression><![CDATA["Low"]]></f:labelExpression>
+					</f:colorRange>
+					<f:colorRange color="#FFFF00">
+						<f:minValueExpression><![CDATA[new Integer(15)]]></f:minValueExpression>
+						<f:maxValueExpression><![CDATA[new Integer(35)]]></f:maxValueExpression>
+						<f:labelExpression><![CDATA["Medium"]]></f:labelExpression>
+					</f:colorRange>
+					<f:colorRange color="#FF0000">
+						<f:minValueExpression><![CDATA[new Integer(35)]]></f:minValueExpression>
+						<f:maxValueExpression><![CDATA[new Integer(100)]]></f:maxValueExpression>
+						<f:labelExpression><![CDATA["High"]]></f:labelExpression>
+					</f:colorRange>
+				</f:bulb>
+			</componentElement>
+			<componentElement>
+				<reportElement x="160" y="80" width="50" height="70"/>
+				<f:bulb xmlns:f="http://jaspersoft.com/fusion" xsi:schemaLocation="http://jaspersoft.com/fusion http://jaspersoft.com/schema/fusion.xsd">
+					<f:widgetProperty name="palette">
+						<f:propertyExpression><![CDATA[new Integer(2)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:valueExpression><![CDATA[new Integer(64)]]></f:valueExpression>
+					<f:colorRange color="#00FF00">
+						<f:minValueExpression><![CDATA[new Integer(0)]]></f:minValueExpression>
+						<f:maxValueExpression><![CDATA[new Integer(15)]]></f:maxValueExpression>
+						<f:labelExpression><![CDATA["Low"]]></f:labelExpression>
+					</f:colorRange>
+					<f:colorRange color="#FFFF00">
+						<f:minValueExpression><![CDATA[new Integer(15)]]></f:minValueExpression>
+						<f:maxValueExpression><![CDATA[new Integer(35)]]></f:maxValueExpression>
+						<f:labelExpression><![CDATA["Medium"]]></f:labelExpression>
+					</f:colorRange>
+					<f:colorRange color="#FF0000">
+						<f:minValueExpression><![CDATA[new Integer(35)]]></f:minValueExpression>
+						<f:maxValueExpression><![CDATA[new Integer(100)]]></f:maxValueExpression>
+						<f:labelExpression><![CDATA["High"]]></f:labelExpression>
+					</f:colorRange>
+				</f:bulb>
+			</componentElement>
+			<componentElement>
+				<reportElement x="220" y="0" width="90" height="150"/>
+				<f:verticalLED xmlns:f="http://jaspersoft.com/fusion" xsi:schemaLocation="http://jaspersoft.com/fusion http://jaspersoft.com/schema/fusion.xsd">
+					<f:widgetProperty name="palette">
+						<f:propertyExpression><![CDATA[new Integer(2)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:widgetProperty name="lowerLimit">
+						<f:propertyExpression><![CDATA[new Integer(0)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:widgetProperty name="upperLimit">
+						<f:propertyExpression><![CDATA[new Integer(120)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:valueExpression><![CDATA[new Integer(102)]]></f:valueExpression>
+					<f:colorRange color="#FF0000">
+						<f:minValueExpression><![CDATA[new Integer(0)]]></f:minValueExpression>
+						<f:maxValueExpression><![CDATA[new Integer(60)]]></f:maxValueExpression>
+					</f:colorRange>
+					<f:colorRange color="#FFFF00">
+						<f:minValueExpression><![CDATA[new Integer(60)]]></f:minValueExpression>
+						<f:maxValueExpression><![CDATA[new Integer(90)]]></f:maxValueExpression>
+					</f:colorRange>
+					<f:colorRange color="#00FF00">
+						<f:minValueExpression><![CDATA[new Integer(90)]]></f:minValueExpression>
+						<f:maxValueExpression><![CDATA[new Integer(120)]]></f:maxValueExpression>
+					</f:colorRange>
+				</f:verticalLED>
+			</componentElement>
+			<componentElement>
+				<reportElement x="320" y="0" width="140" height="70"/>
+				<f:horizontalLED xmlns:f="http://jaspersoft.com/fusion" xsi:schemaLocation="http://jaspersoft.com/fusion http://jaspersoft.com/schema/fusion.xsd">
+					<f:widgetProperty name="palette">
+						<f:propertyExpression><![CDATA[new Integer(2)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:widgetProperty name="lowerLimit">
+						<f:propertyExpression><![CDATA[new Integer(0)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:widgetProperty name="upperLimit">
+						<f:propertyExpression><![CDATA[new Integer(120)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:widgetProperty name="showValue">
+						<f:propertyExpression><![CDATA[Boolean.FALSE]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:valueExpression><![CDATA[new Integer(102)]]></f:valueExpression>
+					<f:colorRange color="#FF0000">
+						<f:minValueExpression><![CDATA[new Integer(0)]]></f:minValueExpression>
+						<f:maxValueExpression><![CDATA[new Integer(60)]]></f:maxValueExpression>
+					</f:colorRange>
+					<f:colorRange color="#FFFF00">
+						<f:minValueExpression><![CDATA[new Integer(60)]]></f:minValueExpression>
+						<f:maxValueExpression><![CDATA[new Integer(90)]]></f:maxValueExpression>
+					</f:colorRange>
+					<f:colorRange color="#00FF00">
+						<f:minValueExpression><![CDATA[new Integer(90)]]></f:minValueExpression>
+						<f:maxValueExpression><![CDATA[new Integer(120)]]></f:maxValueExpression>
+					</f:colorRange>
+				</f:horizontalLED>
+			</componentElement>
+			<componentElement>
+				<reportElement x="320" y="80" width="140" height="70"/>
+				<f:horizontalBullet xmlns:f="http://jaspersoft.com/fusion" xsi:schemaLocation="http://jaspersoft.com/fusion http://jaspersoft.com/schema/fusion.xsd">
+					<f:widgetProperty name="palette">
+						<f:propertyExpression><![CDATA[new Integer(2)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:widgetProperty name="lowerLimit">
+						<f:propertyExpression><![CDATA[new Integer(0)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:widgetProperty name="upperLimit">
+						<f:propertyExpression><![CDATA[new Integer(100)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:valueExpression><![CDATA[new Integer(72)]]></f:valueExpression>
+					<f:targetExpression><![CDATA[new Integer(80)]]></f:targetExpression>
+					<f:colorRange color="#A6A6A6">
+						<f:minValueExpression><![CDATA[new Integer(0)]]></f:minValueExpression>
+						<f:maxValueExpression><![CDATA[new Integer(50)]]></f:maxValueExpression>
+					</f:colorRange>
+					<f:colorRange color="#CCCCCC">
+						<f:minValueExpression><![CDATA[new Integer(50)]]></f:minValueExpression>
+						<f:maxValueExpression><![CDATA[new Integer(75)]]></f:maxValueExpression>
+					</f:colorRange>
+					<f:colorRange color="#E1E1E1">
+						<f:minValueExpression><![CDATA[new Integer(75)]]></f:minValueExpression>
+						<f:maxValueExpression><![CDATA[new Integer(100)]]></f:maxValueExpression>
+					</f:colorRange>
+				</f:horizontalBullet>
+			</componentElement>
+			<componentElement>
+				<reportElement x="470" y="0" width="95" height="150"/>
+				<f:verticalBullet xmlns:f="http://jaspersoft.com/fusion" xsi:schemaLocation="http://jaspersoft.com/fusion http://jaspersoft.com/schema/fusion.xsd">
+					<f:widgetProperty name="palette">
+						<f:propertyExpression><![CDATA[new Integer(2)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:widgetProperty name="lowerLimit">
+						<f:propertyExpression><![CDATA[new Integer(0)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:widgetProperty name="upperLimit">
+						<f:propertyExpression><![CDATA[new Integer(80)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:valueExpression><![CDATA[new Integer(72)]]></f:valueExpression>
+					<f:targetExpression><![CDATA[new Integer(60)]]></f:targetExpression>
+					<f:colorRange color="#A6A6A6">
+						<f:minValueExpression><![CDATA[new Integer(0)]]></f:minValueExpression>
+						<f:maxValueExpression><![CDATA[new Integer(40)]]></f:maxValueExpression>
+					</f:colorRange>
+					<f:colorRange color="#CCCCCC">
+						<f:minValueExpression><![CDATA[new Integer(40)]]></f:minValueExpression>
+						<f:maxValueExpression><![CDATA[new Integer(70)]]></f:maxValueExpression>
+					</f:colorRange>
+					<f:colorRange color="#E1E1E1">
+						<f:minValueExpression><![CDATA[new Integer(70)]]></f:minValueExpression>
+						<f:maxValueExpression><![CDATA[new Integer(80)]]></f:maxValueExpression>
+					</f:colorRange>
+				</f:verticalBullet>
+			</componentElement>
+			<componentElement>
+				<reportElement x="0" y="160" width="270" height="120"/>
+				<f:angularGauge xmlns:f="http://jaspersoft.com/fusion" xsi:schemaLocation="http://jaspersoft.com/fusion http://jaspersoft.com/schema/fusion.xsd">
+					<f:widgetProperty name="palette">
+						<f:propertyExpression><![CDATA[new Integer(2)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:widgetProperty name="numberSuffix">
+						<f:propertyExpression><![CDATA["%"]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:widgetProperty name="lowerLimit">
+						<f:propertyExpression><![CDATA[new Integer(0)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:widgetProperty name="upperLimit">
+						<f:propertyExpression><![CDATA[new Integer(100)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:widgetProperty name="showValue">
+						<f:propertyExpression><![CDATA[Boolean.TRUE]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:colorRange color="#FF654F">
+						<f:minValueExpression><![CDATA[new Integer(0)]]></f:minValueExpression>
+						<f:maxValueExpression><![CDATA[new Integer(70)]]></f:maxValueExpression>
+					</f:colorRange>
+					<f:colorRange color="#F6BD0F">
+						<f:minValueExpression><![CDATA[new Integer(70)]]></f:minValueExpression>
+						<f:maxValueExpression><![CDATA[new Integer(90)]]></f:maxValueExpression>
+					</f:colorRange>
+					<f:colorRange color="#8BBA00">
+						<f:minValueExpression><![CDATA[new Integer(90)]]></f:minValueExpression>
+						<f:maxValueExpression><![CDATA[new Integer(100)]]></f:maxValueExpression>
+					</f:colorRange>
+					<f:dial>
+						<f:dialProperty name="rearExtension">
+							<f:propertyExpression><![CDATA[new Integer(10)]]></f:propertyExpression>
+						</f:dialProperty>
+						<f:valueExpression><![CDATA[new Integer(86)]]></f:valueExpression>
+					</f:dial>
+					<f:trendPoint>
+						<f:property name="useMarker">
+							<f:propertyExpression><![CDATA[Boolean.TRUE]]></f:propertyExpression>
+						</f:property>
+						<f:property name="markerColor">
+							<f:propertyExpression><![CDATA[java.awt.Color.GREEN]]></f:propertyExpression>
+						</f:property>
+						<f:startValueExpression><![CDATA[new Integer(80)]]></f:startValueExpression>
+						<f:labelExpression><![CDATA["Last"]]></f:labelExpression>
+					</f:trendPoint>
+				</f:angularGauge>
+			</componentElement>
+			<componentElement>
+				<reportElement x="280" y="160" width="270" height="120"/>
+				<f:linearGauge xmlns:f="http://jaspersoft.com/fusion" xsi:schemaLocation="http://jaspersoft.com/fusion http://jaspersoft.com/schema/fusion.xsd">
+					<f:widgetProperty name="palette">
+						<f:propertyExpression><![CDATA[new Integer(2)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:widgetProperty name="numberSuffix">
+						<f:propertyExpression><![CDATA["%"]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:widgetProperty name="lowerLimit">
+						<f:propertyExpression><![CDATA[new Integer(0)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:widgetProperty name="upperLimit">
+						<f:propertyExpression><![CDATA[new Integer(100)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:widgetProperty name="showValue">
+						<f:propertyExpression><![CDATA[Boolean.TRUE]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:colorRange color="#FF654F">
+						<f:minValueExpression><![CDATA[new Integer(0)]]></f:minValueExpression>
+						<f:maxValueExpression><![CDATA[new Integer(70)]]></f:maxValueExpression>
+					</f:colorRange>
+					<f:colorRange color="#F6BD0F">
+						<f:minValueExpression><![CDATA[new Integer(70)]]></f:minValueExpression>
+						<f:maxValueExpression><![CDATA[new Integer(90)]]></f:maxValueExpression>
+					</f:colorRange>
+					<f:colorRange color="#8BBA00">
+						<f:minValueExpression><![CDATA[new Integer(90)]]></f:minValueExpression>
+						<f:maxValueExpression><![CDATA[new Integer(100)]]></f:maxValueExpression>
+					</f:colorRange>
+					<f:pointer>
+						<f:property name="color">
+							<f:propertyExpression><![CDATA[java.awt.Color.BLACK]]></f:propertyExpression>
+						</f:property>
+						<f:valueExpression><![CDATA[new Integer(86)]]></f:valueExpression>
+					</f:pointer>
+					<f:trendPoint>
+						<f:property name="useMarker">
+							<f:propertyExpression><![CDATA[Boolean.TRUE]]></f:propertyExpression>
+						</f:property>
+						<f:startValueExpression><![CDATA[new Integer(74)]]></f:startValueExpression>
+						<f:labelExpression><![CDATA["Last"]]></f:labelExpression>
+					</f:trendPoint>
+				</f:linearGauge>
+			</componentElement>
+			<componentElement>
+				<reportElement x="0" y="290" width="270" height="300"/>
+				<f:funnel xmlns:f="http://jaspersoft.com/fusion" xsi:schemaLocation="http://jaspersoft.com/fusion http://jaspersoft.com/schema/fusion.xsd" evaluationTime="Report">
+					<f:widgetProperty name="palette">
+						<f:propertyExpression><![CDATA[new Integer(2)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:widgetProperty name="caption">
+						<f:propertyExpression><![CDATA["Funnel chart"]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:valuesDataset>
+						<dataset/>
+						<f:valueSet>
+							<f:valueExpression><![CDATA[new Double(100d * ($V{REPORT_COUNT}.doubleValue() + 3) / $V{REPORT_COUNT}.doubleValue())]]></f:valueExpression>
+							<f:labelExpression><![CDATA["step " + $V{REPORT_COUNT}]]></f:labelExpression>
+							<f:property name="alpha">
+								<f:propertyExpression><![CDATA[new Integer(80)]]></f:propertyExpression>
+							</f:property>
+						</f:valueSet>
+					</f:valuesDataset>
+				</f:funnel>
+			</componentElement>
+			<componentElement>
+				<reportElement x="280" y="290" width="270" height="300"/>
+				<f:pyramid xmlns:f="http://jaspersoft.com/fusion" xsi:schemaLocation="http://jaspersoft.com/fusion http://jaspersoft.com/schema/fusion.xsd" evaluationTime="Report">
+					<f:widgetProperty name="palette">
+						<f:propertyExpression><![CDATA[new Integer(2)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:widgetProperty name="caption">
+						<f:propertyExpression><![CDATA["Pyramid chart"]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:valuesDataset>
+						<dataset/>
+						<f:valueSet>
+							<f:valueExpression><![CDATA[new Double(100d * ($V{REPORT_COUNT}.doubleValue() + 3) / $V{REPORT_COUNT}.doubleValue())]]></f:valueExpression>
+							<f:labelExpression><![CDATA["step " + $V{REPORT_COUNT}]]></f:labelExpression>
+							<f:property name="isSliced">
+								<f:propertyExpression><![CDATA[Boolean.valueOf($V{REPORT_COUNT}.intValue() % 3 == 0)]]></f:propertyExpression>
+							</f:property>
+						</f:valueSet>
+					</f:valuesDataset>
+				</f:pyramid>
+			</componentElement>
+			<componentElement>
+				<reportElement x="0" y="600" width="190" height="30"/>
+				<f:sparkLine xmlns:f="http://jaspersoft.com/fusion" xsi:schemaLocation="http://jaspersoft.com/fusion http://jaspersoft.com/schema/fusion.xsd" evaluationTime="Report">
+					<f:widgetProperty name="palette">
+						<f:propertyExpression><![CDATA[new Integer(2)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:trendLine color="#00CC33">
+						<f:startValueExpression><![CDATA[new Integer(15)]]></f:startValueExpression>
+					</f:trendLine>
+					<f:valuesDataset>
+						<dataset/>
+						<f:valueExpression><![CDATA[new Integer(((int) (40 * Math.sqrt($V{REPORT_COUNT}.doubleValue() * Math.PI))) % 40)]]></f:valueExpression>
+					</f:valuesDataset>
+				</f:sparkLine>
+			</componentElement>
+			<componentElement>
+				<reportElement x="200" y="600" width="190" height="30"/>
+				<f:sparkColumn xmlns:f="http://jaspersoft.com/fusion" xsi:schemaLocation="http://jaspersoft.com/fusion http://jaspersoft.com/schema/fusion.xsd" evaluationTime="Report">
+					<f:widgetProperty name="caption">
+						<f:propertyExpression><![CDATA["Data"]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:widgetProperty name="palette">
+						<f:propertyExpression><![CDATA[new Integer(2)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:widgetProperty name="lowColor">
+						<f:propertyExpression><![CDATA[new java.awt.Color(0xCC0000)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:widgetProperty name="highColor">
+						<f:propertyExpression><![CDATA[new java.awt.Color(0xCC33)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:valuesDataset>
+						<dataset/>
+						<f:valueExpression><![CDATA[new Integer(4 + ((int) (40 * Math.sqrt($V{REPORT_COUNT}.doubleValue() * Math.PI))) % 40)]]></f:valueExpression>
+					</f:valuesDataset>
+				</f:sparkColumn>
+			</componentElement>
+			<componentElement>
+				<reportElement x="400" y="600" width="165" height="30"/>
+				<f:sparkWinLoss xmlns:f="http://jaspersoft.com/fusion" xsi:schemaLocation="http://jaspersoft.com/fusion http://jaspersoft.com/schema/fusion.xsd" evaluationTime="Report">
+					<f:widgetProperty name="caption">
+						<f:propertyExpression><![CDATA["Matches"]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:widgetProperty name="palette">
+						<f:propertyExpression><![CDATA[new Integer(2)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:valuesDataset>
+						<dataset/>
+						<f:item>
+							<f:resultExpression><![CDATA[new Integer(((int) (43 * Math.sqrt($V{REPORT_COUNT}.doubleValue() * Math.E))) % 12 - 5)]]></f:resultExpression>
+							<f:scorelessExpression><![CDATA[Boolean.valueOf($V{REPORT_COUNT}.intValue() == 3)]]></f:scorelessExpression>
+						</f:item>
+					</f:valuesDataset>
+				</f:sparkWinLoss>
+			</componentElement>
+		</band>
+	</title>
+</jasperReport>

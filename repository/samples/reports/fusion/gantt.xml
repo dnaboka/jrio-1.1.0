@@ -1,0 +1,66 @@
+<tasks>
+	<task>
+		<name>Identify Customers</name>
+		<start>02/04/2007</start>
+		<end>02/10/2007</end>
+		<percentComplete>100</percentComplete>
+	</task>
+	<task>
+		<name>Survey 50 Customers</name>
+		<start>02/08/2007</start>
+		<end>02/19/2007</end>
+		<percentComplete>100</percentComplete>
+	</task>
+	<task>
+		<name>Interpret Requirements</name>
+		<start>02/19/2007</start>
+		<end>03/02/2007</end>
+		<percentComplete>100</percentComplete>
+	</task>
+	<task>
+		<name>Study Competition</name>
+		<start>02/24/2007</start>
+		<end>03/02/2007</end>
+		<percentComplete>100</percentComplete>
+	</task>
+	<task>
+		<name>Documentation of features</name>
+		<start>03/02/2007</start>
+		<end>03/21/2007</end>
+		<percentComplete>100</percentComplete>
+	</task>
+	<task>
+		<name>Brainstorm concepts</name>
+		<start>03/21/2007</start>
+		<end>04/06/2007</end>
+		<percentComplete>100</percentComplete>
+		<milestoneText>Feature freeze</milestoneText>
+		<milestoneDate>04/06/2007</milestoneDate>
+	</task>
+	<task>
+		<name>Design &amp; Code</name>
+		<start>04/06/2007</start>
+		<end>07/21/2007</end>
+		<percentComplete>65</percentComplete>
+	</task>
+	<task>
+		<name>Testing / QA</name>
+		<start>05/10/2007</start>
+		<end>08/19/2007</end>
+		<percentComplete>40</percentComplete>
+		<milestoneText>Alpha release</milestoneText>
+		<milestoneDate>08/01/2007</milestoneDate>
+	</task>
+	<task>
+		<name>Documentation of product</name>
+		<start>06/01/2007</start>
+		<end>08/24/2007</end>
+		<percentComplete>15</percentComplete>
+	</task>
+	<task>
+		<name>Global Release</name>
+		<start>08/24/2007</start>
+		<end>08/27/2007</end>
+		<percentComplete>0</percentComplete>
+	</task>
+</tasks>

@@ -1,0 +1,99 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+	
+	<bean id="baseJasperReportsContext" class="com.jaspersoft.jrio.common.context.SpringJasperReportsContext">
+	</bean>
+	
+	<bean id="jrioContextProvider" class="com.jaspersoft.jrio.common.context.ContextProvider">
+		<property name="baseJasperReportsContext" ref="baseJasperReportsContext"/>
+		<property name="classLoaderCache">
+			<bean class="com.jaspersoft.jrio.common.execution.cache.LocalCacheAccessFactory">
+				<property name="cacheContainer" ref="localCacheManager"/>
+				<property name="cacheRegion" value="contextClassLoader"/>
+			</bean>
+		</property>
+		<property name="configProvider">
+			<bean class="com.jaspersoft.jrio.common.context.DefaultContextConfigProvider">
+				<property name="contextConfigCache">
+					<bean class="com.jaspersoft.jrio.common.execution.cache.LocalCacheAccessFactory">
+						<property name="cacheContainer" ref="localCacheManager"/>
+						<property name="cacheRegion" value="contextConfig"/>
+					</bean>
+				</property>
+			</bean>
+		</property>
+		<property name="contextProtectionDomain">
+			<bean class="com.jaspersoft.jrio.common.util.ProtectionDomainFactory">
+				<property name="codeSourceURL" value="file:/__jrio/repository/jars/"/>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="reportPublishCache" class="com.jaspersoft.jrio.common.execution.cache.LocalCacheAccessFactory">
+		<property name="cacheContainer" ref="localCacheManager"/>
+		<property name="cacheRegion" value="report"/>
+	</bean>
+	
+	<bean id="virtualizerCache" class="com.jaspersoft.jrio.common.execution.cache.LocalCacheAccessFactory">
+		<property name="cacheContainer" ref="localCacheManager"/>
+		<property name="cacheRegion" value="virt"/>
+	</bean>
+	
+	<bean id="reportExecutionAccessor" class="com.jaspersoft.jrio.common.execution.ReportExecutionDataAccessor">
+		<property name="reportExecutionManager">
+			<bean class="com.jaspersoft.jrio.common.execution.cache.ReportExecutionManager">
+				<property name="cache">
+					<bean class="com.jaspersoft.jrio.common.execution.cache.KeyFunctionCacheAccess">
+						<property name="keyTransform">
+							<bean class="com.jaspersoft.jrio.common.util.PrefixFunction">
+								<property name="prefix" value="ReportExecution-"/>
+							</bean>
+						</property>
+						<property name="cache">
+							<bean class="com.jaspersoft.jrio.common.execution.cache.LocalCacheAccessFactory">
+								<property name="cacheContainer" ref="localCacheManager"/>
+								<property name="cacheRegion" value="reportExecutionCache"/>
+								<property name="listeners">
+									<list>
+										<bean class="com.jaspersoft.jrio.rest.report.ReportCleanupListener">
+											<property name="reportExecutionAccessor" ref="reportExecutionAccessor"/>
+											<property name="exportExecutionAccessor" ref="exportExecutionAccessor"/>
+											<property name="jasperPrintProvider" ref="jasperPrintCacheProvider"/>
+										</bean>
+									</list>
+								</property>
+							</bean>
+						</property>
+					</bean>
+				</property>
+			</bean>
+		</property>
+		<property name="reportContextManager">
+			<bean class="com.jaspersoft.jrio.common.execution.cache.ReportContextManager">
+				<property name="cache">
+					<bean class="com.jaspersoft.jrio.common.execution.cache.KeyFunctionCacheAccess">
+						<property name="keyTransform">
+							<bean class="com.jaspersoft.jrio.common.util.PrefixFunction">
+								<property name="prefix" value="ReportContext-"/>
+							</bean>
+						</property>
+						<property name="cache" ref="reportPublishCache"/>
+					</bean>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="reportCancelManager" class="com.jaspersoft.jrio.common.execution.cache.ReportCancelManager">
+		<property name="cache">
+			<bean class="com.jaspersoft.jrio.common.execution.cache.LocalCacheAccessFactory">
+				<property name="cacheContainer" ref="localCacheManager"/>
+				<property name="cacheRegion" value="reportCancelRequests"/>
+			</bean>
+		</property>
+	</bean>
+
+	
+</beans>

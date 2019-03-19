@@ -1,0 +1,23 @@
+<context xmlns="">
+        <classpath>
+                <entry>
+                        <path>/samples/JR-INF/lib/hsqldb-2.4.0.jar</path>
+                </entry>
+                <entry>
+                        <path>/samples/data/hsqldb-northwind.jar</path>
+                </entry>
+                <entry>
+                        <path>/samples/JR-INF/lib/repo-sample.jar</path>
+                </entry>
+        </classpath>
+		<properties>
+			<property>
+				<name>net.sf.jasperreports.image.dpi</name>
+				<value>150</value>
+			</property>
+			<property>
+				<name>net.sf.jasperreports.chart.render.type</name>
+				<value>svg</value>
+			</property>
+		</properties>        
+</context>

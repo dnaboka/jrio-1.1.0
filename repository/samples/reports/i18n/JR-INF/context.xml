@@ -1,0 +1,26 @@
+<context xmlns="">
+		<properties>
+			<property>
+				<name>net.sf.jasperreports.text.pattern.datetime</name>
+				<value>dd-MM-yyyy HH:mm</value>
+			</property>
+		</properties>        
+		<properties>
+			<property>
+				<name>net.sf.jasperreports.text.pattern.datetime_en_US</name>
+				<value>MM/dd/yyyy hh:mm a</value>
+			</property>
+		</properties>        
+		<properties>
+			<property>
+				<name>net.sf.jasperreports.text.pattern.datetime_de_DE</name>
+				<value>dd.MM.yyyy HH:mm</value>
+			</property>
+		</properties>        
+		<properties>
+			<property>
+				<name>net.sf.jasperreports.text.pattern.datetime_fr_FR</name>
+				<value>dd/MM/yyyy HH:mm</value>
+			</property>
+		</properties>        
+</context>

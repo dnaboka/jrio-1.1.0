@@ -1,0 +1,231 @@
+<html>
+<head>
+    <title>JasperReports Viewer</title>
+    <meta http-equiv="Content-Type" content="text/html; charset='UTF-8'"/>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link type='text/css' rel='stylesheet' href="/jrio-client/themes/default/reset.css"/>
+    <link type='text/css' rel='stylesheet' href="/jrio-client/themes/default/theme.css"/>
+    <link type='text/css' rel='stylesheet' href="/jrio-client/themes/default/pageSpecific.css"/>
+    <link type='text/css' rel='stylesheet' href="/jrio-client/themes/default/buttons.css"/>
+    <link type='text/css' rel='stylesheet' href="/jrio-client/themes/default/controls.css"/>
+    <link type='text/css' rel='stylesheet' href="/jrio-client/themes/default/lists.css"/>
+    <link type='text/css' rel='stylesheet' href="/jrio-client/themes/default/containers.css"/>
+    <link type='text/css' rel='stylesheet' href="stylesheet.css"/>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.min.js"></script>
+
+    <!-- ************************************ -->
+    <!-- *** When using optimized-scripts *** -->
+    <!-- ************************************ -->
+    <script src="/jrio-client/optimized-scripts/client/jrio.js"></script>
+
+    <!-- ******************************* -->
+    <!-- *** When using just scripts *** -->
+    <!-- ******************************* -->
+    <!--<script src="/jrio-client/optimized-scripts/bower_components/requirejs/require.js"></script>-->
+    <!--<script src="/jrio-client/optimized-scripts/require.config.js"></script>-->
+    <!--<script src="/jrio-client/optimized-scripts/loader/jasper.js"></script>-->
+    <!--<script src="/jrio-client/optimized-scripts/client/jrio.js"></script>-->
+    <!--<script>-->
+        <!--require.config({-->
+            <!--baseUrl: "/jrio-client/optimized-scripts",-->
+            <!--config: {-->
+                <!--logger: {-->
+                    <!--enabled: true,-->
+                    <!--level: "error"-->
+                <!--}-->
+            <!--}-->
+        <!--});-->
+    <!--</script>-->
+</head>
+<body>
+<table id="reportViewer" width="100%" cellpadding="5" cellspacing="0" border="0">
+    <tr>
+        <td colspan="3" align="left">
+            <div id="viewerToolbar" class="toolbar">
+                <!-- ========== LEFT BUTTON SET =========== -->
+                <ul class="list buttonSet">
+                    <!-- No back
+                    <ul class="list buttonSet">
+                        <li class="leaf"><button id="back" class="button capsule text up"><span class="wrap">Back<span class="icon"></span></span></button></li>
+                    </ul>
+                    -->
+                    <li class="node">
+                        <ul class="list buttonSet">
+                            <!-- No save
+                            <li class="leaf">
+                                <button id="fileOptions" class="button capsule mutton up first" title="Save">
+                                    <span class="wrap"><span class="icon"></span><span class="indicator"></span></span>
+                                </button>
+                            </li>
+                            -->
+                            <li class="leaf">
+                                <button id="export" class="button capsule mutton up last superfocus subfocus" disabled="disabled">
+                                    <span class="wrap"><span class="icon"></span><span class="indicator"></span></span>
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="node">
+                        <ul class="list buttonSet">
+                            <li class="leaf">
+                                <button id="undo" class="button capsule up first" disabled="disabled">
+                                    <span class="wrap"><span class="icon"></span></span>
+                                </button>
+                            </li>
+                            <li class="leaf">
+                                <button id="redo" class="button capsule up middle" disabled="disabled">
+                                    <span class="wrap"><span class="icon"></span></span>
+                                </button>
+                            </li>
+                            <li class="leaf">
+                                <button id="undoAll" class="button capsule up last" disabled="disabled">
+                                    <span class="wrap"><span class="icon"></span></span>
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- No bookmarks
+                    <li class="node conditional first">
+                        <ul class="list buttonSet">
+                            <li class="leaf">
+                                <button id="bookmarksDialog" class="button capsule up">
+                                    <span class="wrap"><span class="icon"></span></span>
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+                    -->
+                </ul>
+                <!-- ========== END LEFT BUTTON SET =========== -->
+                <!-- ========== RIGHT BUTTON SET =========== -->
+                <div id="reportToolsRight" class="control toolsRight">
+                    <!-- ========== ZOOM =========== -->
+                    <div id="reportZoom" class="control zoom">
+                        <span class="divider first"></span>
+                        <button id="zoom_out" class="button action square move zoomOut up" disabled="disabled"><span class="wrap"><span class="icon"></span></span></button>
+                        <button id="zoom_in" class="button action square move zoomIn up" disabled="disabled"><span class="wrap"><span class="icon"></span></span></button>
+                        <label for="zoom_value" class="control input textPlus inline">
+                            <input id="zoom_value" type="text" value="100%" disabled="disabled">
+                            <button id="zoom_value_button" class="button disclosure" disabled="disabled">
+                                <span class="icon"></span>
+                            </button>
+                        </label>
+                        <span class="divider last"></span>
+                    </div>
+                    <!-- ========== REPORT SEARCH =========== -->
+                    <!-- No search
+                    <div id="reportSearch" class="control search">
+                        <span class="divider first"></span>
+                        <label for="search_report" class="control input textPlus inline">
+                            <input id="search_report" type="text" placeholder="search report"  name="search_report">
+                            <button id="search_report_button" class="button search"  >
+                                <span class="icon"></span>
+                            </button>
+                            <button id="search_options" class="button disclosure"  >
+                                <span class="icon"></span>
+                            </button>
+                        </label>
+                        <button id="search_previous" class="button action square move searchPrevious up" disabled="disabled">
+                            <span class="wrap"><span class="icon"></span></span>
+                        </button>
+                        <button id="search_next" class="button action square move searchNext up" disabled="disabled">
+                            <span class="wrap"><span class="icon"></span></span>
+                        </button>
+                        <span class="divider last"></span>
+                    </div>
+                    -->
+                    <!-- ========== PAGINATION =========== -->
+                    <div id="pagination" class="control paging">
+                        <button id="page_first" type="submit" class="button action square move toLeft up" disabled="disabled">
+                            <span class="wrap"><span class="icon"></span></span>
+                        </button>
+                        <button id="page_prev" type="submit" class="button action square move left up" disabled="disabled">
+                            <span class="wrap"><span class="icon"></span></span>
+                        </button>
+                        <label class="control input text inline" for="page_current">
+                            <span class="wrap">Page</span>
+                            <input id="page_current" type="text" disabled="disabled">
+                            <span class="wrap" id="page_total">of <span id="totalPagesNo"></span></span>
+                        </label>
+                        <button id="page_next" type="submit" class="button action square move right up" title="Next" disabled="disabled">
+                            <span class="wrap"><span class="icon"></span></span>
+                        </button>
+                        <button id="page_last" type="submit" class="button action square move toRight up" disabled="disabled">
+                            <span class="wrap"><span class="icon"></span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td width="50%">&nbsp;</td>
+        <td align="center">
+            <div id='reportContainer' style='display: table-cell'></div>
+        </td>
+        <td width="50%">&nbsp;</td>
+    </tr>
+</table>
+<div id="viewerElements">
+    <div id="exportMenu" class="menu vertical dropDown fitable hidden" style="position: relative">
+        <div class="content">
+            <ul id="menuList">
+                <li class="leaf">
+                    <p class="wrap button" data-val="pdf"><span class="icon"></span>PDF</p>
+                </li>
+                <li class="leaf">
+                    <p class="wrap button" data-val="xlsx"><span class="icon"></span>XLSX</p>
+                </li>
+                <li class="leaf">
+                    <p class="wrap button" data-val="docx"><span class="icon"></span>DOCX</p>
+                </li>
+                <li class="leaf">
+                    <p class="wrap button" data-val="pptx"><span class="icon"></span>PPTX</p>
+                </li>
+                <li class="leaf">
+                    <p class="wrap button" data-val="csv"><span class="icon"></span>CSV</p>
+                </li>
+                <li class="leaf">
+                    <p class="wrap button" data-val="xls"><span class="icon"></span>XLS</p>
+                </li>
+                <li class="leaf">
+                    <p class="wrap button" data-val="rtf"><span class="icon"></span>RTF</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="zoomMenu" class="menu vertical dropDown fitable hidden">
+        <div class="content">
+            <ul>
+                <li class="leaf">
+                    <p class="wrap toggle button" data-val="0.1"><span class="icon"></span>10%</p>
+                </li>
+                <li class="leaf">
+                    <p class="wrap toggle button" data-val="0.25"><span class="icon"></span>25%</p></li>
+                <li class="leaf">
+                    <p class="wrap toggle button" data-val="0.5"><span class="icon"></span>50%
+                    </p></li>
+                <li class="leaf">
+                    <p class="wrap toggle button" data-val="0.75"><span class="icon"></span>75%</p>
+                </li>
+                <li class="leaf">
+                    <p class="wrap toggle button" data-val="1"><span class="icon"></span>100%</p>
+                </li>
+                <li class="leaf">
+                    <p class="wrap toggle button" data-val="1.25"><span class="icon"></span>125%</p>
+                </li>
+                <li class="leaf">
+                    <p class="wrap toggle button" data-val="2"><span class="icon"></span>200%</p>
+                </li>
+                <li class="leaf">
+                    <p class="wrap toggle button" data-val="4"><span class="icon"></span>400%</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="scripts/viewer.js"></script>
+</body>
+</html>

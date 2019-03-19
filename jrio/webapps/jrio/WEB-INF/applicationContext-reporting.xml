@@ -1,0 +1,67 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+	<bean id="reportExecutionPoll" class="com.jaspersoft.jrio.reporting.execution.ReportExecutionPoll" init-method="start" lazy-init="false">
+		<property name="queue" ref="reportExecutionQueue"/>
+		<property name="reportRunner" ref="reportRunner"/>
+	</bean>	
+	
+	<bean id="reportRunner" class="com.jaspersoft.jrio.reporting.execution.ReportExecutionRun">
+		<property name="contextProvider" ref="jrioContextProvider"/>
+		<property name="reportExecutionAccessor" ref="reportExecutionAccessor"/>
+		<property name="reportPublishCache" ref="reportPublishCache"/>
+		<property name="virtualizerCache" ref="virtualizerCache"/>
+		<property name="cancelSupervisor" ref="reportCancelSupervisor"/>
+	</bean>
+	
+	<bean id="reportCancelSupervisor" class="com.jaspersoft.jrio.reporting.execution.ReportCancelSupervisor" init-method="start">
+		<property name="cancelManager" ref="reportCancelManager"/>
+		<property name="scheduler">
+			<bean class="org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler">
+				<property name="threadNamePrefix" value="reportCancelSupervisor"/>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean class="com.jaspersoft.jrio.reporting.execution.ReportCompilationServiceFactory">
+		<property name="reportCompilationService">
+			<bean class="com.jaspersoft.jrio.reporting.execution.ReportCompilationService">
+				<property name="cache">
+					<bean class="com.jaspersoft.jrio.common.execution.cache.LocalCacheAccessFactory">
+						<property name="cacheContainer" ref="localCacheManager"/>
+						<property name="cacheRegion" value="compiledReport"/>
+					</bean>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean class="com.jaspersoft.jrio.reporting.data.PooledJdbcServiceFactory">
+		<property name="cache">
+			<bean class="com.jaspersoft.jrio.common.execution.cache.LocalCacheAccessFactory">
+				<property name="cacheContainer" ref="localCacheManager"/>
+				<property name="cacheRegion" value="conectionPool"/>
+				<property name="listeners">
+					<bean class="com.jaspersoft.jrio.reporting.data.ConnectionPoolCacheListener"/>
+				</property>
+			</bean>
+		</property>
+		<property name="contextProvider" ref="jrioContextProvider"/>
+		<property name="poolConfig">
+			<bean class="org.apache.commons.pool2.impl.GenericObjectPoolConfig">
+				<property name="maxTotal" value="-1"/>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean class="com.jaspersoft.jrio.reporting.execution.ReportsProtectionDomain" init-method="set">
+		<property name="protectionDomain">
+			<bean class="com.jaspersoft.jrio.common.util.ProtectionDomainFactory">
+				<property name="codeSourceURL" value="file:/__jrio/repository/reports/"/>
+			</bean>
+		</property>
+	</bean>
+	
+</beans>

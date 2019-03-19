@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+  <Appenders>
+    <Console name="Console">
+      <PatternLayout pattern="%d [%t] %-5p %c- %m%n"/>
+    </Console>
+  </Appenders>
+  <Loggers>
+    <Root level="WARN">
+      <AppenderRef ref="Console"/>
+    </Root>
+  	<logger name="com.jaspersoft.jrio.rest.ServerInfoLogger" level="INFO"/>
+    <!--
+  	<logger name="com.jaspersoft.jrio.rest.report" level="INFO"/>
+  	<logger name="com.jaspersoft.jrio.common.queue" level="DEBUG"/>
+  	<logger name="com.jaspersoft.jrio.common.context" level="DEBUG"/>
+  	-->
+  </Loggers>
+</Configuration>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<csvDataAdapter class="net.sf.jasperreports.data.csv.CsvDataAdapterImpl">
+	<name>csv</name>
+	<fileName>/samples/data/orders.csv</fileName>
+	<recordDelimiter>&#10;</recordDelimiter>
+	<useFirstRowAsHeader>false</useFirstRowAsHeader>
+	<queryExecuterMode>true</queryExecuterMode>
+	<datePattern>yyyy-MM-dd HH:mm:ss</datePattern>
+	<columnNames>orderId</columnNames>
+	<columnNames>customerId</columnNames>
+	<columnNames>employeeId</columnNames>
+	<columnNames>orderDate</columnNames>
+	<columnNames>requiredDate</columnNames>
+	<columnNames>shippedDate</columnNames>
+	<columnNames>shipVia</columnNames>
+	<columnNames>freight</columnNames>
+	<columnNames>shipName</columnNames>
+	<columnNames>shipAddress</columnNames>
+	<columnNames>shipCity</columnNames>
+	<columnNames>shipRegion</columnNames>
+	<columnNames>shipPostalCode</columnNames>
+	<columnNames>shipCountry</columnNames>
+</csvDataAdapter>

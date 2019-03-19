@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport 
+		xmlns="http://jasperreports.sourceforge.net/jasperreports" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" 
+		name="FusionMap" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30">
+	<property name="net.sf.jasperreports.data.adapter" value="/samples/data/HsqldbDataAdapter.xml"/>
+	<subDataset name="MarkersDataset">
+		<parameter name="x" class="java.lang.Integer[]">
+			<defaultValueExpression><![CDATA[new Integer[]{50, 50, 65, 90, 210, 125, 215, 225}]]></defaultValueExpression>
+		</parameter>
+		<parameter name="y" class="java.lang.Integer[]">
+			<defaultValueExpression><![CDATA[new Integer[]{50, 105, 235, 350, 65, 105, 115, 250}]]></defaultValueExpression>
+		</parameter>
+		<parameter name="labels" class="java.lang.String[]">
+			<defaultValueExpression><![CDATA[new String[]{"WA", "OR", "CA", "  AK", "MT", "ID", "WY", "NM"}]]></defaultValueExpression>
+		</parameter>
+		<parameter name="tooltips" class="java.lang.String[]">
+			<defaultValueExpression><![CDATA[new String[]{"Washington", "Oregon", "California", "Alaska", "Montana", "Idaho", "Wyoming", "New Mexico"}]]></defaultValueExpression>
+		</parameter>
+	</subDataset>
+	<subDataset name="ShapesDataset"/>
+	<queryString>
+		<![CDATA[select * from orders where shipcountry='USA' order by shipregion]]>
+	</queryString>
+	<field name="CustomerID" class="java.lang.String"/>
+	<field name="OrderID" class="java.lang.Integer"/>
+	<field name="shipregion" class="java.lang.String"/>
+	<field name="freight" class="java.lang.Float"/>
+	<variable name="StateFreight" class="java.lang.Float" resetType="Group" resetGroup="State" calculation="Sum">
+		<variableExpression><![CDATA[$F{freight}]]></variableExpression>
+	</variable>
+	<variable name="StateCount" class="java.lang.Integer" incrementType="Group" incrementGroup="State" calculation="Count">
+		<variableExpression><![CDATA["a"]]></variableExpression>
+	</variable>
+	<group name="State">
+		<groupExpression><![CDATA[$F{shipregion}]]></groupExpression>
+		<groupHeader>
+			<band height="20">
+				<textField evaluationTime="Group" evaluationGroup="State">
+					<reportElement x="0" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{shipregion}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Group" evaluationGroup="State">
+					<reportElement x="100" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$V{StateFreight}.toString()]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<title>
+		<band height="500">
+			<componentElement>
+				<reportElement x="0" y="0" width="555" height="500"/>
+				<f:map xmlns:f="http://jaspersoft.com/fusion" xsi:schemaLocation="http://jaspersoft.com/fusion http://jaspersoft.com/schema/fusion.xsd" evaluationTime="Report">
+					<f:mapNameExpression><![CDATA["USA"]]></f:mapNameExpression>
+					<f:mapProperty name="animation">
+						<f:propertyExpression><![CDATA[Boolean.TRUE]]></f:propertyExpression>
+					</f:mapProperty>
+					<f:mapProperty name="showShadow">
+						<f:propertyExpression><![CDATA[Boolean.TRUE]]></f:propertyExpression>
+					</f:mapProperty>
+					<f:mapProperty name="showBevel">
+						<f:propertyExpression><![CDATA[Boolean.FALSE]]></f:propertyExpression>
+					</f:mapProperty>
+					<f:mapProperty name="markerBorderColor">
+						<f:propertyExpression><![CDATA["333333"]]></f:propertyExpression>
+					</f:mapProperty>
+					<f:mapProperty name="markerBgColor">
+						<f:propertyExpression><![CDATA["4400FF"]]></f:propertyExpression>
+					</f:mapProperty>
+					<f:colorRange color="#FFFFCC">
+						<f:minValueExpression><![CDATA[new Integer(0)]]></f:minValueExpression>
+						<f:maxValueExpression><![CDATA[new Integer(100)]]></f:maxValueExpression>
+						<f:labelExpression><![CDATA["Low"]]></f:labelExpression>
+					</f:colorRange>
+					<f:colorRange color="#A7E9BC">
+						<f:minValueExpression><![CDATA[new Integer(100)]]></f:minValueExpression>
+						<f:maxValueExpression><![CDATA[new Integer(1000)]]></f:maxValueExpression>
+						<f:labelExpression><![CDATA["Medium"]]></f:labelExpression>
+					</f:colorRange>
+					<f:colorRange color="#FF9377">
+						<f:minValueExpression><![CDATA[new Integer(1000)]]></f:minValueExpression>
+						<f:maxValueExpression><![CDATA[new Integer(5000)]]></f:maxValueExpression>
+						<f:labelExpression><![CDATA["High"]]></f:labelExpression>
+					</f:colorRange>
+					<f:mapDataset>
+						<dataset incrementType="Group" incrementGroup="State"/>
+						<f:entity>
+							<f:entityProperty name="showLabel">
+								<f:propertyExpression><![CDATA["MT".equals($F{shipregion})]]></f:propertyExpression>
+							</f:entityProperty>
+							<f:entityProperty name="fontBold">
+								<f:propertyExpression><![CDATA["MT".equals($F{shipregion})]]></f:propertyExpression>
+							</f:entityProperty>
+							<f:entityProperty name="fontColor">
+								<f:propertyExpression><![CDATA["660000"]]></f:propertyExpression>
+							</f:entityProperty>
+							<f:idExpression><![CDATA[$F{shipregion}]]></f:idExpression>
+							<f:valueExpression><![CDATA[$V{StateFreight}]]></f:valueExpression>
+							<f:labelExpression><![CDATA["MT".equals($F{shipregion}) ? "Montana" : $F{shipregion}]]></f:labelExpression>
+							<f:hyperlink hyperlinkType="Reference">
+								<hyperlinkReferenceExpression>"http://www.jaspersoft.com/"</hyperlinkReferenceExpression>
+								<hyperlinkTooltipExpression><![CDATA[$F{shipregion} + " freight: " + $V{StateFreight}]]></hyperlinkTooltipExpression>
+							</f:hyperlink>
+						</f:entity>
+					</f:mapDataset>
+					<f:shapeData xmlns:c="http://jasperreports.sourceforge.net/jasperreports/components"
+					 xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+						<dataset>
+							<datasetRun subDataset="ShapesDataset">
+								<dataSourceExpression>new net.sf.jasperreports.engine.JREmptyDataSource(3)</dataSourceExpression>
+							</datasetRun>
+						</dataset>
+						<c:item>
+							<c:itemProperty name="id">
+								<valueExpression><![CDATA["shape"+ ($V{REPORT_COUNT} % 3)]]></valueExpression>
+							</c:itemProperty>
+							<c:itemProperty name="type">
+								<valueExpression><![CDATA[$V{REPORT_COUNT} % 3 == 1 ? "circle" : ($V{REPORT_COUNT} % 3 == 2 ? "arc" : "polygon")]]></valueExpression>
+							</c:itemProperty>
+							<c:itemProperty name="fillColor">
+								<valueExpression><![CDATA[$V{REPORT_COUNT} % 3 == 1 ? "4400FF" : ($V{REPORT_COUNT} % 3 == 2 ? "FF0044" : "333333")]]></valueExpression>
+							</c:itemProperty>
+							<c:itemProperty name="radius" value="10">
+								<valueExpression><![CDATA[5]]></valueExpression>
+							</c:itemProperty>
+						</c:item>
+						<c:item>
+							<c:itemProperty name="id" value="shape3"/>
+							<c:itemProperty name="type" value="image"/>
+							<c:itemProperty name="url">
+								<valueExpression><![CDATA["file:///samples/reports/fusion/jricon.GIF"]]></valueExpression>
+							</c:itemProperty>
+							<c:itemProperty name="radius" value="8"/>
+						</c:item>
+					</f:shapeData>
+					<c:markerData xmlns:c="http://jasperreports.sourceforge.net/jasperreports/components" 
+					 xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+						<dataset>
+							<datasetRun subDataset="MarkersDataset">
+								<dataSourceExpression>new net.sf.jasperreports.engine.JREmptyDataSource(8)</dataSourceExpression>
+							</datasetRun>
+					 	</dataset>
+						<c:item>
+							<c:itemProperty name="id">
+								<valueExpression><![CDATA["marker"+$V{REPORT_COUNT}]]></valueExpression>
+							</c:itemProperty>
+							<c:itemProperty name="x">
+								<valueExpression><![CDATA[($P{x}[$V{REPORT_COUNT}-1])]]></valueExpression>
+							</c:itemProperty>
+							<c:itemProperty name="y">
+								<valueExpression><![CDATA[($P{y}[$V{REPORT_COUNT}-1])]]></valueExpression>
+							</c:itemProperty>
+							<c:itemProperty name="shapeId">
+								<valueExpression><![CDATA[$V{REPORT_COUNT} == 4 ? "shape3" : "shape" + ($V{REPORT_COUNT} % 3)]]></valueExpression>
+							</c:itemProperty>
+							<c:itemProperty name="label">
+								<valueExpression><![CDATA[$P{labels}[$V{REPORT_COUNT}-1]]]></valueExpression>
+							</c:itemProperty>
+							<c:itemProperty name="toolText">
+								<valueExpression><![CDATA[$P{tooltips}[$V{REPORT_COUNT}-1]]]></valueExpression>
+							</c:itemProperty>
+							<c:itemProperty name="labelPos" value="right"/>
+						</c:item>
+					</c:markerData>
+				</f:map>
+			</componentElement>
+		</band>
+	</title>
+	<detail>
+		<band height="20">
+			<textField evaluationTime="Group" evaluationGroup="State">
+				<reportElement x="0" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{OrderID}.toString()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Group" evaluationGroup="State">
+				<reportElement x="100" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CustomerID}.toString()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Group" evaluationGroup="State">
+				<reportElement x="200" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{freight}.toString()]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

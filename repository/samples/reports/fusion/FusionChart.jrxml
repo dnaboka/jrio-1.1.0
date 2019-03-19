@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FusionChart" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="net.sf.jasperreports.data.adapter" value="/samples/data/HsqldbDataAdapter.xml"/>
+	<queryString>
+		<![CDATA[SELECT *
+FROM ORDERS
+WHERE SHIPCOUNTRY LIKE 'USA'
+ORDER BY SHIPREGION]]>
+	</queryString>
+	<field name="SHIPREGION" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="REGION">
+		<groupExpression><![CDATA[$F{SHIPREGION}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="62" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="802" height="35"/>
+				<textElement verticalAlignment="Middle">
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Fusion Chart Sample -  Bar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="35" width="802" height="27"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Number of orders per State]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<summary>
+		<band height="493">
+			<componentElement>
+				<reportElement x="0" y="0" width="802" height="493"/>
+				<fc:chart xmlns:fc="http://jaspersoft.com/fusion" xsi:schemaLocation="http://jaspersoft.com/fusion http://jaspersoft.com/schema/fusion.xsd" type="Bar">
+					<fc:chartProperty name="animation">
+						<fc:propertyExpression><![CDATA[Boolean.TRUE]]></fc:propertyExpression>
+					</fc:chartProperty>
+					<fc:chartProperty name="placeValuesInside">
+						<fc:propertyExpression><![CDATA[Boolean.TRUE]]></fc:propertyExpression>
+					</fc:chartProperty>
+					<fc:chartProperty name="showValues">
+						<fc:propertyExpression><![CDATA[Boolean.TRUE]]></fc:propertyExpression>
+					</fc:chartProperty>
+					<fc:chartProperty name="showLabels">
+						<fc:propertyExpression><![CDATA[Boolean.TRUE]]></fc:propertyExpression>
+					</fc:chartProperty>
+					<fc:chartProperty name="showYAxisValues">
+						<fc:propertyExpression><![CDATA[Boolean.TRUE]]></fc:propertyExpression>
+					</fc:chartProperty>
+					<fc:chartProperty name="showLimits">
+						<fc:propertyExpression><![CDATA[Boolean.TRUE]]></fc:propertyExpression>
+					</fc:chartProperty>
+					<fc:chartProperty name="showDivLineValues">
+						<fc:propertyExpression><![CDATA[Boolean.TRUE]]></fc:propertyExpression>
+					</fc:chartProperty>
+					<fc:chartProperty name="showShadow">
+						<fc:propertyExpression><![CDATA[Boolean.TRUE]]></fc:propertyExpression>
+					</fc:chartProperty>
+					<fc:chartProperty name="adjustDiv">
+						<fc:propertyExpression><![CDATA[Boolean.TRUE]]></fc:propertyExpression>
+					</fc:chartProperty>
+					<fc:chartProperty name="rotateXAxisName">
+						<fc:propertyExpression><![CDATA[Boolean.TRUE]]></fc:propertyExpression>
+					</fc:chartProperty>
+					<fc:chartProperty name="use3DLighting">
+						<fc:propertyExpression><![CDATA[Boolean.TRUE]]></fc:propertyExpression>
+					</fc:chartProperty>
+					<fc:chartProperty name="xAxisName">
+						<fc:propertyExpression><![CDATA["States"]]></fc:propertyExpression>
+					</fc:chartProperty>
+					<fc:chartProperty name="yAxisName">
+						<fc:propertyExpression><![CDATA["Orders"]]></fc:propertyExpression>
+					</fc:chartProperty>
+					<fc:chartProperty name="caption">
+						<fc:propertyExpression><![CDATA["Chart Caption"]]></fc:propertyExpression>
+					</fc:chartProperty>
+					<fc:chartProperty name="subCaption">
+						<fc:propertyExpression><![CDATA["Chart Sub Caption"]]></fc:propertyExpression>
+					</fc:chartProperty>
+					<fc:chartDataset>
+						<dataset incrementType="Group" incrementGroup="REGION"/>
+						<fc:item>
+							<fc:labelExpression><![CDATA[$F{SHIPREGION}]]></fc:labelExpression>
+							<fc:valueExpression><![CDATA[$V{REGION_COUNT}]]></fc:valueExpression>
+						</fc:item>
+					</fc:chartDataset>
+				</fc:chart>
+			</componentElement>
+		</band>
+	</summary>
+</jasperReport>

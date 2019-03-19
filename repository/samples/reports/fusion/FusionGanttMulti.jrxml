@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FusionGanttMulti" pageWidth="595" pageHeight="842" columnWidth="565" leftMargin="15" rightMargin="15" topMargin="30" bottomMargin="30">
+	<property name="net.sf.jasperreports.data.adapter" value="/samples/reports/fusion/ganttMultiData.xml"/>
+	<subDataset name="tasks">
+		<queryString language="XPath">
+			<![CDATA[/schedule/emp/task]]>
+		</queryString>
+		<field name="name" class="java.lang.String">
+			<fieldDescription><![CDATA[name]]></fieldDescription>
+		</field>
+		<field name="processId" class="java.lang.String">
+			<fieldDescription><![CDATA[../@id]]></fieldDescription>
+		</field>
+		<field name="start" class="java.util.Date">
+			<fieldDescription><![CDATA[start]]></fieldDescription>
+		</field>
+		<field name="end" class="java.util.Date">
+			<fieldDescription><![CDATA[end]]></fieldDescription>
+		</field>
+	</subDataset>
+	<queryString language="XPath">
+		<![CDATA[/schedule/emp]]>
+	</queryString>
+	<field name="id" class="java.lang.String">
+		<fieldDescription><![CDATA[@id]]></fieldDescription>
+	</field>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[name]]></fieldDescription>
+	</field>
+	<field name="team" class="java.lang.String">
+		<fieldDescription><![CDATA[team]]></fieldDescription>
+	</field>
+	<variable name="dateFormatter" class="java.text.DateFormat" calculation="System">
+		<initialValueExpression><![CDATA[new java.text.SimpleDateFormat("MM/dd/yyyy")]]></initialValueExpression>
+	</variable>
+	<title>
+		<band height="700">
+			<componentElement>
+				<reportElement x="0" y="0" width="565" height="350"/>
+				<f:ganttChart xmlns:f="http://jaspersoft.com/fusion" xsi:schemaLocation="http://jaspersoft.com/fusion http://jaspersoft.com/schema/fusion.xsd" evaluationTime="Report">
+					<f:widgetProperty name="palette">
+						<f:propertyExpression><![CDATA[new Integer(2)]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:widgetProperty name="showSlackAsFill">
+						<f:propertyExpression><![CDATA[Boolean.FALSE]]></f:propertyExpression>
+					</f:widgetProperty>
+					<f:categorySet>
+						<f:category>
+							<f:startExpression><![CDATA[$V{dateFormatter}.parse("07/15/2007")]]></f:startExpression>
+							<f:endExpression><![CDATA[$V{dateFormatter}.parse("07/16/2007")]]></f:endExpression>
+							<f:labelExpression><![CDATA["Sun"]]></f:labelExpression>
+						</f:category>
+						<f:category>
+							<f:startExpression><![CDATA[$V{dateFormatter}.parse("07/16/2007")]]></f:startExpression>
+							<f:endExpression><![CDATA[$V{dateFormatter}.parse("07/17/2007")]]></f:endExpression>
+							<f:labelExpression><![CDATA["Mon"]]></f:labelExpression>
+						</f:category>
+						<f:category>
+							<f:startExpression><![CDATA[$V{dateFormatter}.parse("07/17/2007")]]></f:startExpression>
+							<f:endExpression><![CDATA[$V{dateFormatter}.parse("07/18/2007")]]></f:endExpression>
+							<f:labelExpression><![CDATA["Tue"]]></f:labelExpression>
+						</f:category>
+						<f:category>
+							<f:startExpression><![CDATA[$V{dateFormatter}.parse("07/18/2007")]]></f:startExpression>
+							<f:endExpression><![CDATA[$V{dateFormatter}.parse("07/19/2007")]]></f:endExpression>
+							<f:labelExpression><![CDATA["Wed"]]></f:labelExpression>
+						</f:category>
+						<f:category>
+							<f:startExpression><![CDATA[$V{dateFormatter}.parse("07/19/2007")]]></f:startExpression>
+							<f:endExpression><![CDATA[$V{dateFormatter}.parse("07/20/2007")]]></f:endExpression>
+							<f:labelExpression><![CDATA["Thu"]]></f:labelExpression>
+						</f:category>
+						<f:category>
+							<f:startExpression><![CDATA[$V{dateFormatter}.parse("07/20/2007")]]></f:startExpression>
+							<f:endExpression><![CDATA[$V{dateFormatter}.parse("07/21/2007")]]></f:endExpression>
+							<f:labelExpression><![CDATA["Fri"]]></f:labelExpression>
+						</f:category>
+						<f:category>
+							<f:startExpression><![CDATA[$V{dateFormatter}.parse("07/21/2007")]]></f:startExpression>
+							<f:endExpression><![CDATA[$V{dateFormatter}.parse("07/22/2007")]]></f:endExpression>
+							<f:labelExpression><![CDATA["Sat"]]></f:labelExpression>
+						</f:category>
+					</f:categorySet>
+					<f:processes>
+						<f:processesProperty name="fontSize">
+							<f:propertyExpression><![CDATA[new Integer(12)]]></f:propertyExpression>
+						</f:processesProperty>
+						<f:processesProperty name="isBold">
+							<f:propertyExpression><![CDATA[Boolean.TRUE]]></f:propertyExpression>
+						</f:processesProperty>
+						<f:processesProperty name="align">
+							<f:propertyExpression><![CDATA["right"]]></f:propertyExpression>
+						</f:processesProperty>
+						<dataset/>
+						<f:process>
+							<f:idExpression><![CDATA[$F{id}]]></f:idExpression>
+							<f:labelExpression><![CDATA[$F{name}]]></f:labelExpression>
+						</f:process>
+					</f:processes>
+					<f:tasks>
+						<f:tasksProperty name="showLabels">
+							<f:propertyExpression><![CDATA[Boolean.TRUE]]></f:propertyExpression>
+						</f:tasksProperty>
+						<dataset>
+							<datasetRun subDataset="tasks">
+								<parametersMapExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}]]></parametersMapExpression>
+							</datasetRun>
+						</dataset>
+						<f:task>
+							<f:processIdExpression><![CDATA[$F{processId}]]></f:processIdExpression>
+							<f:startExpression><![CDATA[$F{start}]]></f:startExpression>
+							<f:endExpression><![CDATA[$F{end}]]></f:endExpression>
+							<f:labelExpression><![CDATA[$F{name}]]></f:labelExpression>
+						</f:task>
+					</f:tasks>
+					<f:datatable>
+						<f:datacolumn>
+							<f:headerTextExpression>"Team"</f:headerTextExpression>
+							<f:item>
+								<f:textExpression>$F{team}</f:textExpression>
+							</f:item>
+						</f:datacolumn>
+					</f:datatable>
+				</f:ganttChart>
+			</componentElement>
+		</band>
+	</title>
+</jasperReport>

@@ -1,0 +1,1 @@
+define(["require","bi/report/jive/jr/jive.all.deps","bi/chart/jr/jive/highcharts/jr.highcharts.deps"],function(r){return r("bi/report/jive/jr/jive.all.deps"),r("bi/chart/jr/jive/highcharts/jr.highcharts.deps"),{}});

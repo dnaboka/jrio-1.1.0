@@ -1,0 +1,135 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+	
+	<bean class="com.jaspersoft.jrio.rest.SpringApplicationHolder" lazy-init="false"/>
+	
+	<bean class="com.jaspersoft.jrio.rest.mock.JrsBundlesJaxrsService" lazy-init="false"/>
+	
+	<bean class="com.jaspersoft.jrio.rest.mock.JrsSettingsJaxrsService" lazy-init="false"/>
+	
+	<bean class="com.jaspersoft.jrio.rest.JasperReportsJaxrsService" lazy-init="false">
+		<property name="contextProvider" ref="jrioContextProvider"/>
+		<property name="reportService" ref="runReportService"/>
+	</bean>
+
+	<bean id="serverInfo" class="com.jaspersoft.jrio.rest.ServerInfo" lazy-init="false">
+		<property name="version" value="1.1.0"/>
+		<property name="buildTime" value="20190222_0304"/>
+		<property name="buildRevision" value="110ef9df759594059b06c99f36f9bab122fcc588"/>
+		<property name="edition" value="Professional"/>
+	</bean>
+
+	<bean id="serverInfoService" class="com.jaspersoft.jrio.rest.ServerInfoService" lazy-init="false">
+		<property name="serverInfo" ref="serverInfo"/>
+	</bean>
+
+	<bean class="com.jaspersoft.jrio.rest.ServerInfoLogger" lazy-init="false">
+		<property name="serverInfoService" ref="serverInfoService"/>
+	</bean>
+
+	<bean id="runReportService" class="com.jaspersoft.jrio.rest.report.RunReportService">
+		<property name="contextProvider" ref="jrioContextProvider"/>
+		<property name="reportExecutionQueue" ref="reportExecutionQueue"/>
+		<property name="reportExecutionAccessor" ref="reportExecutionAccessor"/>
+		<property name="exportExecutionAccessor" ref="exportExecutionAccessor"/>
+		<property name="exportExecutor">
+			<bean class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+				<property name="threadNamePrefix" value="export"/>
+				<property name="queueCapacity" value="0"/>
+			</bean>
+		</property>
+		<property name="reportExporter">
+			<bean class="com.jaspersoft.jrio.rest.report.export.ReportExporter">
+				<property name="contextProvider" ref="jrioContextProvider"/>
+				<property name="reportExecutionAccessor" ref="reportExecutionAccessor"/>
+				<property name="exportHandlers">
+					<map>
+						<entry key="pdf">
+							<bean class="com.jaspersoft.jrio.rest.report.export.PdfExporter"/>
+						</entry>
+						<entry key="docx">
+							<bean class="com.jaspersoft.jrio.rest.report.export.DocxExporter"/>
+						</entry>
+						<entry key="pptx">
+							<bean class="com.jaspersoft.jrio.rest.report.export.PptxExporter"/>
+						</entry>
+						<entry key="data_xls">
+							<bean class="com.jaspersoft.jrio.rest.report.export.XlsMetadataExporter"/>
+						</entry>
+						<entry key="xls">
+							<bean class="com.jaspersoft.jrio.rest.report.export.XlsExporter"/>
+						</entry>
+						<entry key="xlsx">
+							<bean class="com.jaspersoft.jrio.rest.report.export.XlsxExporter"/>
+						</entry>
+						<entry key="data_csv">
+							<bean class="com.jaspersoft.jrio.rest.report.export.CsvMetadataExporter"/>
+						</entry>
+						<entry key="csv">
+							<bean class="com.jaspersoft.jrio.rest.report.export.CsvExporter"/>
+						</entry>
+						<entry key="odt">
+							<bean class="com.jaspersoft.jrio.rest.report.export.OdtExporter"/>
+						</entry>
+						<entry key="ods">
+							<bean class="com.jaspersoft.jrio.rest.report.export.OdsExporter"/>
+						</entry>
+						<entry key="rtf">
+							<bean class="com.jaspersoft.jrio.rest.report.export.RtfExporter"/>
+						</entry>
+						<entry key="data_json">
+							<bean class="com.jaspersoft.jrio.rest.report.export.JsonDataExporter"/>
+						</entry>
+						<entry key="xml">
+							<bean class="com.jaspersoft.jrio.rest.report.export.XmlExporter"/>
+						</entry>
+					</map>
+				</property>
+				<property name="standaloneHtmlJasperReportsContext">
+					<bean class="net.sf.jasperreports.engine.SimpleJasperReportsContext">
+						<property name="parent" ref="baseJasperReportsContext"/>
+						<property name="propertiesMap">
+							<map>
+								<entry key="com.jaspersoft.jasperreports.highcharts.html.export.type" value="standalone"/>
+							</map>
+						</property>
+					</bean>
+				</property>
+			</bean>
+		</property>
+		<property name="jasperPrintProvider" ref="jasperPrintCacheProvider"/>
+		<property name="cancelManager" ref="reportCancelManager"/>
+	</bean>
+	
+	<bean id="exportExecutionAccessor" class="com.jaspersoft.jrio.rest.report.export.ExportExecutionDataAccessor">
+		<property name="exportExecutionManager">
+			<bean class="com.jaspersoft.jrio.rest.report.export.ExportExecutionManager">
+				<property name="cache">
+					<bean class="com.jaspersoft.jrio.common.execution.cache.LocalCacheAccessFactory">
+						<property name="cacheContainer" ref="localCacheManager"/>
+						<property name="cacheRegion" value="exportExecutionCache"/>
+					</bean>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="jasperPrintCacheProvider" class="com.jaspersoft.jrio.rest.report.JasperPrintCacheProvider">
+		<property name="contextProvider" ref="jrioContextProvider"/>
+		<property name="reportCache" ref="reportPublishCache"/>
+		<property name="virtualizerCache" ref="virtualizerCache"/>
+		<property name="jasperPrintCache">
+			<bean class="com.jaspersoft.jrio.common.execution.cache.LocalCacheAccessFactory">
+				<property name="cacheContainer" ref="localCacheManager"/>
+				<property name="cacheRegion" value="jasperPrintCache"/>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean class="com.jaspersoft.jrio.rest.exception.JRRuntimeExceptionMapper" scope="singleton"/>
+	
+	<bean class="com.jaspersoft.jrio.rest.exception.WebApplicationExceptionMapper" scope="singleton"/>
+	
+</beans>

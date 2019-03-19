@@ -1,0 +1,20 @@
+<context xmlns="">
+        <classpath>
+                <entry>
+                        <path>/samples/reports/unicode/JR-INF/lib/arphic.jar</path>
+                </entry>
+                <entry>
+                        <path>/samples/reports/unicode/JR-INF/lib/noto.jar</path>
+                </entry>
+        </classpath>
+		<properties>
+			<property>
+				<name>net.sf.jasperreports.web.resource.pattern.arphic</name>
+				<value>arphic/.*</value>
+			</property>
+			<property>
+				<name>net.sf.jasperreports.web.resource.pattern.noto</name>
+				<value>noto/.*</value>
+			</property>
+		</properties>        
+</context>

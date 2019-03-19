@@ -1,0 +1,8 @@
+<context xmlns="">
+		<properties>
+			<property>
+				<name>net.sf.jasperreports.web.resource.pattern.cvc</name>
+				<value>/samples/reports/cvc/components/.*</value>
+			</property>
+		</properties>
+</context>
